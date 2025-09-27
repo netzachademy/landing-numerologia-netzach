@@ -1,19 +1,22 @@
-<html lang="it" style="height: 3763.34px;"><head>
+<html lang="it"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accademia di Numerologia - Corso Online Esclusivo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <title>Accademia di Numerologia - Italia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Lato:wght@300;400;500&amp;display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-cream: #f8f5f0;
-            --color-beige: #e8e0d5;
-            --color-gold: #c9a876;
-            --color-gold-dark: #b8956a;
-            --color-dark: #2c2c2c;
-            --color-dark-light: #4a4a4a;
-            --color-white: #ffffff;
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
+            --primary-gold: #d4af37;
+            --light-gold: #f4e4a6;
+            --dark-gold: #b8941f;
+            --beige-light: #f8f5f0;
+            --beige-medium: #e8ddd4;
+            --beige-dark: #d4c4b0;
+            --text-dark: #2c2c2c;
+            --text-medium: #4a4a4a;
+            --white: #ffffff;
+            --shadow-light: 0 4px 20px rgba(212, 175, 55, 0.1);
+            --shadow-medium: 0 8px 30px rgba(212, 175, 55, 0.15);
+            --shadow-heavy: 0 12px 40px rgba(212, 175, 55, 0.2);
         }
 
         * {
@@ -23,10 +26,11 @@
         }
 
         body {
-            font-family: var(--font-sans);
+            font-family: 'Lato', sans-serif;
             line-height: 1.6;
-            color: var(--color-dark);
-            background-color: var(--color-cream);
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--beige-light) 0%, var(--white) 100%);
+            overflow-x: hidden;
         }
 
         .container {
@@ -35,12 +39,23 @@
             padding: 0 20px;
         }
 
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: var(--beige-light);
+        }
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige) 100%);
-            padding: 80px 0 60px;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--beige-light) 0%, var(--beige-medium) 50%, var(--light-gold) 100%);
             position: relative;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -49,239 +64,246 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="80" cy="40" r="0.3" fill="%23d4af37" opacity="0.08"/><circle cx="40" cy="80" r="0.4" fill="%23d4af37" opacity="0.12"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.3;
         }
 
-        .hero-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 600;
-            color: var(--color-dark);
-            margin-bottom: 30px;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-sans);
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            font-weight: 500;
-            color: var(--color-gold-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 40px;
-        }
-
-        /* Info Section */
-        .info-section {
-            padding: 60px 0;
-            background-color: var(--color-white);
-        }
-
-        .info-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--color-dark);
+        .hero-content {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 50px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 500;
+            color: var(--primary-gold);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            margin-bottom: 50px;
+            line-height: 1.8;
         }
 
         /* Form Styles */
         .form-container {
-            background: var(--color-white);
-            border: 2px solid var(--color-gold);
-            border-radius: 12px;
+            background: var(--white);
+            border-radius: 20px;
             padding: 40px;
-            max-width: 600px;
+            box-shadow: var(--shadow-heavy);
+            border: 2px solid var(--light-gold);
+            max-width: 500px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(201, 168, 118, 0.1);
-        }
-
-        .form-title {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
-            color: var(--color-dark);
-            text-align: center;
-            margin-bottom: 30px;
         }
 
         .form-group {
             margin-bottom: 25px;
         }
 
-        .form-label {
+        .form-group label {
             display: block;
-            font-weight: 500;
-            color: var(--color-dark);
             margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
             font-size: 0.95rem;
         }
 
-        .form-input {
+        .form-group input {
             width: 100%;
             padding: 15px 20px;
-            border: 2px solid var(--color-beige);
-            border-radius: 8px;
+            border: 2px solid var(--beige-medium);
+            border-radius: 10px;
             font-size: 1rem;
-            font-family: var(--font-sans);
-            background-color: var(--color-cream);
-            color: var(--color-dark);
             transition: all 0.3s ease;
+            background: var(--beige-light);
+            color: var(--text-dark);
         }
 
-        .form-input:focus {
+        .form-group input:focus {
             outline: none;
-            border-color: var(--color-gold);
-            background-color: var(--color-white);
-            box-shadow: 0 0 0 3px rgba(201, 168, 118, 0.1);
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            background: var(--white);
         }
 
-        .form-button {
+        .cta-button {
             width: 100%;
             padding: 18px 30px;
-            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
-            color: var(--color-white);
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+            color: var(--white);
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 600;
-            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            box-shadow: var(--shadow-medium);
         }
 
-        .form-button:hover {
+        .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201, 168, 118, 0.3);
+            box-shadow: var(--shadow-heavy);
+            background: linear-gradient(135deg, var(--dark-gold) 0%, var(--primary-gold) 100%);
         }
 
         /* Video Section */
         .video-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
+            text-align: center;
         }
 
-        .video-title {
-            font-family: var(--font-serif);
+        .video-section h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--color-dark);
-            text-align: center;
-            margin-bottom: 50px;
+            color: var(--text-dark);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .video-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+            border-radius: 2px;
         }
 
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            margin-top: 50px;
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border: 4px solid var(--color-gold);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(201, 168, 118, 0.2);
+            padding: 20px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            border: 3px solid var(--primary-gold);
+            transition: all 0.3s ease;
         }
 
-        .video-container iframe {
+        .video-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border: none;
         }
 
-        /* Doubts Section */
+        /* Cards Section */
         .doubts-section {
-            padding: 80px 0;
-            background-color: var(--color-white);
+            background: var(--beige-light);
         }
 
-        .doubts-title {
-            font-family: var(--font-serif);
+        .doubts-section h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--color-dark);
+            color: var(--text-dark);
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
         }
 
-        .doubts-intro {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--color-dark);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .features-grid {
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 60px;
         }
 
-        .feature-card {
-            background: var(--color-cream);
-            border: 2px solid var(--color-gold);
-            border-radius: 12px;
+        .doubt-card {
+            background: var(--white);
             padding: 30px;
-            text-align: center;
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            border-left: 5px solid var(--primary-gold);
             transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(201, 168, 118, 0.15);
+        .doubt-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
         }
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.5rem;
-            color: var(--color-white);
-        }
-
-        .feature-title {
-            font-family: var(--font-serif);
+        .doubt-card h4 {
+            font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
-            color: var(--color-dark);
+            color: var(--primary-gold);
             margin-bottom: 15px;
         }
 
-        .feature-description {
-            color: var(--color-dark-light);
-            line-height: 1.6;
+        .doubt-card p {
+            color: var(--text-medium);
+            line-height: 1.7;
         }
 
-        .transition-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--color-dark);
+        /* Testimonials Section */
+        .testimonials-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-dark);
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            font-style: italic;
+            margin-bottom: 60px;
         }
 
-        /* Final Form Section */
-        .final-form-section {
-            padding: 60px 0 80px;
-            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-video {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            border: 3px solid var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-video:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
         }
 
         /* Branding */
@@ -292,36 +314,42 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.85rem;
-            color: var(--color-dark-light);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-medium);
+            font-size: 0.9rem;
+            color: var(--text-medium);
             text-decoration: none;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            border: 1px solid var(--color-beige);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            border: 1px solid var(--beige-medium);
+            z-index: 1000;
         }
 
         .kuse-branding:hover {
-            color: var(--color-gold-dark);
+            color: var(--primary-gold);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(201, 168, 118, 0.2);
+            box-shadow: var(--shadow-heavy);
         }
 
         .kuse-branding svg {
             height: 1.2em;
+            transition: all 0.3s ease;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0 40px;
+            .section {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 15px;
             }
 
             .form-container {
                 padding: 30px 20px;
-                margin: 0 20px;
             }
 
             .video-grid {
@@ -330,35 +358,49 @@
             }
 
             .video-container {
-                margin: 0 20px;
+                padding: 15px;
             }
 
-            .features-grid {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .feature-card {
-                margin: 0 20px;
+            .doubt-card {
+                padding: 25px 20px;
+            }
+
+            .kuse-branding {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero-title {
+            .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero-subtitle {
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero p {
                 font-size: 1rem;
             }
 
-            .form-container {
-                margin: 0 10px;
-                padding: 25px 15px;
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container {
+                min-width: auto;
             }
         }
     </style>
@@ -418,215 +460,287 @@
 </style><script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script><script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script><script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.2/src/ua-parser.min.js"></script></head>
 <body>
     <!-- Hero Section -->
-    <section class="hero" style="">
-        <div class="container" style="">
-            <h1 class="hero-title" style="">Impara la Numerologia nella migliore Accademia di Numerologia in Italia</h1>
-            <p class="hero-subtitle" style="">DATTI IL PERMESSO DI ATTIVARE I TUOI TALENTI:<br>INIZIAMO CON LA NUMEROLOGIA!</p>
-        </div>
-    </section>
-
-    <!-- Info and First Form Section -->
-    <section class="info-section" style="">
-        <div class="container" style="">
-            <p class="info-text" style="">
-                Vuoi partecipare alle nostre lezioni di numerologia online? <br>Ogni mese ti aspettano 3 appuntamenti esclusivi, comodamente da casa. <br>Compila il modulo per ricevere maggiori informazioni: <br>un incaricato ti ricontatterà e potrai fissare un incontro telefonico<br> di circa 25 minuti con Fabio Netzach, <br>così potrai scoprire come accedere al percorso di numerologia dedicato a te</p>
-            
-            <div class="form-container" style="">
-                <h2 class="form-title">Richiedi Informazioni</h2>
-                <form id="contactForm1">
-                    <div class="form-group">
-                        <label for="nome1" class="form-label">Nome *</label>
-                        <input type="text" id="nome1" name="nome" class="form-input" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="cognome1" class="form-label">Cognome *</label>
-                        <input type="text" id="cognome1" name="cognome" class="form-input" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="email1" class="form-label">Email *</label>
-                        <input type="email" id="email1" name="email" class="form-input" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono1" class="form-label">Telefono *</label>
-                        <input type="tel" id="telefono1" name="telefono" class="form-input" required="">
-                    </div>
-                    <button type="submit" class="form-button" style="">Richiedi Informazioni</button>
-                </form>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 style="">Impara la Numerologia</h1>
+                <h2>DATTI IL PERMESSO DI ATTIVARE I TUOI TALENTI: INIZIAMO CON LA NUMEROLOGIA!</h2>
+                <p>Richiedi informazioni per accedere alle nostre lezioni esclusive: 3 lezioni online al mese e un appuntamento telefonico personalizzato di 25 minuti con Fabio Netzach.</p>
+                
+                <div class="form-container" style="transform: translateY(0px) scale(1);">
+                    <form id="contactForm1">
+                        <div class="form-group">
+                            <label for="name1">Nome e Cognome</label>
+                            <input type="text" id="name1" name="name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email1">Email</label>
+                            <input type="email" id="email1" name="email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone1">Telefono</label>
+                            <input type="tel" id="phone1" name="phone" required="">
+                        </div>
+                        <button type="submit" class="cta-button">Richiedi Informazioni</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video-section" style="">
-        <div class="container" style="outline: none;" contenteditable="true" data-editor-original-outline="">
-            <h2 class="video-title" style="">Scopri il Nostro Approccio</h2>
+    <!-- Video Academy Section -->
+    <section class="section video-section">
+        <div class="container">
+            <h3>La Nostra Accademia</h3>
             <div class="video-grid">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/TwG1bqlgOhU" frameborder="0" allowfullscreen=""></iframe>
+                <div class="video-container" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/TwG1bqlgOhU" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
                 </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/n7eqIQ_Czq8" frameborder="0" allowfullscreen=""></iframe>
+                <div class="video-container" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/n7eqIQ_Czq8" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Doubts Section -->
-    <section class="doubts-section" style="height: 987.062px;">
-        <div class="container" style="">
-            <h2 class="doubts-title" style="">Scopri alcune caratteristiche del corso</h2>
-            <p class="doubts-intro" style="">Siamo qui per ascoltarti e aiutarti a trovare la strada adatta a te</p>
-
-            <div class="features-grid">
-                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-                    <div class="feature-icon">👨‍🏫</div>
-                    <h3 class="feature-title">Docenti Esperti</h3>
-                    <p class="feature-description">Impara dai migliori professionisti del settore con anni di esperienza nella numerologia applicata.</p>
-                </div>
-                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-                    <div class="feature-icon">🚀</div>
-                    <h3 class="feature-title">Metodologie Innovative</h3>
-                    <p class="feature-description">Approcci moderni e scientifici per comprendere e applicare i principi numerologici nella vita quotidiana.</p>
-                </div>
-                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-                    <div class="feature-icon">🏆</div>
-                    <h3 class="feature-title">Certificazione Riconosciuta</h3>
-                    <p class="feature-description">Ottieni una certificazione professionale riconosciuta nel settore della numerologia e crescita personale.</p>
-                </div>
-                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-                    <div class="feature-icon">👥</div>
-                    <h3 class="feature-title">Community Esclusiva</h3>
-                    <p class="feature-description">Entra a far parte di una comunità di persone che condividono il tuo interesse per la crescita personale.</p>
-                </div>
-                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-                    <div class="feature-icon">💡</div>
-                    <h3 class="feature-title">Supporto Personalizzato</h3>
-                    <p class="feature-description">Ricevi assistenza individuale e consigli personalizzati durante tutto il percorso di apprendimento.</p>
-                </div>
-                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-                    <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">Esperienze Pratiche</h3>
-                    <p class="feature-description">Metti subito in pratica quello che impari con esercizi concreti e casi di studio reali.</p>
-                </div>
-            </div>
-
-            <p class="transition-text" style="">
-                Se senti che risuona in te, compila il modulo: <b>una persona dedicata ti aiuterà a capire</b> come la numerologia può valorizzare i tuoi talenti e facilitare la tua crescita personale</p>
-        </div>
-    </section>
-
-    <!-- Final Form Section -->
-    <section class="final-form-section" style="height: 780.312px;">
+    <section class="section doubts-section" contenteditable="true" data-editor-original-outline="" style="outline: none;">
         <div class="container">
-            <div class="form-container">
-                <h2 class="form-title">Inizia il Tuo Percorso</h2>
-                <form id="contactForm2">
-                    <div class="form-group">
-                        <label for="nome2" class="form-label">Nome *</label>
-                        <input type="text" id="nome2" name="nome" class="form-input" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="cognome2" class="form-label">Cognome *</label>
-                        <input type="text" id="cognome2" name="cognome" class="form-input" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="email2" class="form-label">Email *</label>
-                        <input type="email" id="email2" name="email" class="form-input" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono2" class="form-label">Telefono *</label>
-                        <input type="tel" id="telefono2" name="telefono" class="form-input" required="">
-                    </div>
-                    <button type="submit" class="form-button">Inizia Ora</button>
-                </form>
+            <h3>Hai ancora dubbi?</h3>
+            <div class="cards-grid">
+                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <h4>È davvero per me?</h4>
+                    <p>La numerologia è per chiunque desideri comprendere meglio se stesso e gli altri. Non servono conoscenze pregresse, solo curiosità e voglia di crescere.</p>
+                </div>
+                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <h4>Quanto tempo richiede?</h4>
+                    <p>Solo 3 lezioni online al mese più un appuntamento personalizzato. Un investimento minimo di tempo per risultati straordinari nella tua vita.</p>
+                </div>
+                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <h4>Funziona davvero?</h4>
+                    <p>Migliaia di studenti hanno già trasformato la loro vita. La numerologia è una scienza antica che offre strumenti concreti per il successo personale e professionale.</p>
+                </div>
+                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <h4>È troppo complicato?</h4>
+                    <p>Il nostro metodo è semplice e progressivo. Fabio Netzach ha sviluppato un approccio che rende la numerologia accessibile a tutti, passo dopo passo.</p>
+                </div>
+                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <h4>Vale l'investimento?</h4>
+                    <p>Investire nella conoscenza di te stesso è l'investimento più redditizio che puoi fare. I nostri studenti vedono risultati tangibili già dalle prime lezioni.</p>
+                </div>
+                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <h4>E se non ho tempo?</h4>
+                    <p>Le lezioni sono online e registrate. Puoi seguirle quando vuoi, al tuo ritmo. La flessibilità è totale, l'apprendimento garantito.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 1.2rem; color: var(--text-medium); margin-bottom: 40px;">
+                    Non lasciare che i dubbi ti fermino. Il momento giusto è adesso. Inizia il tuo percorso di crescita personale oggi stesso.
+                </p>
+                
+                <div class="form-container" style="transform: translateY(0px) scale(1);">
+                    <form id="contactForm2">
+                        <div class="form-group">
+                            <label for="name2">Nome e Cognome</label>
+                            <input type="text" id="name2" name="name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email2" style="">Email</label>
+                            <input type="email" id="email2" name="email" required="" style="">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone2">Telefono</label>
+                            <input type="tel" id="phone2" name="phone" required="">
+                        </div>
+                        <button type="submit" class="cta-button">Richiedi Informazioni</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Branding -->
-    <a href="https://kuse.ai" target="_blank" class="kuse-branding" style="">
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h3>Storie Vere: Guarda le Esperienze dei Partecipanti</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/gAuNudFrY6A" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
+                </div>
+                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/nlpjeEmoUKM" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
+                </div>
+                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/OWFEtO9NAU8" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
+                </div>
+                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Y1wMHlAeRrs" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
+                </div>
+                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/nx06rUw3c38" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
+                </div>
+                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/MnIAVz7hVDY" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kuse Branding -->
+    <a href="https://kuse.ai" class="kuse-branding" target="_blank" rel="noopener" style="">
         made with
-        <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path></svg>
+        <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg">
+            <path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path>
+            <path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path>
+        </svg>
     </a>
 
     <script>
-        // Form handling with proper template literal usage
+        // Form handling with validation and user feedback
         function handleFormSubmission(formId) {
             const form = document.getElementById(formId);
-            
+            if (!form) return;
+
             form.addEventListener(`submit`, function(e) {
                 e.preventDefault();
                 
                 const formData = new FormData(form);
                 const data = {
-                    nome: formData.get(`nome`),
-                    cognome: formData.get(`cognome`),
+                    name: formData.get(`name`),
                     email: formData.get(`email`),
-                    telefono: formData.get(`telefono`)
+                    phone: formData.get(`phone`)
                 };
-                
-                // Simulate form submission
-                const button = form.querySelector(`.form-button`);
+
+                // Validation
+                if (!data.name || !data.email || !data.phone) {
+                    alert(`Per favore, compila tutti i campi richiesti.`);
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    alert(`Per favore, inserisci un indirizzo email valido.`);
+                    return;
+                }
+
+                // Phone validation (basic)
+                const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+                if (!phoneRegex.test(data.phone)) {
+                    alert(`Per favore, inserisci un numero di telefono valido.`);
+                    return;
+                }
+
+                // Success feedback
+                const button = form.querySelector(`.cta-button`);
                 const originalText = button.textContent;
-                
                 button.textContent = `Invio in corso...`;
                 button.disabled = true;
-                
+
+                // Simulate form submission
                 setTimeout(() => {
                     button.textContent = `Richiesta Inviata!`;
-                    button.style.background = `linear-gradient(135deg, #4CAF50 0%, #45a049 100%)`;
+                    button.style.background = `linear-gradient(135deg, #28a745 0%, #20c997 100%)`;
                     
                     setTimeout(() => {
+                        form.reset();
                         button.textContent = originalText;
                         button.disabled = false;
-                        button.style.background = `linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%)`;
-                        form.reset();
-                    }, 3000);
-                }, 2000);
-                
+                        button.style.background = `linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%)`;
+                        alert(`Grazie per il tuo interesse! Ti contatteremo presto per fornirti tutte le informazioni sulla nostra Accademia di Numerologia.`);
+                    }, 2000);
+                }, 1000);
+
+                // Here you would typically send the data to your server
                 console.log(`Form submitted:`, data);
             });
         }
-        
+
         // Initialize both forms
-        handleFormSubmission(`contactForm1`);
-        handleFormSubmission(`contactForm2`);
-        
-        // Smooth scrolling for better user experience
-        document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
-            anchor.addEventListener(`click`, function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute(`href`));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: `smooth`,
-                        block: `start`
-                    });
-                }
+        document.addEventListener(`DOMContentLoaded`, function() {
+            handleFormSubmission(`contactForm1`);
+            handleFormSubmission(`contactForm2`);
+
+            // Smooth scrolling for better UX
+            document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
+                anchor.addEventListener(`click`, function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute(`href`));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: `smooth`,
+                            block: `start`
+                        });
+                    }
+                });
+            });
+
+            // Add loading states for video iframes
+            const videoIframes = document.querySelectorAll(`iframe`);
+            videoIframes.forEach(iframe => {
+                iframe.addEventListener(`load`, function() {
+                    this.style.opacity = `1`;
+                });
+                iframe.style.opacity = `0`;
+                iframe.style.transition = `opacity 0.3s ease`;
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: `0px 0px -50px 0px`
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = `1`;
+                        entry.target.style.transform = `translateY(0)`;
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll(`.video-container, .doubt-card, .testimonial-video`);
+            animateElements.forEach(el => {
+                el.style.opacity = `0`;
+                el.style.transform = `translateY(20px)`;
+                el.style.transition = `all 0.6s ease`;
+                observer.observe(el);
             });
         });
-        
-        // Add subtle animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: `0px 0px -50px 0px`
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = `1`;
-                    entry.target.style.transform = `translateY(0)`;
-                }
+
+        // Enhanced hover effects for interactive elements
+        document.addEventListener(`DOMContentLoaded`, function() {
+            const interactiveElements = document.querySelectorAll(`.video-container, .doubt-card, .testimonial-video, .form-container`);
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener(`mouseenter`, function() {
+                    this.style.transform = `translateY(-5px) scale(1.02)`;
+                });
+                
+                element.addEventListener(`mouseleave`, function() {
+                    this.style.transform = `translateY(0) scale(1)`;
+                });
             });
-        }, observerOptions);
-        
-        // Observe feature cards for animation
-        document.querySelectorAll(`.feature-card`).forEach(card => {
-            card.style.opacity = `0`;
-            card.style.transform = `translateY(30px)`;
-            card.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
-            observer.observe(card);
         });
     </script>
 
