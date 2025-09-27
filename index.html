@@ -1,0 +1,636 @@
+<html lang="it" style="height: 3763.34px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accademia di Numerologia - Corso Online Esclusivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-cream: #f8f5f0;
+            --color-beige: #e8e0d5;
+            --color-gold: #c9a876;
+            --color-gold-dark: #b8956a;
+            --color-dark: #2c2c2c;
+            --color-dark-light: #4a4a4a;
+            --color-white: #ffffff;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige) 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 500;
+            color: var(--color-gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 40px;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 60px 0;
+            background-color: var(--color-white);
+        }
+
+        .info-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-dark);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: var(--color-white);
+            border: 2px solid var(--color-gold);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(201, 168, 118, 0.1);
+        }
+
+        .form-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--color-dark);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            color: var(--color-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--color-beige);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            background-color: var(--color-cream);
+            color: var(--color-dark);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            background-color: var(--color-white);
+            box-shadow: 0 0 0 3px rgba(201, 168, 118, 0.1);
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 168, 118, 0.3);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
+        }
+
+        .video-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border: 4px solid var(--color-gold);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(201, 168, 118, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Doubts Section */
+        .doubts-section {
+            padding: 80px 0;
+            background-color: var(--color-white);
+        }
+
+        .doubts-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .doubts-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-dark);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--color-cream);
+            border: 2px solid var(--color-gold);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(201, 168, 118, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .feature-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--color-dark-light);
+            line-height: 1.6;
+        }
+
+        .transition-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-dark);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-style: italic;
+        }
+
+        /* Final Form Section */
+        .final-form-section {
+            padding: 60px 0 80px;
+            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
+        }
+
+        /* Branding */
+        .kuse-branding {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--color-dark-light);
+            text-decoration: none;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 1px solid var(--color-beige);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .kuse-branding:hover {
+            color: var(--color-gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 168, 118, 0.2);
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .video-container {
+                margin: 0 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                margin: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .form-container {
+                margin: 0 10px;
+                padding: 25px 15px;
+            }
+        }
+    </style>
+<style id="kgp-selected-style">
+  [data-kgp-selected]::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 4px;
+    border-radius: 4px;
+    outline: 3px solid #FF6B35 !important;
+    box-shadow: 0 0 0 1px rgba(255, 107, 53, 0.3), 0 0 10px rgba(255, 107, 53, 0.4) !important;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+  [data-kgp-selected] {
+    position: relative;
+    outline: none;
+    cursor: default;
+  }
+
+  img[data-kgp-selected],
+  img[data-kgp-hover-selected],
+  [data-kgp-hover-selected],
+  [item-kgp-click-selected],
+  [item-kgp-selected] {
+    border: 3px solid #FF6B35 !important;
+    box-shadow: 0 0 0 1px rgba(255, 107, 53, 0.3), 0 0 15px rgba(255, 107, 53, 0.5) !important;
+    border-radius: 4px;
+  }
+
+  [data-kgp-hover-selected]::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 2px;
+    border-radius: 4px;
+    outline: 2px solid #FFA366 !important;
+    box-shadow: 0 0 0 1px rgba(255, 163, 102, 0.3), 0 0 8px rgba(255, 163, 102, 0.4) !important;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  [data-kgp-hover-selected] {
+    position: relative;
+    outline: none;
+  }
+</style><script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script><script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script><script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.2/src/ua-parser.min.js"></script></head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" style="">
+        <div class="container" style="">
+            <h1 class="hero-title" style="">Impara la Numerologia nella migliore Accademia di Numerologia in Italia</h1>
+            <p class="hero-subtitle" style="">DATTI IL PERMESSO DI ATTIVARE I TUOI TALENTI:<br>INIZIAMO CON LA NUMEROLOGIA!</p>
+        </div>
+    </section>
+
+    <!-- Info and First Form Section -->
+    <section class="info-section" style="">
+        <div class="container" style="">
+            <p class="info-text" style="">
+                Vuoi partecipare alle nostre lezioni di numerologia online? <br>Ogni mese ti aspettano 3 appuntamenti esclusivi, comodamente da casa. <br>Compila il modulo per ricevere maggiori informazioni: <br>un incaricato ti ricontatterà e potrai fissare un incontro telefonico<br> di circa 25 minuti con Fabio Netzach, <br>così potrai scoprire come accedere al percorso di numerologia dedicato a te</p>
+            
+            <div class="form-container" style="">
+                <h2 class="form-title">Richiedi Informazioni</h2>
+                <form id="contactForm1">
+                    <div class="form-group">
+                        <label for="nome1" class="form-label">Nome *</label>
+                        <input type="text" id="nome1" name="nome" class="form-input" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome1" class="form-label">Cognome *</label>
+                        <input type="text" id="cognome1" name="cognome" class="form-input" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email1" class="form-label">Email *</label>
+                        <input type="email" id="email1" name="email" class="form-input" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono1" class="form-label">Telefono *</label>
+                        <input type="tel" id="telefono1" name="telefono" class="form-input" required="">
+                    </div>
+                    <button type="submit" class="form-button" style="">Richiedi Informazioni</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" style="">
+        <div class="container" style="outline: none;" contenteditable="true" data-editor-original-outline="">
+            <h2 class="video-title" style="">Scopri il Nostro Approccio</h2>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/TwG1bqlgOhU" frameborder="0" allowfullscreen=""></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/n7eqIQ_Czq8" frameborder="0" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doubts Section -->
+    <section class="doubts-section" style="height: 987.062px;">
+        <div class="container" style="">
+            <h2 class="doubts-title" style="">Scopri alcune caratteristiche del corso</h2>
+            <p class="doubts-intro" style="">Siamo qui per ascoltarti e aiutarti a trovare la strada adatta a te</p>
+
+            <div class="features-grid">
+                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3 class="feature-title">Docenti Esperti</h3>
+                    <p class="feature-description">Impara dai migliori professionisti del settore con anni di esperienza nella numerologia applicata.</p>
+                </div>
+                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Metodologie Innovative</h3>
+                    <p class="feature-description">Approcci moderni e scientifici per comprendere e applicare i principi numerologici nella vita quotidiana.</p>
+                </div>
+                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Certificazione Riconosciuta</h3>
+                    <p class="feature-description">Ottieni una certificazione professionale riconosciuta nel settore della numerologia e crescita personale.</p>
+                </div>
+                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Community Esclusiva</h3>
+                    <p class="feature-description">Entra a far parte di una comunità di persone che condividono il tuo interesse per la crescita personale.</p>
+                </div>
+                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="feature-icon">💡</div>
+                    <h3 class="feature-title">Supporto Personalizzato</h3>
+                    <p class="feature-description">Ricevi assistenza individuale e consigli personalizzati durante tutto il percorso di apprendimento.</p>
+                </div>
+                <div class="feature-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Esperienze Pratiche</h3>
+                    <p class="feature-description">Metti subito in pratica quello che impari con esercizi concreti e casi di studio reali.</p>
+                </div>
+            </div>
+
+            <p class="transition-text" style="">
+                Se senti che risuona in te, compila il modulo: <b>una persona dedicata ti aiuterà a capire</b> come la numerologia può valorizzare i tuoi talenti e facilitare la tua crescita personale</p>
+        </div>
+    </section>
+
+    <!-- Final Form Section -->
+    <section class="final-form-section" style="height: 780.312px;">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Inizia il Tuo Percorso</h2>
+                <form id="contactForm2">
+                    <div class="form-group">
+                        <label for="nome2" class="form-label">Nome *</label>
+                        <input type="text" id="nome2" name="nome" class="form-input" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome2" class="form-label">Cognome *</label>
+                        <input type="text" id="cognome2" name="cognome" class="form-input" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email2" class="form-label">Email *</label>
+                        <input type="email" id="email2" name="email" class="form-input" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono2" class="form-label">Telefono *</label>
+                        <input type="tel" id="telefono2" name="telefono" class="form-input" required="">
+                    </div>
+                    <button type="submit" class="form-button">Inizia Ora</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branding -->
+    <a href="https://kuse.ai" target="_blank" class="kuse-branding" style="">
+        made with
+        <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path></svg>
+    </a>
+
+    <script>
+        // Form handling with proper template literal usage
+        function handleFormSubmission(formId) {
+            const form = document.getElementById(formId);
+            
+            form.addEventListener(`submit`, function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = {
+                    nome: formData.get(`nome`),
+                    cognome: formData.get(`cognome`),
+                    email: formData.get(`email`),
+                    telefono: formData.get(`telefono`)
+                };
+                
+                // Simulate form submission
+                const button = form.querySelector(`.form-button`);
+                const originalText = button.textContent;
+                
+                button.textContent = `Invio in corso...`;
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.textContent = `Richiesta Inviata!`;
+                    button.style.background = `linear-gradient(135deg, #4CAF50 0%, #45a049 100%)`;
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                        button.style.background = `linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%)`;
+                        form.reset();
+                    }, 3000);
+                }, 2000);
+                
+                console.log(`Form submitted:`, data);
+            });
+        }
+        
+        // Initialize both forms
+        handleFormSubmission(`contactForm1`);
+        handleFormSubmission(`contactForm2`);
+        
+        // Smooth scrolling for better user experience
+        document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
+            anchor.addEventListener(`click`, function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute(`href`));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: `smooth`,
+                        block: `start`
+                    });
+                }
+            });
+        });
+        
+        // Add subtle animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: `0px 0px -50px 0px`
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = `1`;
+                    entry.target.style.transform = `translateY(0)`;
+                }
+            });
+        }, observerOptions);
+        
+        // Observe feature cards for animation
+        document.querySelectorAll(`.feature-card`).forEach(card => {
+            card.style.opacity = `0`;
+            card.style.transform = `translateY(30px)`;
+            card.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
+            observer.observe(card);
+        });
+    </script>
+
+    <!-- Kuse SDK -->
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+
+</body></html>
