@@ -1,750 +1,401 @@
-<html lang="it"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accademia di Numerologia - Italia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Lato:wght@300;400;500&amp;display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gold: #d4af37;
-            --light-gold: #f4e4a6;
-            --dark-gold: #b8941f;
-            --beige-light: #f8f5f0;
-            --beige-medium: #e8ddd4;
-            --beige-dark: #d4c4b0;
-            --text-dark: #2c2c2c;
-            --text-medium: #4a4a4a;
-            --white: #ffffff;
-            --shadow-light: 0 4px 20px rgba(212, 175, 55, 0.1);
-            --shadow-medium: 0 8px 30px rgba(212, 175, 55, 0.15);
-            --shadow-heavy: 0 12px 40px rgba(212, 175, 55, 0.2);
-        }
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accademia di Numerologia - Italia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500&display=swap" rel="stylesheet" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- STILI PRINCIPALI DELLA PAGINA -->
+  <style>
+    :root {
+      --primary-gold: #d4af37;
+      --light-gold: #f4e4a6;
+      --dark-gold: #b8941f;
+      --beige-light: #f8f5f0;
+      --beige-medium: #e8ddd4;
+      --beige-dark: #d4c4b0;
+      --text-dark: #2c2c2c;
+      --text-medium: #4a4a4a;
+      --white: #ffffff;
+      --shadow-light: 0 4px 20px rgba(212, 175, 55, 0.1);
+      --shadow-medium: 0 8px 30px rgba(212, 175, 55, 0.15);
+      --shadow-heavy: 0 12px 40px rgba(212, 175, 55, 0.2);
+    }
 
-        body {
-            font-family: 'Lato', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, var(--beige-light) 0%, var(--white) 100%);
-            overflow-x: hidden;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    body {
+      font-family: 'Lato', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, var(--beige-light) 0%, var(--white) 100%);
+      overflow-x: hidden;
+    }
 
-        .section {
-            padding: 80px 0;
-            position: relative;
-        }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        .section:nth-child(even) {
-            background: var(--beige-light);
-        }
+    .section { padding: 80px 0; position: relative; }
+    .section:nth-child(even) { background: var(--beige-light); }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--beige-light) 0%, var(--beige-medium) 50%, var(--light-gold) 100%);
-            position: relative;
-            overflow: hidden;
-        }
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--beige-light) 0%, var(--beige-medium) 50%, var(--light-gold) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="80" cy="40" r="0.3" fill="%23d4af37" opacity="0.08"/><circle cx="40" cy="80" r="0.4" fill="%23d4af37" opacity="0.12"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+      opacity: 0.3;
+    }
+    .hero-content { text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--text-dark); margin-bottom: 30px; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 500; color: var(--primary-gold); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
+    .hero p { font-size: 1.2rem; color: var(--text-medium); margin-bottom: 50px; line-height: 1.8; }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="80" cy="40" r="0.3" fill="%23d4af37" opacity="0.08"/><circle cx="40" cy="80" r="0.4" fill="%23d4af37" opacity="0.12"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            opacity: 0.3;
-        }
+    /* Form */
+    .form-container { background: var(--white); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-heavy); border: 2px solid var(--light-gold); max-width: 500px; margin: 0 auto; }
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-dark); font-size: 0.95rem; }
+    .form-group input { width: 100%; padding: 15px 20px; border: 2px solid var(--beige-medium); border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: var(--beige-light); color: var(--text-dark); }
+    .form-group input:focus { outline: none; border-color: var(--primary-gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); background: var(--white); }
+    .cta-button { width: 100%; padding: 18px 30px; background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%); color: var(--white); border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; box-shadow: var(--shadow-medium); }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: var(--shadow-heavy); background: linear-gradient(135deg, var(--dark-gold) 0%, var(--primary-gold) 100%); }
 
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
+    /* Video */
+    .video-section { text-align: center; }
+    .video-section h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 60px; position: relative; }
+    .video-section h3::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, var(--primary-gold), var(--light-gold)); border-radius: 2px; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 50px; }
+    .video-container { position: relative; padding: 20px; background: var(--white); border-radius: 15px; box-shadow: var(--shadow-medium); border: 3px solid var(--primary-gold); transition: all 0.3s ease; }
+    .video-container:hover { transform: translateY(-5px); box-shadow: var(--shadow-heavy); }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 30px;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+    /* Cards */
+    .doubts-section { background: var(--beige-light); }
+    .doubts-section h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); text-align: center; margin-bottom: 60px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+    .doubt-card { background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow-medium); border-left: 5px solid var(--primary-gold); transition: all 0.3s ease; }
+    .doubt-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-heavy); }
+    .doubt-card h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--primary-gold); margin-bottom: 15px; }
+    .doubt-card p { color: var(--text-medium); line-height: 1.7; }
 
-        .hero h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            font-weight: 500;
-            color: var(--primary-gold);
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    /* Testimonials */
+    .testimonials-section h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); text-align: center; margin-bottom: 60px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+    .testimonial-video { background: var(--white); padding: 20px; border-radius: 15px; box-shadow: var(--shadow-medium); border: 3px solid var(--primary-gold); transition: all 0.3s ease; }
+    .testimonial-video:hover { transform: translateY(-3px); box-shadow: var(--shadow-heavy); }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-medium);
-            margin-bottom: 50px;
-            line-height: 1.8;
-        }
+    /* Branding */
+    .kuse-branding { position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.95); padding: 10px 15px; border-radius: 25px; box-shadow: var(--shadow-medium); font-size: 0.9rem; color: var(--text-medium); text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); border: 1px solid var(--beige-medium); z-index: 1000; }
+    .kuse-branding:hover { color: var(--primary-gold); transform: translateY(-2px); box-shadow: var(--shadow-heavy); }
+    .kuse-branding svg { height: 1.2em; transition: all 0.3s ease; }
 
-        /* Form Styles */
-        .form-container {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: var(--shadow-heavy);
-            border: 2px solid var(--light-gold);
-            max-width: 500px;
-            margin: 0 auto;
-        }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .container { padding: 0 15px; }
+      .form-container { padding: 30px 20px; }
+      .video-grid { grid-template-columns: 1fr; gap: 30px; }
+      .video-container { padding: 15px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; gap: 20px; }
+      .doubt-card { padding: 25px 20px; }
+      .kuse-branding { bottom: 15px; right: 15px; padding: 8px 12px; font-size: 0.8rem; }
+    }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .hero h2 { font-size: 1.3rem; }
+      .hero p { font-size: 1rem; }
+      .video-grid { grid-template-columns: 1fr; }
+      .video-container { min-width: auto; }
+    }
+  </style>
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
+  <!-- BREVO: CSS (da tenere in HEAD, dentro <style>) -->
+  <style>
+    @font-face {
+      font-display: block;
+      font-family: Roboto;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
+    }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto; font-weight: 600;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
+    }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto; font-weight: 700;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
+    }
+    #sib-container input::-ms-input-placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
+    #sib-container input::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
+    #sib-container textarea::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
+    #sib-container a { text-decoration: underline; color: #2BB2FC; }
+  </style>
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
 
-        .form-group input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid var(--beige-medium);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--beige-light);
-            color: var(--text-dark);
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-            background: var(--white);
-        }
-
-        .cta-button {
-            width: 100%;
-            padding: 18px 30px;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-heavy);
-            background: linear-gradient(135deg, var(--dark-gold) 0%, var(--primary-gold) 100%);
-        }
-
-        /* Video Section */
-        .video-section {
-            text-align: center;
-        }
-
-        .video-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .video-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
-            border-radius: 2px;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .video-container {
-            position: relative;
-            padding: 20px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: var(--shadow-medium);
-            border: 3px solid var(--primary-gold);
-            transition: all 0.3s ease;
-        }
-
-        .video-container:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Cards Section */
-        .doubts-section {
-            background: var(--beige-light);
-        }
-
-        .doubts-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .doubt-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-medium);
-            border-left: 5px solid var(--primary-gold);
-            transition: all 0.3s ease;
-        }
-
-        .doubt-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .doubt-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--primary-gold);
-            margin-bottom: 15px;
-        }
-
-        .doubt-card p {
-            color: var(--text-medium);
-            line-height: 1.7;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-video {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-medium);
-            border: 3px solid var(--primary-gold);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-video:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        /* Branding */
-        .kuse-branding {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 10px 15px;
-            border-radius: 25px;
-            box-shadow: var(--shadow-medium);
-            font-size: 0.9rem;
-            color: var(--text-medium);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--beige-medium);
-            z-index: 1000;
-        }
-
-        .kuse-branding:hover {
-            color: var(--primary-gold);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .kuse-branding svg {
-            height: 1.2em;
-            transition: all 0.3s ease;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section {
-                padding: 60px 0;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .form-container {
-                padding: 30px 20px;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .video-container {
-                padding: 15px;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .doubt-card {
-                padding: 25px 20px;
-            }
-
-            .kuse-branding {
-                bottom: 15px;
-                right: 15px;
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.3rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .video-container {
-                min-width: auto;
-            }
-        }
-    </style>
-<style id="kgp-selected-style">
-  [data-kgp-selected]::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
-    padding: 4px;
-    border-radius: 4px;
-    outline: 3px solid #FF6B35 !important;
-    box-shadow: 0 0 0 1px rgba(255, 107, 53, 0.3), 0 0 10px rgba(255, 107, 53, 0.4) !important;
-    z-index: 10000;
-    pointer-events: none;
-  }
-
-  [data-kgp-selected] {
-    position: relative;
-    outline: none;
-    cursor: default;
-  }
-
-  img[data-kgp-selected],
-  img[data-kgp-hover-selected],
-  [data-kgp-hover-selected],
-  [item-kgp-click-selected],
-  [item-kgp-selected] {
-    border: 3px solid #FF6B35 !important;
-    box-shadow: 0 0 0 1px rgba(255, 107, 53, 0.3), 0 0 15px rgba(255, 107, 53, 0.5) !important;
-    border-radius: 4px;
-  }
-
-  [data-kgp-hover-selected]::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
-    padding: 2px;
-    border-radius: 4px;
-    outline: 2px solid #FFA366 !important;
-    box-shadow: 0 0 0 1px rgba(255, 163, 102, 0.3), 0 0 8px rgba(255, 163, 102, 0.4) !important;
-    z-index: 9999;
-    pointer-events: none;
-  }
-
-  [data-kgp-hover-selected] {
-    position: relative;
-    outline: none;
-  }
-</style><script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script><script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script><script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.2/src/ua-parser.min.js"></script></head>
+  <!-- (Opzionali) librerie che avevi già incluso -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.2/src/ua-parser.min.js"></script>
+</head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 style="">Impara la Numerologia</h1>
-                <h2>DATTI IL PERMESSO DI ATTIVARE I TUOI TALENTI: INIZIAMO CON LA NUMEROLOGIA!</h2>
-                <p>Richiedi informazioni per accedere alle nostre lezioni esclusive: 3 lezioni online al mese e un appuntamento telefonico personalizzato di 25 minuti con Fabio Netzach.</p>
-                
-                <div class="form-container" style="transform: translateY(0px) scale(1);">
-                    <form id="contactForm1">
-                        <div class="form-group">
-                            <label for="name1">Nome e Cognome</label>
-                            <input type="text" id="name1" name="name" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="email1">Email</label>
-                            <input type="email" id="email1" name="email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone1">Telefono</label>
-                            <input type="tel" id="phone1" name="phone" required="">
-                        </div>
-                        <button type="submit" class="cta-button">Richiedi Informazioni</button>
-                    </form>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Impara la Numerologia</h1>
+        <h2>DATTI IL PERMESSO DI ATTIVARE I TUOI TALENTI: INIZIAMO CON LA NUMEROLOGIA!</h2>
+        <p>Richiedi informazioni per accedere alle nostre lezioni esclusive: 3 lezioni online al mese e un appuntamento telefonico personalizzato di 25 minuti con Fabio Netzach.</p>
+
+        <!-- BREVO FORM (HERO) -->
+        <section id="form-prenotazione">
+          <!-- START - We recommend to place the below code where you want the form in your website html  -->
+          <div class="sib-form" style="text-align: center; background-color: #EFF2F7;">
+            <div id="sib-form-container" class="sib-form-container">
+              <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"/></svg>
+                  <span class="sib-form-message-panel__inner-text">La tua richiesta non può essere convalidata.</span>
                 </div>
+              </div>
+              <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"/></svg>
+                  <span class="sib-form-message-panel__inner-text">La tua iscrizione è avvenuta correttamente</span>
+                </div>
+              </div>
+
+              <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr">
+                <form id="sib-form" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAJvjZcvlkl2UPY-Xyfwgqj7bzXMVX6PxLF_C1T7akqeF7lW5vUMphM6-72xk6uVbYimPYkasesQYT-kOd6cuvVPC0gO79MFEKY4JvineDLTH7UQJLc9WexocPVN-5-N3fzq_4Y6F0mOmGqg2fjoOaTUSOxHHg6amU3H3y2uzHPuok9UdZENVKBAIO75nHTPVH-EzxkCSkkDQ" data-type="subscription">
+                  <div style="padding: 8px 0;">
+                    <div class="sib-form-block" style="font-size:32px; font-weight:700; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
+                      <p>Prenota la chiamata di orientamento</p>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-form-block" style="font-size:16px; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
+                      <div class="sib-text-form-block">
+                        <p>Lascia i tuoi dati: ti contattiamo entro 24h lavorative</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-input sib-form-block">
+                      <div class="form__entry entry_block">
+                        <div class="form__label-row ">
+                          <label class="entry__label" style="font-weight:700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858; text-align:left" for="NOME" data-required="*">NOME e COGNOME</label>
+                          <div class="entry__field">
+                            <input class="input" maxlength="200" type="text" id="NOME" name="NOME" autocomplete="off" placeholder="NOME" data-required="true" required />
+                          </div>
+                        </div>
+                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4;">Usa nome reale: così ti riconosciamo subito</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-sms-field sib-form-block">
+                      <div class="form__entry entry_block">
+                        <div class="form__label-row ">
+                          <label class="entry__label" style="font-weight:700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858; text-align:left" for="SMS" data-required="*">Numero attivo: ti inviamo un promemoria prima della call</label>
+                          <div class="sib-sms-input-wrapper" style="direction:ltr">
+                            <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
+                              <div class="entry__field">
+                                <select class="input" name="SMS__COUNTRY_CODE" data-required="true">
+                                  <!-- (Lista prefissi come da embed Brevo) -->
+                                  <option value="+39">+39 IT</option>
+                                  <!-- Puoi ripristinare l'elenco completo se necessario -->
+                                </select>
+                              </div>
+                              <div class="entry__field" style="width: 100%">
+                                <input type="tel" class="input" id="SMS" name="SMS" autocomplete="off" placeholder="SMS" data-required="true" required />
+                              </div>
+                            </div>
+                            <div class="sib-sms-tooltip">
+                              <div class="sib-sms-tooltip__box">Il campo SMS deve contenere tra i 6 e i 19 caratteri e includere il prefisso del paese senza usare +/0 (es. 39xxxxxxxxxx per l'Italia)</div>
+                              <span class="sib-sms-tooltip__icon">?</span>
+                            </div>
+                          </div>
+                        </div>
+                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                        <label class="entry__error entry__error--secondary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4;">Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-input sib-form-block">
+                      <div class="form__entry entry_block">
+                        <div class="form__label-row ">
+                          <label class="entry__label" style="font-weight:700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858; text-align:left" for="EMAIL" data-required="*">Inserisci un’email valida: riceverai la conferma immediata</label>
+                          <div class="entry__field">
+                            <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
+                          </div>
+                        </div>
+                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4;">Email valida richiesta: qui ricevi conferma e dettagli</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-form-block" style="text-align: left">
+                      <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#3E4857; border-radius:3px; border-width:0px;" form="sib-form" type="submit">
+                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512"><path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/></svg>
+                        INVIA RICHIESTA
+                      </button>
+                    </div>
+                  </div>
+
+                  <input type="text" name="email_address_check" value="" class="input--hidden" />
+                  <input type="hidden" name="locale" value="it" />
+                </form>
+              </div>
             </div>
+          </div>
+          <!-- END - We recommend to place the above code where you want the form in your website html  -->
+        </section>
+        <!-- /BREVO FORM -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Academy Section -->
+  <section class="section video-section">
+    <div class="container">
+      <h3>La Nostra Accademia</h3>
+      <div class="video-grid">
+        <div class="video-container">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/TwG1bqlgOhU" allowfullscreen></iframe>
+          </div>
         </div>
-    </section>
-
-    <!-- Video Academy Section -->
-    <section class="section video-section">
-        <div class="container">
-            <h3>La Nostra Accademia</h3>
-            <div class="video-grid">
-                <div class="video-container" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/TwG1bqlgOhU" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-                <div class="video-container" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/n7eqIQ_Czq8" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-            </div>
+        <div class="video-container">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/n7eqIQ_Czq8" allowfullscreen></iframe>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Doubts Section -->
-    <section class="section doubts-section" contenteditable="true" data-editor-original-outline="" style="outline: none;">
-        <div class="container">
-            <h3>Hai ancora dubbi?</h3>
-            <div class="cards-grid">
-                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h4>È davvero per me?</h4>
-                    <p>La numerologia è per chiunque desideri comprendere meglio se stesso e gli altri. Non servono conoscenze pregresse, solo curiosità e voglia di crescere.</p>
-                </div>
-                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h4>Quanto tempo richiede?</h4>
-                    <p>Solo 3 lezioni online al mese più un appuntamento personalizzato. Un investimento minimo di tempo per risultati straordinari nella tua vita.</p>
-                </div>
-                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h4>Funziona davvero?</h4>
-                    <p>Migliaia di studenti hanno già trasformato la loro vita. La numerologia è una scienza antica che offre strumenti concreti per il successo personale e professionale.</p>
-                </div>
-                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h4>È troppo complicato?</h4>
-                    <p>Il nostro metodo è semplice e progressivo. Fabio Netzach ha sviluppato un approccio che rende la numerologia accessibile a tutti, passo dopo passo.</p>
-                </div>
-                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h4>Vale l'investimento?</h4>
-                    <p>Investire nella conoscenza di te stesso è l'investimento più redditizio che puoi fare. I nostri studenti vedono risultati tangibili già dalle prime lezioni.</p>
-                </div>
-                <div class="doubt-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h4>E se non ho tempo?</h4>
-                    <p>Le lezioni sono online e registrate. Puoi seguirle quando vuoi, al tuo ritmo. La flessibilità è totale, l'apprendimento garantito.</p>
-                </div>
-            </div>
+  <!-- Doubts Section -->
+  <section class="section doubts-section">
+    <div class="container">
+      <h3>Hai ancora dubbi?</h3>
+      <div class="cards-grid">
+        <div class="doubt-card"><h4>È davvero per me?</h4><p>La numerologia è per chiunque desideri comprendere meglio se stesso e gli altri. Non servono conoscenze pregresse, solo curiosità e voglia di crescere.</p></div>
+        <div class="doubt-card"><h4>Quanto tempo richiede?</h4><p>Solo 3 lezioni online al mese più un appuntamento personalizzato. Un investimento minimo di tempo per risultati straordinari nella tua vita.</p></div>
+        <div class="doubt-card"><h4>Funziona davvero?</h4><p>Migliaia di studenti hanno già trasformato la loro vita. La numerologia è una scienza antica che offre strumenti concreti per il successo personale e professionale.</p></div>
+        <div class="doubt-card"><h4>È troppo complicato?</h4><p>Il nostro metodo è semplice e progressivo. Fabio Netzach ha sviluppato un approccio che rende la numerologia accessibile a tutti, passo dopo passo.</p></div>
+        <div class="doubt-card"><h4>Vale l'investimento?</h4><p>Investire nella conoscenza di te stesso è l'investimento più redditizio che puoi fare. I nostri studenti vedono risultati tangibili già dalle prime lezioni.</p></div>
+        <div class="doubt-card"><h4>E se non ho tempo?</h4><p>Le lezioni sono online e registrate. Puoi seguirle quando vuoi, al tuo ritmo. La flessibilità è totale, l'apprendimento garantito.</p></div>
+      </div>
+      <a href="#form-prenotazione" class="cta-button">Richiedi Informazioni</a>
+      <div style="text-align: center; margin-top: 50px;">
+        <p style="font-size: 1.2rem; color: var(--text-medium); margin-bottom: 40px;">Non lasciare che i dubbi ti fermino. Il momento giusto è adesso. Inizia il tuo percorso di crescita personale oggi stesso.</p>
+      </div>
+    </div>
+  </section>
 
-            <div style="text-align: center; margin-top: 50px;">
-                <p style="font-size: 1.2rem; color: var(--text-medium); margin-bottom: 40px;">
-                    Non lasciare che i dubbi ti fermino. Il momento giusto è adesso. Inizia il tuo percorso di crescita personale oggi stesso.
-                </p>
-                
-                <div class="form-container" style="transform: translateY(0px) scale(1);">
-                    <form id="contactForm2">
-                        <div class="form-group">
-                            <label for="name2">Nome e Cognome</label>
-                            <input type="text" id="name2" name="name" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="email2" style="">Email</label>
-                            <input type="email" id="email2" name="email" required="" style="">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone2">Telefono</label>
-                            <input type="tel" id="phone2" name="phone" required="">
-                        </div>
-                        <button type="submit" class="cta-button">Richiedi Informazioni</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Testimonials Section -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <h3>Storie Vere: Guarda le Esperienze dei Partecipanti</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/gAuNudFrY6A" allowfullscreen></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nlpjeEmoUKM" allowfullscreen></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/OWFEtO9NAU8" allowfullscreen></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Y1wMHlAeRrs" allowfullscreen></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nx06rUw3c38" allowfullscreen></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/MnIAVz7hVDY" allowfullscreen></iframe></div></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <section class="section testimonials-section">
-        <div class="container">
-            <h3>Storie Vere: Guarda le Esperienze dei Partecipanti</h3>
-            <div class="testimonials-grid">
-                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/gAuNudFrY6A" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/nlpjeEmoUKM" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/OWFEtO9NAU8" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/Y1wMHlAeRrs" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/nx06rUw3c38" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-                <div class="testimonial-video" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/MnIAVz7hVDY" allowfullscreen="" style="opacity: 1; transition: opacity 0.3s;"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Kuse Branding -->
+  <a href="https://kuse.ai" class="kuse-branding" target="_blank" rel="noopener">made with
+    <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg">
+      <path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path>
+      <path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path>
+    </svg>
+  </a>
 
-    <!-- Kuse Branding -->
-    <a href="https://kuse.ai" class="kuse-branding" target="_blank" rel="noopener" style="">
-        made with
-        <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg">
-            <path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path>
-            <path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path>
-        </svg>
-    </a>
-
-    <script>
-        // Form handling with validation and user feedback
-        function handleFormSubmission(formId) {
-            const form = document.getElementById(formId);
-            if (!form) return;
-
-            form.addEventListener(`submit`, function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(form);
-                const data = {
-                    name: formData.get(`name`),
-                    email: formData.get(`email`),
-                    phone: formData.get(`phone`)
-                };
-
-                // Validation
-                if (!data.name || !data.email || !data.phone) {
-                    alert(`Per favore, compila tutti i campi richiesti.`);
-                    return;
-                }
-
-                // Email validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(data.email)) {
-                    alert(`Per favore, inserisci un indirizzo email valido.`);
-                    return;
-                }
-
-                // Phone validation (basic)
-                const phoneRegex = /^[\d\s\+\-\(\)]+$/;
-                if (!phoneRegex.test(data.phone)) {
-                    alert(`Per favore, inserisci un numero di telefono valido.`);
-                    return;
-                }
-
-                // Success feedback
-                const button = form.querySelector(`.cta-button`);
-                const originalText = button.textContent;
-                button.textContent = `Invio in corso...`;
-                button.disabled = true;
-
-                // Simulate form submission
-                setTimeout(() => {
-                    button.textContent = `Richiesta Inviata!`;
-                    button.style.background = `linear-gradient(135deg, #28a745 0%, #20c997 100%)`;
-                    
-                    setTimeout(() => {
-                        form.reset();
-                        button.textContent = originalText;
-                        button.disabled = false;
-                        button.style.background = `linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%)`;
-                        alert(`Grazie per il tuo interesse! Ti contatteremo presto per fornirti tutte le informazioni sulla nostra Accademia di Numerologia.`);
-                    }, 2000);
-                }, 1000);
-
-                // Here you would typically send the data to your server
-                console.log(`Form submitted:`, data);
-            });
-        }
-
-        // Initialize both forms
-        document.addEventListener(`DOMContentLoaded`, function() {
-            handleFormSubmission(`contactForm1`);
-            handleFormSubmission(`contactForm2`);
-
-            // Smooth scrolling for better UX
-            document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
-                anchor.addEventListener(`click`, function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute(`href`));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: `smooth`,
-                            block: `start`
-                        });
-                    }
-                });
-            });
-
-            // Add loading states for video iframes
-            const videoIframes = document.querySelectorAll(`iframe`);
-            videoIframes.forEach(iframe => {
-                iframe.addEventListener(`load`, function() {
-                    this.style.opacity = `1`;
-                });
-                iframe.style.opacity = `0`;
-                iframe.style.transition = `opacity 0.3s ease`;
-            });
-
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: `0px 0px -50px 0px`
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = `1`;
-                        entry.target.style.transform = `translateY(0)`;
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements for animation
-            const animateElements = document.querySelectorAll(`.video-container, .doubt-card, .testimonial-video`);
-            animateElements.forEach(el => {
-                el.style.opacity = `0`;
-                el.style.transform = `translateY(20px)`;
-                el.style.transition = `all 0.6s ease`;
-                observer.observe(el);
-            });
+  <!-- JS UX -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+      });
 
-        // Enhanced hover effects for interactive elements
-        document.addEventListener(`DOMContentLoaded`, function() {
-            const interactiveElements = document.querySelectorAll(`.video-container, .doubt-card, .testimonial-video, .form-container`);
-            
-            interactiveElements.forEach(element => {
-                element.addEventListener(`mouseenter`, function() {
-                    this.style.transform = `translateY(-5px) scale(1.02)`;
-                });
-                
-                element.addEventListener(`mouseleave`, function() {
-                    this.style.transform = `translateY(0) scale(1)`;
-                });
-            });
+      // Lazy fade for iframes
+      const videoIframes = document.querySelectorAll('iframe');
+      videoIframes.forEach(iframe => {
+        iframe.addEventListener('load', function () { this.style.opacity = '1'; });
+        iframe.style.opacity = '0';
+        iframe.style.transition = 'opacity 0.3s ease';
+      });
+
+      // Intersection Observer animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
         });
-    </script>
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    <!-- Kuse SDK -->
-    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+      const animateEls = document.querySelectorAll('.video-container, .doubt-card, .testimonial-video');
+      animateEls.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+      });
 
-</body></html>
+      // Hover micro-interactions
+      const interactiveEls = document.querySelectorAll('.video-container, .doubt-card, .testimonial-video, .form-container');
+      interactiveEls.forEach(el => {
+        el.addEventListener('mouseenter', function () { this.style.transform = 'translateY(-5px) scale(1.02)'; });
+        el.addEventListener('mouseleave', function () { this.style.transform = 'translateY(0) scale(1)'; });
+      });
+    });
+  </script>
+
+  <!-- BREVO: script da mettere in fondo al body -->
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Scegli un prefisso paese';
+    window.LOCALE = 'it';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = 'Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.';
+    window.REQUIRED_ERROR_MESSAGE = 'Questo campo non può essere lasciato vuoto. ';
+    window.GENERIC_INVALID_MESSAGE = 'Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.';
+    window.translation = { common: { selectedList: '{quantity} lista selezionata', selectedLists: '{quantity} liste selezionate', selectedOption: '{quantity} selezionato', selectedOptions: '{quantity} selezionati' } };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+  <!-- Kuse SDK -->
+  <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
