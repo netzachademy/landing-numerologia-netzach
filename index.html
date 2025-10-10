@@ -53,10 +53,11 @@
       background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="80" cy="40" r="0.3" fill="%23d4af37" opacity="0.08"/><circle cx="40" cy="80" r="0.4" fill="%23d4af37" opacity="0.12"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
       opacity: 0.3;
     }
-    .hero-content { text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-content { text-align: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--text-dark); margin-bottom: 30px; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 500; color: var(--primary-gold); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
-    .hero p { font-size: 1.2rem; color: var(--text-medium); margin-bottom: 50px; line-height: 1.8; }
+    .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 500; color: var(--primary-gold); margin-bottom: 40px; line-height: 1.4; }
+    .hero-description { font-size: 1.1rem; color: var(--text-medium); margin-bottom: 50px; line-height: 1.8; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .hero-description strong { color: var(--dark-gold); }
 
     /* Form */
     .form-container { background: var(--white); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-heavy); border: 2px solid var(--light-gold); max-width: 500px; margin: 0 auto; }
@@ -108,12 +109,13 @@
       .cards-grid { grid-template-columns: 1fr; gap: 20px; }
       .doubt-card { padding: 25px 20px; }
       .kuse-branding { bottom: 15px; right: 15px; padding: 8px 12px; font-size: 0.8rem; }
+      .hero-description { padding: 0 15px; }
     }
 
     @media (max-width: 480px) {
       .hero h1 { font-size: 2rem; }
-      .hero h2 { font-size: 1.3rem; }
-      .hero p { font-size: 1rem; }
+      .hero h2 { font-size: 1.2rem; }
+      .hero-description { font-size: 0.95rem; }
       .video-grid { grid-template-columns: 1fr; }
       .video-container { min-width: auto; }
     }
@@ -140,6 +142,20 @@
     #sib-container input::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
     #sib-container textarea::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
     #sib-container a { text-decoration: underline; color: #2BB2FC; }
+    
+    /* FIX: Nascondi i messaggi di errore/successo di default */
+    #error-message, #success-message {
+        display: none !important;
+    }
+    
+    /* Mostra solo quando Brevo li attiva */
+    #error-message.sib-form-message-panel--active {
+        display: block !important;
+    }
+    
+    #success-message.sib-form-message-panel--active {
+        display: block !important;
+    }
   </style>
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
 
@@ -154,8 +170,13 @@
     <div class="container">
       <div class="hero-content">
         <h1>Impara la Numerologia</h1>
-        <h2>DATTI IL PERMESSO DI ATTIVARE I TUOI TALENTI: INIZIAMO CON LA NUMEROLOGIA!</h2>
-        <p>Richiedi informazioni per accedere alle nostre lezioni esclusive: 3 lezioni online al mese e un appuntamento telefonico personalizzato di 25 minuti con Fabio Netzach.</p>
+        <h2>Datti il permesso di risplendere: i tuoi numeri custodiscono il tuo vero potere</h2>
+        <div class="hero-description">
+          <p>Ogni numero racconta una parte di te, della tua storia e del tuo destino. La Numerologia è un viaggio che ti accompagna a riconoscere i tuoi talenti nascosti e ad attivarli, passo dopo passo.</p>
+          <p><strong>Ogni mese vivrai 3 appuntamenti esclusivi dal vivo online</strong>, da casa tua, con la forza di un gruppo che cresce insieme.</p>
+          <p>Compila il modulo e regalati un incontro telefonico di 25 minuti con Fabio Netzach: sarà il primo passo verso la scoperta della tua essenza e la realizzazione del tuo cammino.</p>
+          <p>👉 <strong>Il momento giusto è adesso. Lasciati guidare.</strong> 🌟</p>
+        </div>
 
         <!-- BREVO FORM (HERO) -->
         <section id="form-prenotazione">
@@ -491,7 +512,7 @@
                     <div class="sib-input sib-form-block">
                       <div class="form__entry entry_block">
                         <div class="form__label-row ">
-                          <label class="entry__label" style="font-weight:700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858; text-align:left" for="EMAIL" data-required="*">Inserisci un’email valida: riceverai la conferma immediata</label>
+                          <label class="entry__label" style="font-weight:700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858; text-align:left" for="EMAIL" data-required="*">Inserisci un'email valida: riceverai la conferma immediata</label>
                           <div class="entry__field">
                             <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="nome@esempio.it" data-required="true" required />
                           </div>
@@ -530,12 +551,12 @@
       <div class="video-grid">
         <div class="video-container">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/TwG1bqlgOhU" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/TwG1bqlgOhU" title="Video Accademia 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="video-container">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/n7eqIQ_Czq8" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/n7eqIQ_Czq8" title="Video Accademia 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -566,12 +587,12 @@
     <div class="container">
       <h3>Storie Vere: Guarda le Esperienze dei Partecipanti</h3>
     <div class="testimonials-grid">
-        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/gAuNudFrY6A" allowfullscreen></iframe></div></div>
-        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nlpjeEmoUKM" allowfullscreen></iframe></div></div>
-        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/OWFEtO9NAU8" allowfullscreen></iframe></div></div>
-        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Y1wMHlAeRrs" allowfullscreen></iframe></div></div>
-        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nx06rUw3c38" allowfullscreen></iframe></div></div>
-        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/MnIAVz7hVDY" allowfullscreen></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/gAuNudFrY6A" title="Testimonianza 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nlpjeEmoUKM" title="Testimonianza 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/OWFEtO9NAU8" title="Testimonianza 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Y1wMHlAeRrs" title="Testimonianza 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nx06rUw3c38" title="Testimonianza 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="testimonial-video"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/MnIAVz7hVDY" title="Testimonianza 6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
       </div>
     </div>
   </section>
@@ -648,3 +669,4 @@
   <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
 </body>
 </html>
+
