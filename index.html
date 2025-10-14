@@ -116,6 +116,7 @@
       font-weight: 600;
       font-size: 14px;
       color: #333;
+      text-align: left;
     }
     
     .form-group input {
@@ -507,7 +508,7 @@
   </section>
 
   <!-- Corso Online Features -->
-  <section style="padding: 60px 20px; background: white; text-align: center;">
+  <section style="padding: 40px 20px 30px; background: white; text-align: center;">
     <div class="container">
       <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 15px; color: #1a1a1a;">🔴 Lezioni LIVE Online</h2>
       <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto 40px;">
@@ -568,7 +569,7 @@
       </div>
 
       <!-- Academy Section -->
-      <div class="academy-section">
+      <div class="academy-section" style="margin-top: 30px;">
         <h3>💼 Opportunità Professionale in Accademia</h3>
         <p>Per chi lo desidera, è possibile lavorare nell'ambito olistico all'interno della nostra Accademia. Scopri come trasformare la tua passione in una professione durante il colloquio con Fabio.</p>
       </div>
@@ -576,7 +577,7 @@
   </section>
 
   <!-- Video Testimonials Section -->
-  <section class="testimonials" style="background: #f8f5f0;">
+  <section class="testimonials" style="background: #f8f5f0; padding: 40px 20px 60px;">
     <div class="container">
       <h2>Ascolta Chi Ha Già Trasformato la Sua Vita</h2>
       <p style="text-align: center; margin-bottom: 40px; color: #666;">
@@ -659,12 +660,46 @@
   </div>
 
   <script>
-    // Exit Intent Popup
+    // Exit Intent Popup (Desktop e Mobile)
     let popupShown = false;
+    let lastScrollTop = 0;
+    
+    // Per Desktop - Mouse leave
     document.addEventListener('mouseleave', function(e) {
       if (e.clientY <= 0 && !popupShown) {
         document.getElementById('exitPopup').style.display = 'flex';
         popupShown = true;
+      }
+    });
+    
+    // Per Mobile - Scroll rapido verso l'alto o tentativo di uscita
+    let scrollAttempts = 0;
+    window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Se l'utente scorre rapidamente verso l'alto (tentativo di uscita)
+      if (scrollTop < lastScrollTop && scrollTop < 100 && !popupShown) {
+        scrollAttempts++;
+        if (scrollAttempts >= 2) {
+          document.getElementById('exitPopup').style.display = 'flex';
+          popupShown = true;
+        }
+      }
+      
+      lastScrollTop = scrollTop;
+    }, false);
+    
+    // Aggiungi anche il trigger quando l'utente ha scrollato almeno il 50% della pagina e poi risale
+    window.addEventListener('scroll', function() {
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      
+      if (scrollPercent > 50 && window.scrollY < lastScrollTop && !popupShown) {
+        setTimeout(function() {
+          if (!popupShown) {
+            document.getElementById('exitPopup').style.display = 'flex';
+            popupShown = true;
+          }
+        }, 1000);
       }
     });
     
