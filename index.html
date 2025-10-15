@@ -116,6 +116,7 @@
       font-weight: 600;
       font-size: 14px;
       color: #333;
+      text-align: left;
     }
     
     .form-group input {
@@ -363,7 +364,7 @@
 <body>
   <!-- Sticky Urgency Bar -->
   <div class="sticky-bar">
-    ⚡ I posti sono limitati - Assicura ora il tuo accesso al percorso di Numerologia
+    ⚡ ATTENZIONE: I posti sono limitati - Questa è la tua opportunità - Agisci subito
   </div>
 
   <!-- Hero Section -->
@@ -396,6 +397,9 @@
       <div class="form-box">
         <h3 class="form-title">Prenota il Tuo Posto ORA</h3>
         <form action="https://be7b034d.sibforms.com/serve/MUIFAJvjZcvlkl2UPY-Xyfwgqj7bzXMVX6PxLF_C1T7akqeF7lW5vUMphM6-72xk6uVbYimPYkasesQYT-kOd6cuvVPC0gO79MFEKY4JvineDLTH7UQJLc9WexocPVN-5-N3fzq_4Y6F0mOmGqg2fjoOaTUSOxHHg6amU3H3y2uzHPuok9UdZENVKBAIO75nHTPVH-EzxkCSkkDQ" method="POST">
+          <!-- CAMPO NASCOSTO PER ISCRIZIONE TRIPLA -->
+          <input type="hidden" name="list_ids" value="18,19,8">
+          
           <div class="form-group">
             <label>Nome e Cognome *</label>
             <input type="text" name="NOME" required placeholder="Mario Rossi">
@@ -518,6 +522,9 @@
       <div class="form-box" style="background: #2d2d2d; border-color: #ffd700;">
         <h3 class="form-title" style="color: white;">Assicura il Tuo Posto</h3>
         <form action="https://be7b034d.sibforms.com/serve/MUIFAJvjZcvlkl2UPY-Xyfwgqj7bzXMVX6PxLF_C1T7akqeF7lW5vUMphM6-72xk6uVbYimPYkasesQYT-kOd6cuvVPC0gO79MFEKY4JvineDLTH7UQJLc9WexocPVN-5-N3fzq_4Y6F0mOmGqg2fjoOaTUSOxHHg6amU3H3y2uzHPuok9UdZENVKBAIO75nHTPVH-EzxkCSkkDQ" method="POST">
+          <!-- CAMPO NASCOSTO PER ISCRIZIONE TRIPLA -->
+          <input type="hidden" name="list_ids" value="18,19,8">
+          
           <div class="form-group">
             <label style="color: #ffd700;">Nome e Cognome *</label>
             <input type="text" name="NOME" required placeholder="Mario Rossi">
@@ -541,19 +548,21 @@
     </div>
   </section>
 
-  <!-- Exit Intent Popup - AGGIORNATO CON FORM 2 -->
+  <!-- Exit Intent Popup - AGGIORNATO -->
   <div id="exitPopup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
     <div style="background: white; border-radius: 20px; padding: 40px; max-width: 500px; margin: 20px; text-align: center; position: relative;">
       <button onclick="closePopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 30px; cursor: pointer; color: #999;">&times;</button>
-      <h2 style="font-size: 28px; margin-bottom: 20px; color: #1a1a1a;">Aspetta! Prima di andare...</h2>
+      <h2 style="font-size: 28px; margin-bottom: 20px; color: #1a1a1a;">Unisciti alla community!</h2>
       <p style="font-size: 18px; color: #666; margin-bottom: 25px;">
-        Fabio ha preparato un <strong>messaggio speciale</strong> per te.<br>
-        Lascia almeno la tua email per riceverlo:
+        Ricevi i migliori contenuti sulla numerologia:
       </p>
       <form action="https://be7b034d.sibforms.com/serve/MUIFAGv54otCiGQvp_W0FzpFX1zMuO-S8Ak8qv1WlhofpQ_zKU4d2naHGkNlFQrz4euZYsws_Poa9uRCUq9o6TduBvj584DsxANwEJMWQow971phFG0LouwQfrJGm_rO3ucnBCChsCjwpZ9VaUMDRyDrDIqO5co4Q-j5cQb61g3nk-638psEQxTj6t9l2FWncQ0zWNPVRwCCI7kL" method="POST">
+        <!-- CAMPO NASCOSTO PER ISCRIZIONE DOPPIA -->
+        <input type="hidden" name="list_ids" value="19,8">
+        
         <input type="email" name="EMAIL" placeholder="La tua email" required style="width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
         <button type="submit" style="width: 100%; padding: 15px; background: #d4af37; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer;">
-          Ricevi il Messaggio →
+          Ricevi i Contenuti →
         </button>
       </form>
       <p style="font-size: 13px; color: #999; margin-top: 15px;">
@@ -582,7 +591,7 @@
       document.querySelectorAll('.spots-left').forEach(el => {
         el.innerHTML = `⚠️ SOLO POCHI POSTI ANCORA DISPONIBILI`;
       });
-      document.querySelector('.sticky-bar').innerHTML = `⚡ ATTENZIONE: I posti sono limitati - Non perdere questa opportunità`;
+      document.querySelector('.sticky-bar').innerHTML = `⚡ ATTENZIONE: I posti sono limitati - Questa è la tua opportunità - Agisci subito`;
     }
     
     updateSpots();
