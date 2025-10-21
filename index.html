@@ -442,6 +442,12 @@
       display: block !important;
       width: 100% !important;
     }
+    /* Aggiunge un asterisco rosso per i campi obbligatori */
+    .sib-form-block label.entry__label[data-required="*"]::after {
+      content: " *";
+      color: #dc3545;
+      font-weight: 700;
+    }
     .sib-form-block .form__label-row {
       text-align: left !important;
     }
@@ -455,6 +461,31 @@
       font-size: 12px !important;
       text-align: left !important;
       display: block !important;
+    }
+    /* Nasconde il tooltip "?" accanto al campo SMS */
+    .sib-sms-tooltip {
+      display: none !important;
+    }
+    /* Nasconde il campo email honeypot sotto il bottone */
+    .input--hidden {
+      display: none !important;
+    }
+    /* Sistema il campo SMS per mostrare solo prefisso + numero in una riga */
+    .sib-sms-input-wrapper {
+      display: flex !important;
+      gap: 0 !important;
+    }
+    .sib-sms-input {
+      display: flex !important;
+      width: 100% !important;
+      gap: 10px !important;
+    }
+    .sib-sms-input .entry__field:first-child {
+      width: auto !important;
+      flex-shrink: 0 !important;
+    }
+    .sib-sms-input .entry__field:last-child {
+      flex-grow: 1 !important;
     }
     .sib-input .input, .sib-sms-input select.input {
       background-color: #FFFFFF !important;
@@ -537,14 +568,16 @@
 
   <section class="content-section" id="form">
     <div class="container">
-      <div class="row align-items-stretch">
-        <div class="col-md-6 text-column mb-4 mb-md-0">
-          <h2>Prenota il Tuo Posto ORA</h2>
-          <p>Questa non è una semplice iscrizione. Prenotando la tua chiamata di orientamento gratuita, farai il primo passo concreto per scoprire come la Numerologia può trasformare la tua vita.</p>
-          <p><strong>I posti per le chiamate di orientamento sono limitati per garantire la massima qualità. Non perdere il tuo.</strong></p>
-        </div>
+      <!-- Testo introduttivo centrato SOPRA il form -->
+      <div style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
+        <h2 style="font-size: 32px; font-weight: 700; color: #2c3e50; margin-bottom: 20px;">Prenota il Tuo Posto ORA</h2>
+        <p style="font-size: 18px; color: #333; margin-bottom: 15px;">Questa non è una semplice iscrizione. Prenotando la tua chiamata di orientamento gratuita, farai il primo passo concreto per scoprire come la Numerologia può trasformare la tua vita.</p>
+        <p style="font-size: 18px; color: #333; font-weight: 600;">I posti per le chiamate di orientamento sono limitati per garantire la massima qualità. Non perdere il tuo.</p>
+      </div>
 
-        <div class="col-md-6 form-column">
+      <!-- Form centrato -->
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
           <div class="registration-form">
             <h2>Assicura il Tuo Posto</h2>
             
@@ -570,7 +603,7 @@
                       <div class="sib-input sib-form-block">
                         <div class="form__entry entry_block">
                           <div class="form__label-row ">
-                            <label class="entry__label" for="NOME" data-required="*">Nome e Cognome *</label>
+                            <label class="entry__label" for="NOME" data-required="*">Nome e Cognome</label>
                             <div class="entry__field">
                               <input class="input form-control" maxlength="200" type="text" id="NOME" name="NOME" autocomplete="off" placeholder="NOME" data-required="true" required />
                             </div>
@@ -584,19 +617,15 @@
                       <div class="sib-sms-field sib-form-block">
                         <div class="form__entry entry_block">
                           <div class="form__label-row ">
-                            <label class="entry__label" for="SMS" data-required="*">Numero attivo *</label>
+                            <label class="entry__label" for="SMS" data-required="*">Numero attivo</label>
                             <div class="sib-sms-input-wrapper" style="direction:ltr">
                               <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
                                 <div class="entry__field">
                                   <select class="input form-control" name="SMS__COUNTRY_CODE" data-required="true"><option value="+39" selected>+39 IT</option><option value="+41">+41 CH</option></select>
                                 </div>
                                 <div class="entry__field" style="width: 100%">
-                                  <input type="tel" class="input form-control" id="SMS" name="SMS" autocomplete="off" placeholder="SMS" data-required="true" required />
+                                  <input type="tel" class="input form-control" id="SMS" name="SMS" autocomplete="off" placeholder="Numero di telefono" data-required="true" required />
                                 </div>
-                              </div>
-                              <div class="sib-sms-tooltip">
-                                <div class="sib-sms-tooltip__box">Il campo SMS deve contenere tra i 6 e i 19 caratteri...</div>
-                                <span class="sib-sms-tooltip__icon">?</span>
                               </div>
                             </div>
                           </div>
@@ -610,7 +639,7 @@
                       <div class="sib-input sib-form-block">
                         <div class="form__entry entry_block">
                           <div class="form__label-row ">
-                            <label class="entry__label" for="EMAIL" data-required="*">Inserisci un'email valida *</label>
+                            <label class="entry__label" for="EMAIL" data-required="*">Inserisci un'email valida</label>
                             <div class="entry__field">
                               <input class="input form-control" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
                             </div>
@@ -767,7 +796,7 @@
                       <div class="sib-input sib-form-block">
                         <div class="form__entry entry_block">
                           <div class="form__label-row ">
-                            <label class="entry__label" for="NOME-2" data-required="*">Nome e Cognome *</label>
+                            <label class="entry__label" for="NOME-2" data-required="*">Nome e Cognome</label>
                             <div class="entry__field">
                               <input class="input form-control" maxlength="200" type="text" id="NOME-2" name="NOME" autocomplete="off" placeholder="NOME" data-required="true" required />
                             </div>
@@ -781,19 +810,15 @@
                       <div class="sib-sms-field sib-form-block">
                         <div class="form__entry entry_block">
                           <div class="form__label-row ">
-                            <label class="entry__label" for="SMS-2" data-required="*">Numero attivo *</label>
+                            <label class="entry__label" for="SMS-2" data-required="*">Numero attivo</label>
                             <div class="sib-sms-input-wrapper" style="direction:ltr">
                               <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
                                 <div class="entry__field">
                                   <select class="input form-control" name="SMS__COUNTRY_CODE" data-required="true"><option value="+39" selected>+39 IT</option><option value="+41">+41 CH</option></select>
                                 </div>
                                 <div class="entry__field" style="width: 100%">
-                                  <input type="tel" class="input form-control" id="SMS-2" name="SMS" autocomplete="off" placeholder="SMS" data-required="true" required />
+                                  <input type="tel" class="input form-control" id="SMS-2" name="SMS" autocomplete="off" placeholder="Numero di telefono" data-required="true" required />
                                 </div>
-                              </div>
-                              <div class="sib-sms-tooltip">
-                                <div class="sib-sms-tooltip__box">Il campo SMS deve contenere tra i 6 e i 19 caratteri...</div>
-                                <span class="sib-sms-tooltip__icon">?</span>
                               </div>
                             </div>
                           </div>
@@ -807,7 +832,7 @@
                       <div class="sib-input sib-form-block">
                         <div class="form__entry entry_block">
                           <div class="form__label-row ">
-                            <label class="entry__label" for="EMAIL-2" data-required="*">Inserisci un'email valida *</label>
+                            <label class="entry__label" for="EMAIL-2" data-required="*">Inserisci un'email valida</label>
                             <div class="entry__field">
                               <input class="input form-control" type="text" id="EMAIL-2" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
                             </div>
