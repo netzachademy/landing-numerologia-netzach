@@ -508,14 +508,54 @@
     .sib-form-block label.entry__specification { color: #8390A4 !important; font-family: 'Inter', sans-serif !important; font-size: 12px !important; text-align: left !important; display: block !important; margin-top: 4px !important; }
     .sib-sms-tooltip { display: none !important; }
     .input--hidden { display: none !important; }
-    .sib-sms-input-wrapper { display: flex !important; gap: 0 !important; }
-    .sib-sms-input { display: flex !important; width: 100% !important; gap: 10px !important; }
-    .sib-sms-input .entry__field:first-child { width: auto !important; flex-shrink: 0 !important; }
-    .sib-sms-input .entry__field:last-child { flex-grow: 1 !important; }
-    .sib-input .input, .sib-sms-input select.input { background-color: #FFFFFF !important; border: 1px solid #ced4da !important; color: #3c4858 !important; font-family: 'Inter', sans-serif !important; border-radius: .25rem !important; padding: .375rem .75rem !important; font-size: 1rem !important; line-height: 1.5 !important; height: calc(1.5em + .75rem + 2px) !important; }
-    .sib-sms-input select.input { height: calc(1.5em + .75rem + 2px) !important; padding-top: .375rem !important; padding-bottom: .375rem !important;}
-    .sib-input .input:focus, .sib-sms-input select.input:focus { border-color: #86b7fe !important; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important; outline: none !important; }
+    
+    /* FIX CAMPO TELEFONO - Layout corretto */
+    .sib-sms-input-wrapper { 
+      display: block !important; 
+      width: 100% !important;
+    }
+    .sib-sms-input { 
+      display: flex !important; 
+      width: 100% !important; 
+      gap: 10px !important; 
+      align-items: stretch !important;
+    }
+    .sib-sms-input .entry__field:first-child { 
+      width: 120px !important; 
+      flex-shrink: 0 !important; 
+      min-width: 120px !important;
+    }
+    .sib-sms-input .entry__field:last-child { 
+      flex: 1 !important;
+      min-width: 0 !important;
+      width: auto !important;
+    }
+    
+    .sib-input .input, .sib-sms-input select.input, .sib-sms-input input[type="tel"] { 
+      background-color: #FFFFFF !important; 
+      border: 1px solid #ced4da !important; 
+      color: #3c4858 !important; 
+      font-family: 'Inter', sans-serif !important; 
+      border-radius: .25rem !important; 
+      padding: .375rem .75rem !important; 
+      font-size: 1rem !important; 
+      line-height: 1.5 !important; 
+      height: calc(1.5em + .75rem + 2px) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .sib-sms-input select.input { 
+      height: calc(1.5em + .75rem + 2px) !important; 
+      padding-top: .375rem !important; 
+      padding-bottom: .375rem !important;
+    }
+    .sib-input .input:focus, .sib-sms-input select.input:focus, .sib-sms-input input[type="tel"]:focus { 
+      border-color: #86b7fe !important; 
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important; 
+      outline: none !important; 
+    }
     .sib-input .input::placeholder { color: #6c757d !important; }
+    
     /* Stili bottone Brevo uniformati */
     .sib-form-block__button {
       background-color: #d4af37 !important;
@@ -639,8 +679,8 @@
                             <div class="entry__field">
                               <select class="input form-control" name="SMS__COUNTRY_CODE" data-required="true"><option value="+39" selected>+39 IT</option><option value="+41">+41 CH</option></select>
                             </div>
-                            <div class="entry__field" style="width: 100%">
-                              <input type="tel" class="input form-control" id="SMS" name="SMS" autocomplete="off" placeholder="+39 333 1234567" data-required="true" required />
+                            <div class="entry__field">
+                              <input type="tel" class="input form-control" id="SMS" name="SMS" autocomplete="off" placeholder="333 1234567" data-required="true" required />
                             </div>
                           </div>
                         </div>
@@ -825,8 +865,8 @@
                                 <div class="entry__field">
                                   <select class="input form-control" name="SMS__COUNTRY_CODE" data-required="true"><option value="+39" selected>+39 IT</option><option value="+41">+41 CH</option></select>
                                 </div>
-                                <div class="entry__field" style="width: 100%">
-                                  <input type="tel" class="input form-control" id="SMS-2" name="SMS" autocomplete="off" placeholder="+39 333 1234567" data-required="true" required />
+                                <div class="entry__field">
+                                  <input type="tel" class="input form-control" id="SMS-2" name="SMS" autocomplete="off" placeholder="333 1234567" data-required="true" required />
                                 </div>
                               </div>
                             </div>
