@@ -50,10 +50,12 @@
     }
     .hero .highlight {
       color: #d4af37;
-      font-size: 0.7em;
+      font-size: calc(18px + 0.5vw);
       font-weight: 600;
       display: block;
-      margin-top: 10px;
+      margin: 20px auto 25px;
+      max-width: 800px;
+      line-height: 1.4;
     }
     .hero .subheadline {
       font-size: calc(18px + 0.5vw);
@@ -64,11 +66,14 @@
     .hero .benefits {
       max-width: 700px;
       margin: 30px auto;
-      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .hero .benefit {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 15px;
       font-size: 17px;
     }
@@ -76,6 +81,10 @@
       color: #d4af37;
       margin-right: 12px;
       font-size: 20px;
+      flex-shrink: 0;
+    }
+    .hero .benefit span {
+      display: inline-block;
     }
     .hero .cta-button {
       display: inline-block;
@@ -120,6 +129,9 @@
     .form-column {
       background: #f4f7f6;
       border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .registration-form {
       width: 100%;
@@ -129,6 +141,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       border: 1px solid #e0e0e0;
+      margin: 0 auto;
     }
     .registration-form h2 {
       font-size: 24px;
@@ -243,6 +256,86 @@
       color: #2c3e50;
       margin-bottom: 20px;
     }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+    .testimonial-video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .testimonial-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .testimonials-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .testimonials-link a {
+      color: #d4af37;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .testimonials-link a:hover {
+      text-decoration: underline;
+    }
+
+    .moment-section {
+      background: #2c3e50;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .moment-section h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    .moment-box {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      background: linear-gradient(135deg, #5d4a2c 0%, #7a6438 100%);
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      padding: 30px;
+    }
+    .moment-box h3 {
+      font-size: 20px;
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+    .moment-box .status {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .moment-box p {
+      font-size: 16px;
+      color: #e0e0e0;
+      margin: 0;
+    }
+    .spots-alert {
+      display: inline-block;
+      background: #ff4444;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
 
     .final-cta-section {
       background: #2c3e50;
@@ -281,6 +374,9 @@
       }
       .trust-badges {
         gap: 30px;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -342,6 +438,15 @@
       color: #3c4858 !important;
       font-family: 'Inter', sans-serif !important;
       font-weight: 700 !important;
+      text-align: left !important;
+      display: block !important;
+      width: 100% !important;
+    }
+    .sib-form-block .form__label-row {
+      text-align: left !important;
+    }
+    .sib-form-block .entry__field {
+      text-align: left !important;
     }
     .sib-form-block .sib-text-form-block p { display: none; }
     .sib-form-block label.entry__specification, .sib-form-block .sib-sms-tooltip__box {
@@ -349,6 +454,7 @@
       font-family: 'Inter', sans-serif !important;
       font-size: 12px !important;
       text-align: left !important;
+      display: block !important;
     }
     .sib-input .input, .sib-sms-input select.input {
       background-color: #FFFFFF !important;
@@ -395,14 +501,17 @@
 </head>
 <body>
   <div class="sticky-bar">
-    ⚡ I posti sono limitati - Assicura ora il tuo accesso al percorso di Numerologia
+    ⚡ ATTENZIONE: I posti sono limitati - Questa è la tua opportunità - Agisci subito
   </div>
 
   <section class="hero">
     <h1>
-      Impara la Numerologia<br>
-      <span class="highlight">Datti il permesso di risplendere: i tuoi numeri custodiscono il tuo vero potere</span>
+      Impara la Numerologia
     </h1>
+    <p class="highlight">
+      Datti il permesso di risplendere:<br>
+      i tuoi numeri custodiscono il tuo vero potere
+    </p>
     
     <p class="subheadline">
       Con Fabio Netzach e il Metodo che ha già guidato oltre 9.000 persone
@@ -423,21 +532,21 @@
       </div>
     </div>
     
-    <a href="#form" class="cta-button">PRENOTA LA TUA CALL DI ORIENTAMENTO</a>
+    <a href="#form" class="cta-button">PRENOTA IL TUO POSTO ORA</a>
   </section>
 
   <section class="content-section" id="form">
     <div class="container">
       <div class="row align-items-stretch">
         <div class="col-md-6 text-column mb-4 mb-md-0">
-          <h2>Cosa Succede Dopo Aver Prenotato?</h2>
+          <h2>Prenota il Tuo Posto ORA</h2>
           <p>Questa non è una semplice iscrizione. Prenotando la tua chiamata di orientamento gratuita, farai il primo passo concreto per scoprire come la Numerologia può trasformare la tua vita.</p>
           <p><strong>I posti per le chiamate di orientamento sono limitati per garantire la massima qualità. Non perdere il tuo.</strong></p>
         </div>
 
-        <div class="col-md-6 form-column d-flex align-items-center justify-content-center">
-          <div class="registration-form p-4">
-            <h2 class="text-center mb-4">Prenota il Tuo Posto ORA</h2>
+        <div class="col-md-6 form-column">
+          <div class="registration-form">
+            <h2>Assicura il Tuo Posto</h2>
             
             <div class="sib-form" style="text-align: center;">
               <div id="sib-form-container" class="sib-form-container">
@@ -522,6 +631,11 @@
                 </div>
               </div>
             </div>
+
+            <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #666;">
+              🔒 I tuoi dati sono al sicuro<br>
+              <small>Riceverai conferma immediata via email</small>
+            </p>
           </div>
         </div>
       </div>
@@ -584,20 +698,41 @@
   <section class="testimonials">
     <div class="container">
       <h2>Ascolta Chi Ha Già Trasformato la Sua Vita</h2>
-      <p style="text-align: center; margin-bottom: 40px; color: #666;">
+      <p style="text-align: center; margin-bottom: 20px; color: #666;">
         Queste sono solo alcune delle testimonianze video che i nostri studenti hanno voluto condividere
       </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-          <iframe src="https://www.youtube.com/embed/gAuNudFrY6A" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="testimonials-grid">
+        <div class="testimonial-video">
+          <iframe src="https://www.youtube.com/embed/gAuNudFrY6A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-          <iframe src="https://www.youtube.com/embed/nlpjeEmoUKM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-video">
+          <iframe src="https://www.youtube.com/embed/nlpjeEmoUKM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-          <iframe src="https://www.youtube.com/embed/KK4kkJQh_Ok" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="testimonial-video">
+          <iframe src="https://www.youtube.com/embed/KK4kkJQh_Ok" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+      <div class="testimonials-link">
+        <a href="https://www.youtube.com/@NetzachAcademy/videos" target="_blank">→ Guarda tutte le testimonianze</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="moment-section">
+    <div class="container">
+      <h2>Il Tuo Momento di Svolta è Ora</h2>
+      
+      <div class="moment-box">
+        <h3>⭐ Prossima Classe in Partenza ⭐</h3>
+        <div class="status">Iscrizioni Aperte Ora</div>
+        <p>I gruppi partono ogni mese - assicura il tuo posto per il prossimo ciclo</p>
+      </div>
+      
+      <div class="spots-alert">
+        ⚠️ SOLO POCHI POSTI ANCORA DISPONIBILI
+      </div>
+      
+      <a href="#form-bottom" style="display: inline-block; background: #d4af37; color: white; padding: 15px 35px; font-size: 20px; font-weight: 700; text-decoration: none; border-radius: 8px; margin-top: 20px;">PRENOTA ORA IL TUO POSTO</a>
     </div>
   </section>
 
@@ -607,8 +742,8 @@
       <p class="spots-left">⚠️ I POSTI STANNO PER ESAURIRE ⚠️</p>
       <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
-          <div class="registration-form p-4" style="background: white; border: 1px solid #e0e0e0;">
-            <h2 class="text-center mb-4" style="color: #2c3e50;">Assicura il Tuo Posto</h2>
+          <div class="registration-form" style="background: white; border: 1px solid #e0e0e0;">
+            <h2 style="color: #2c3e50;">Assicura il Tuo Posto</h2>
             
             <div class="sib-form" style="text-align: center;">
               <div id="sib-form-container-2" class="sib-form-container">
@@ -693,6 +828,11 @@
                 </div>
               </div>
             </div>
+
+            <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #666;">
+              🔒 I tuoi dati sono al sicuro<br>
+              <small>Riceverai conferma immediata via email</small>
+            </p>
           </div>
         </div>
       </div>
@@ -700,20 +840,21 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Netzachademy. Tutti i diritti riservati </p>
+    <p>&copy; 2025 Netzach Academy. Tutti i diritti riservati.</p>
   </footer>
 
   <div class="popup-overlay" id="exit-popup">
     <div class="popup-content">
       <span class="popup-close" id="popup-close">&times;</span>
-      <h3>Aspetta! Non Andartene!</h3>
-      <p>Unisciti alla community e ricevi accesso immediato a contenuti esclusivi sulla Numerologia e aggiornamenti sul percorso.</p>
+      <h3>Unisciti alla community!</h3>
+      <p>Ricevi i migliori contenuti sulla numerologia:</p>
       
       <form action="https://be7b034d.sibforms.com/serve/MUIFAKZ83O-K1NviNMtCS7f9xJQRqWqgT8m5U8Uv-EwUvT-nC8b-G0T6rS8z-B4f55S1y8i3vFm8Yt-sWp3zU5dC-s_S1tE8m_l1s1h3w5f5t8" method="POST" id="sib-form-popup">
         <div class="mb-3">
-          <input type="email" class="form-control" id="popupEmail" name="EMAIL" placeholder="La tua email migliore" required />
+          <input type="email" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" id="popupEmail" name="EMAIL" placeholder="La tua email" required />
         </div>
-        <button type="submit" class="btn btn-warning btn-block mt-3 cta-button">ISCRIVIMI SUBITO</button>
+        <button type="submit" style="width: 100%; background: #d4af37; color: white; padding: 12px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer;">RICEVI I CONTENUTI →</button>
+        <p style="margin-top: 10px; font-size: 12px; color: #999;">No spam, solo valore. Puoi cancellarti quando vuoi.</p>
       </form>
     </div>
   </div>
@@ -784,4 +925,3 @@
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
-
