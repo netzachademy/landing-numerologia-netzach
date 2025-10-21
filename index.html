@@ -5,15 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Solo 12 posti - Corso Numerologia con Fabio Netzach</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+    :root {
+      --primary-color: #d4af37;
+      --dark-bg: #121212;
+      --light-text: #f0f0f0;
+      --dark-text: #1a1a1a;
+      --card-bg: #1f1f1f;
+      --border-color: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fff;
+      line-height: 1.7;
+      color: var(--light-text);
+      background: var(--dark-bg);
     }
 
     /* Sticky Header */
@@ -24,83 +38,84 @@
       right: 0;
       background: #ff4444;
       color: white;
-      padding: 10px;
+      padding: 12px;
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 16px;
       z-index: 1000;
       animation: pulse 2s infinite;
+      border-bottom: 1px solid #ff6666;
     }
-    
+
     @keyframes pulse {
-      0%, 100% { background: #ff4444; }
-      50% { background: #ff6666; }
+      0%,
+      100% {
+        background: #ff4444;
+      }
+      50% {
+        background: #ff6666;
+      }
     }
 
     /* Hero Section */
     .hero {
-      padding: 80px 20px 40px; /* Increased top padding for sticky bar */
-      background: linear-gradient(135deg, #f8f2e3 0%, #ffffff 100%);
+      padding: 100px 20px 60px; /* Increased top padding for sticky bar */
+      background: var(--dark-bg);
       text-align: center;
     }
     .hero h1 {
-      font-size: calc(28px + 1.5vw);
+      font-size: calc(32px + 1.8vw);
       font-weight: 900;
-      color: #2c3e50;
+      color: #ffffff;
       margin-bottom: 15px;
       line-height: 1.2;
     }
     .hero .highlight {
-      color: #d4af37; /* Gold highlight */
+      color: var(--primary-color);
     }
     .hero .subheadline {
       font-size: calc(18px + 0.5vw);
-      color: #34495e;
-      margin-bottom: 25px;
+      color: #b0b0b0;
+      margin-bottom: 30px;
       font-weight: 400;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero .cta-button {
       display: inline-block;
-      background: #d4af37; /* Gold */
-      color: white;
-      padding: 15px 35px;
+      background: var(--primary-color);
+      color: var(--dark-text);
+      padding: 16px 38px;
       font-size: 20px;
       font-weight: 700;
       text-decoration: none;
       border-radius: 8px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .hero .cta-button:hover {
       background: #c09e31;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
     }
     .hero .spots-left {
       margin-top: 15px;
       font-size: 16px;
       font-weight: 600;
-      color: #e74c3c;
+      color: #ffc107;
     }
 
     /* Main Content Area */
-    .container-fluid {
-      padding: 0;
-    }
     .content-section {
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
     .row {
-      display: flex;
-      flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto;
-      align-items: stretch; /* Make columns equal height */
-    }
-    
-    .col-md-6 {
-      flex: 1 1 50%;
-      min-width: 300px;
-      padding: 20px;
+      align-items: stretch;
     }
 
     /* Text Column Styles */
@@ -108,16 +123,18 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding-right: 30px;
     }
     .text-column h2 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
-      color: #2c3e50;
+      color: #ffffff;
       margin-bottom: 20px;
+      line-height: 1.3;
     }
     .text-column p {
-      font-size: 17px;
-      color: #333;
+      font-size: 18px;
+      color: #c0c0c0;
       margin-bottom: 20px;
     }
     .text-column ul {
@@ -125,9 +142,10 @@
       padding-left: 0;
     }
     .text-column ul li {
-      font-size: 17px;
+      font-size: 18px;
+      color: #c0c0c0;
       position: relative;
-      padding-left: 30px;
+      padding-left: 35px;
       margin-bottom: 15px;
     }
     .text-column ul li::before {
@@ -135,7 +153,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      font-size: 18px;
+      font-size: 20px;
     }
 
     /* Form Column Styles */
@@ -143,125 +161,143 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f4f7f6;
-      border-radius: 10px;
     }
     .registration-form {
       width: 100%;
       max-width: 500px;
-      padding: 25px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e0e0e0;
+      padding: 30px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
     }
     .registration-form h2 {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
-      color: #2c3e50;
+      color: #ffffff;
       text-align: center;
       margin-bottom: 25px;
     }
-    
-    /* Responsive Form Fields (Brevo overrides) */
-    .sib-form-container {
-      max-width: 100% !important;
+    .form-group label {
+      font-weight: 600;
+      color: var(--light-text);
+      margin-bottom: 8px;
     }
-    .sib-form-block .entry__field .input {
-        width: 100%;
+    .form-control {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      color: var(--light-text);
+      padding: 12px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+    .form-control:focus {
+      background: #2a2a2a;
+      color: var(--light-text);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+    }
+    .form-control::placeholder {
+      color: #777;
+    }
+    .btn-warning {
+      background: var(--primary-color);
+      color: var(--dark-text);
+      border: none;
+      padding: 14px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 8px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    .btn-warning:hover {
+      background: #c09e31;
+      color: var(--dark-text);
     }
 
     /* About Section */
     .about-section {
-      background: #f9f9f9;
-    }
-    .about-content {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 30px;
-    }
-    .about-image {
-      flex: 1 1 300px;
-      text-align: center;
+      background: #191919;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
     .about-image img {
-      max-width: 100%;
-      width: 300px; /* Fixed width */
-      height: 300px; /* Fixed height */
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-    .about-text {
-      flex: 2 1 400px;
-    }
-    .about-text h3 {
-      font-size: 24px;
-      color: #d4af37;
-      margin-bottom: 10px;
+      width: 100%;
+      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
     /* What You'll Learn Section */
     .features-section h2 {
       text-align: center;
-      font-size: 32px;
-      margin-bottom: 40px;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      font-size: 34px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 50px;
     }
     .feature-item {
-      background: #fdfdfd;
-      padding: 25px;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      background: var(--card-bg);
+      padding: 30px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    .feature-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
     }
     .feature-item h3 {
-      font-size: 20px;
-      color: #2c3e50;
-      margin-bottom: 10px;
+      font-size: 22px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
     }
     .feature-item p {
-      font-size: 16px;
+      font-size: 17px;
+      color: #c0c0c0;
     }
 
     /* Testimonials Section */
     .testimonials-section {
-      background: #f8f2e3;
+      background: #191919;
       text-align: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
     .testimonials-section h2 {
-      font-size: 32px;
-      margin-bottom: 40px;
+      font-size: 34px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 50px;
     }
     .testimonial {
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto;
     }
     .testimonial p {
-      font-size: 18px;
+      font-size: 20px;
       font-style: italic;
-      color: #333;
+      color: #f0f0f0;
+      line-height: 1.8;
     }
     .testimonial .author {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
-      color: #d4af37;
-      margin-top: 15px;
+      color: var(--primary-color);
+      margin-top: 20px;
+      text-transform: uppercase;
     }
 
     /* Final CTA Section */
     .final-cta-section {
-      background: #2c3e50;
-      color: white;
       text-align: center;
+      padding: 60px 20px;
     }
     .final-cta-section h2 {
-      font-size: 32px;
+      font-size: 34px;
+      color: #fff;
       margin-bottom: 20px;
     }
     .final-cta-section .spots-left {
@@ -273,90 +309,60 @@
 
     /* Footer */
     footer {
-      background: #1a1a1a;
+      background: #000;
       color: #888;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       font-size: 14px;
+      border-top: 1px solid var(--border-color);
     }
-
-    /* Media Queries for Responsiveness */
-    @media (max-width: 768px) {
-      .row {
-        flex-direction: column;
-      }
-      .col-md-6 {
-        flex: 1 1 100%; /* Stack columns */
-      }
-      .about-content {
-        flex-direction: column;
-      }
-      .about-image img {
-        width: 200px;
-        height: 200px;
-      }
-      .hero {
-        padding-top: 60px; /* Adjust for smaller screens */
-      }
-      .hero h1 {
-        font-size: 28px;
-      }
-      .hero .subheadline {
-        font-size: 18px;
-      }
+    footer p {
+      max-width: 800px;
+      margin: 0 auto;
     }
     
-    /* Exit Intent Popup */
-    .popup-overlay {
+    /* Exit Popup */
+    #exitPopup {
       display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 2000;
-      align-items: center;
+      background: rgba(0,0,0,0.8);
+      z-index: 2001;
       justify-content: center;
+      align-items: center;
     }
-    .popup-content {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 450px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    /* Sovrascrivo lo stile di Brevo per adattarlo al tema scuro */
+    .sib-form {
+      background-color: var(--card-bg) !important;
     }
-    .popup-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #999;
-      cursor: pointer;
+    #sib-container, #sib-container-2 {
+      background-color: var(--card-bg) !important;
+      border-width: 0px !important;
     }
-    .popup-content h3 {
-      font-size: 24px;
-      color: #d4af37;
-      margin-bottom: 15px;
+    .sib-form-block p, .sib-form-block label {
+      color: var(--light-text) !important;
     }
-    .popup-content p {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 20px;
+    .sib-input .input {
+      background-color: #2a2a2a !important;
+      border: 1px solid #444 !important;
+      color: var(--light-text) !important;
     }
-    .popup-content input[type="email"] {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-      margin-bottom: 15px;
+    .sib-input .input:focus {
+      border-color: var(--primary-color) !important;
     }
-  
+    .sib-form-block__button {
+      background-color: var(--primary-color) !important;
+      color: var(--dark-text) !important;
+      font-weight: 700 !important;
+    }
+    .sib-form-block__button:hover {
+      background-color: #c09e31 !important;
+    }
+    
   </style>
 
   <style>
@@ -411,400 +417,424 @@
   </div>
 
   <section class="hero">
-    <h1>Diventa <span class="highlight">Numerologo Professionista</span><br>in 90 Giorni con Fabio Netzach</h1>
-    <p class="subheadline">Il percorso online per trasformare la tua passione per i numeri in una professione di successo, anche partendo da zero.</p>
-    <a href="#form" class="cta-button">PRENOTA LA TUA CALL DI ORIENTAMENTO</a>
-    <p class="spots-left">⚠️ SOLO POCHI POSTI ANCORA DISPONIBILI</p>
+    <div class="container">
+      <h1>Diventa <span class="highlight">Numerologo Professionista</span><br>in 90 Giorni con Fabio Netzach</h1>
+      <p class="subheadline">Il percorso online per trasformare la tua passione per i numeri in una professione di successo, anche partendo da zero.</p>
+      <a href="#form" class="cta-button">PRENOTA LA TUA CALL DI ORIENTAMENTO</a>
+      <p class="spots-left">⚠️ SOLO POCHI POSTI ANCORA DISPONIBILI</p>
+    </div>
   </section>
 
   <section class="content-section" id="form">
-    <div class="row">
-      <div class="col-md-6 text-column">
-        <h2>Cosa Succede Dopo Aver Prenotato?</h2>
-        <p>Questa non è una semplice iscrizione. Prenotando la tua chiamata di orientamento gratuita, farai il primo passo concreto per:</p>
-        <ul>
-          <li>Parlare direttamente con un membro esperto del team (o con Fabio stesso) per valutare se il percorso è adatto a te.</li>
-          <li>Capire la struttura del corso, gli sbocchi professionali e il supporto che riceverai.</li>
-          <li>Sciogliere ogni tuo dubbio e scoprire come la Numerologia può cambiare la tua vita e quella degli altri.</li>
-          <li>Ottenere l'accesso a una Masterclass Esclusiva di 4 ore (valore 197€) in regalo, solo per aver partecipato alla chiamata.</li>
-        </ul>
-        <p><strong>I posti per le chiamate di orientamento sono limitati per garantire la massima qualità. Non perdere il tuo.</strong></p>
-      </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-column">
+          <h2>Cosa Succede Dopo Aver Prenotato?</h2>
+          <p>Questa non è una semplice iscrizione. Prenotando la tua chiamata di orientamento gratuita, farai il primo passo concreto per:</p>
+          <ul>
+            <li>Parlare direttamente con un membro esperto del team (o con Fabio stesso) per valutare se il percorso è adatto a te.</li>
+            <li>Capire la struttura del corso, gli sbocchi professionali e il supporto che riceverai.</li>
+            <li>Sciogliere ogni tuo dubbio e scoprire come la Numerologia può cambiare la tua vita e quella degli altri.</li>
+            <li>Ottenere l'accesso a una Masterclass Esclusiva di 4 ore (valore 197€) in regalo, solo per aver partecipato alla chiamata.</li>
+          </ul>
+          <p><strong>I posti per le chiamate di orientamento sono limitati per garantire la massima qualità. Non perdere il tuo.</strong></p>
+        </div>
 
-      <div class="col-md-6 form-column d-flex align-items-center justify-content-center">
-        
-        <div class="registration-form p-4">
-          <div class="sib-form" style="text-align: center; background-color: #FFFFFF; padding: 0;">
-            <div id="sib-form-container" class="sib-form-container">
-              <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
-                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                    <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
-                  </svg>
-                  <span class="sib-form-message-panel__inner-text">
-                                    La tua richiesta non può essere convalidata.
-                                </span>
-                </div>
-              </div>
-              <div></div>
-              <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;">
-                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                    <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
-                  </svg>
-                  <span class="sib-form-message-panel__inner-text">
-                                    ✅ Richiesta ricevuta con successo!  Grazie per il tuo interesse nel Percorso di Numerologia con Fabio Netzach.  Ti contatteremo entro 24-48 ore lavorative al numero che hai fornito.  Nel frattempo, controlla la tua email per la conferma.  A presto!
-                                </span>
-                </div>
-              </div>
-              <div></div>
-              <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr">
-                <form id="sib-form" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAMLJbOAE5a1Y4cCMiIfmBDpSmySGKNe6EOmDX7QrZ_upWJrUb8J5JXGtsapR8QF4HtjCvvGoSqQrryh0VUWJbldpBBJyApPvrc5uPsitnDgdL-5QsrC9_cLP1WYgTfH5Roz59UbBQGfqxvgKWrVPZJPEWiiPHEoyo5JR6evkouQiFzK1BdFeJnE77AukOuQtjswm6Oi1R2On" data-type="subscription">
-                  <div style="padding: 8px 0;">
-                    <div class="sib-form-block" style="font-size:32px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
-                      <p>Prenota la chiamata di orientamento</p>
-                    </div>
+        <div class="col-md-6 form-column d-flex align-items-center justify-content-center">
+          
+          <div class="registration-form p-4">
+            <div class="sib-form" style="text-align: center;">
+              <div id="sib-form-container" class="sib-form-container">
+                <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
+                  <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                      <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                    </svg>
+                    <span class="sib-form-message-panel__inner-text">
+                                      La tua richiesta non può essere convalidata.
+                                  </span>
                   </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-form-block" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
-                      <div class="sib-text-form-block">
-                        <p>Lascia i tuoi dati: ti contattiamo entro 24h lavorative</p>
+                </div>
+                <div></div>
+                <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;">
+                  <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                      <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                    </svg>
+                    <span class="sib-form-message-panel__inner-text">
+                                      ✅ Richiesta ricevuta con successo!  Grazie per il tuo interesse nel Percorso di Numerologia con Fabio Netzach.  Ti contatteremo entro 24-48 ore lavorative al numero che hai fornito.  Nel frattempo, controlla la tua email per la conferma.  A presto!
+                                  </span>
+                  </div>
+                </div>
+                <div></div>
+                <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; direction:ltr">
+                  <form id="sib-form" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAMLJbOAE5a1Y4cCMiIfmBDpSmySGKNe6EOmDX7QrZ_upWJrUb8J5JXGtsapR8QF4HtjCvvGoSqQrryh0VUWJbldpBBJyApPvrc5uPsitnDgdL-5QsrC9_cLP1WYgTfH5Roz59UbBQGfqxvgKWrVPZJPEWiiPHEoyo5JR6evkouQiFzK1BdFeJnE77AukOuQtjswm6Oi1R2On" data-type="subscription">
+                    <div style="padding: 8px 0;">
+                      <div class="sib-form-block" style="font-size:32px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
+                        <p>Prenota la chiamata di orientamento</p>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-input sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="NOME" data-required="*">NOME e COGNOME</label>
-          
-                          <div class="entry__field">
-                            <input class="input " maxlength="200" type="text" id="NOME" name="NOME" autocomplete="off" placeholder="NOME" data-required="true" required />
-                          </div>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-form-block" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
+                        <div class="sib-text-form-block">
+                          <p>Lascia i tuoi dati: ti contattiamo entro 24h lavorative</p>
                         </div>
-          
-                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                          Usa nome reale: così ti riconosciamo subito
-                        </label>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-sms-field sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="SMS" data-required="*">Numero attivo: ti inviamo un promemoria prima della call</label>
-          
-                          <div class="sib-sms-input-wrapper" style="direction:ltr">
-                            <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
-                              <div class="entry__field">
-                                <select class="input" name="SMS__COUNTRY_CODE" data-required="true">
-                                  <option value="+39" selected>+39 IT</option>
-                                  <option value="+41">+41 CH</option>
-                                  <option value="+1">+1 US</option>
-                                  <option value="+44">+44 GB</option>
-                                  <option value="+34">+34 ES</option>
-                                  <option value="+49">+49 DE</option>
-                                  <option value="+33">+33 FR</option>
-                                  <option value="+93"> +93 AF </option> <option value="+358"> +358 AX </option> <option value="+355"> +355 AL </option> <option value="+213"> +213 DZ </option> <option value="+1684"> +1684 AS </option> <option value="+376"> +376 AD </option> <option value="+244"> +244 AO </option> <option value="+1264"> +1264 AI </option> <option value="+672"> +672 AQ </option> <option value="+1268"> +1268 AG </option> <option value="+54"> +54 AR </option> <option value="+374"> +374 AM </option> <option value="+297"> +297 AW </option> <option value="+61"> +61 AU </option> <option value="+43"> +43 AT </option> <option value="+994"> +994 AZ </option> <option value="+1242"> +1242 BS </option> <option value="+973"> +973 BH </option> <option value="+880"> +880 BD </option> <option value="+1246"> +1246 BB </option> <option value="+375"> +375 BY </option> <option value="+32"> +32 BE </option> <option value="+501"> +501 BZ </option> <option value="+229"> +229 BJ </option> <option value="+1441"> +1441 BM </option> <option value="+975"> +975 BT </option> <option value="+591"> +591 BO </option> <option value="+599"> +599 BQ </option> <option value="+387"> +387 BA </option> <option value="+267"> +267 BW </option> <option value="+47"> +47 BV </option> <option value="+55"> +55 BR </option> <option value="+246"> +246 IO </option> <option value="+673"> +673 BN </option> <option value="+359"> +359 BG </option> <option value="+226"> +226 BF </option> <option value="+257"> +257 BI </option> <option value="+855"> +855 KH </option> <option value="+237"> +237 CM </option> <option value="+1"> +1 CA </option> <option value="+34"> +34 IC </option> <option value="+238"> +238 CV </option> <option value="+1345"> +1345 KY </option> <option value="+236"> +236 CF </option> <option value="+34"> +34 EA </option> <option value="+235"> +235 TD </option> <option value="+56"> +56 CL </option> <option value="+86"> +86 CN </option> <option value="+61"> +61 CX </option> <option value="+61"> +61 CC </option> <option value="+57"> +57 CO </option> <option value="+269"> +269 KM </option> <option value="+242"> +242 CG </option> <option value="+243"> +243 CD </option> <option value="+682"> +682 CK </option> <option value="+506"> +506 CR </option> <option value="+225"> +225 CI </option> <option value="+385"> +385 HR </option> <option value="+53"> +53 CU </option> <option value="+599"> +599 CW </option> <option value="+357"> +357 CY </option> <option value="+420"> +420 CZ </option> <option value="+45"> +45 DK </option> <option value="+253"> +253 DJ </option> <option value="+1767"> +1767 DM </option> <option value="+1809"> +1809 DO </option> <option value="+1829"> +1829 DO </option> <option value="+1849"> +1849 DO </option> <option value="+593"> +593 EC </option> <option value="+20"> +20 EG </option> <option value="+503"> +503 SV </option> <option value="+240"> +240 GQ </option> <option value="+291"> +291 ER </option> <option value="+372"> +372 EE </option> <option value="+251"> +251 ET </option> <option value="+500"> +500 FK </option> <option value="+298"> +298 FO </option> <option value="+679"> +679 FJ </option> <option value="+358"> +358 FI </option> <option value="+594"> +594 GF </option> <option value="+689"> +689 PF </option> <option value="+262"> +262 TF </option> <option value="+241"> +241 GA </option> <option value="+220"> +220 GM </option> <option value="+995"> +995 GE </option> <option value="+350"> +350 GI </option> <option value="+30"> +30 GR </option> <option value="+299"> +299 GL </option> <option value="+1473"> +1473 GD </option> <option value="+590"> +590 GP </option> <option value="+1671"> +1671 GU </option> <option value="+502"> +502 GT </option> <option value="+44"> +44 GG </option> <option value="+224"> +224 GN </option> <option value="+245"> +245 GW </option> <option value="+592"> +592 GY </option> <option value="+509"> +509 HT </option> <option value="+672"> +672 HM </option> <option value="+379"> +379 VA </option> <option value="+504"> +504 HN </option> <option value="+852"> +852 HK </option> <option value="+36"> +36 HU </option> <option value="+354"> +354 IS </option> <option value="+91"> +91 IN </option> <option value="+62"> +62 ID </option> <option value="+98"> +98 IR </option> <option value="+964"> +964 IQ </option> <option value="+353"> +353 IE </option> <option value="+44"> +44 IM </option> <option value="+972"> +972 IL </option> <option value="+1876"> +1876 JM </option> <option value="+81"> +81 JP </option> <option value="+44"> +44 JE </option> <option value="+962"> +962 JO </option> <option value="+7"> +7 KZ </option> <option value="+254"> +254 KE </option> <option value="+686"> +686 KI </option> <option value="+850"> +850 KP </option> <option value="+82"> +82 KR </option> <option value="+965"> +965 KW </option> <option value="+996"> +996 KG </option> <option value="+856"> +856 LA </option> <option value="+371"> +371 LV </option> <option value="+961"> +961 LB </option> <option value="+266"> +266 LS </option> <option value="+231"> +231 LR </option> <option value="+218"> +218 LY </option> <option value="+423"> +423 LI </option> <option value="+370"> +370 LT </option> <option value="+352"> +352 LU </option> <option value="+853"> +853 MO </option> <option value="+389"> +389 MK </option> <option value="+261"> +261 MG </option> <option value="+265"> +265 MW </option> <option value="+60"> +60 MY </option> <option value="+960"> +960 MV </option> <option value="+223"> +223 ML </option> <option value="+356"> +356 MT </option> <option value="+692"> +692 MH </option> <option value="+596"> +596 MQ </option> <option value="+222"> +222 MR </option> <option value="+230"> +230 MU </option> <option value="+262"> +262 YT </option> <option value="+52"> +52 MX </option> <option value="+691"> +691 FM </option> <option value="+373"> +373 MD </option> <option value="+377"> +377 MC </option> <option value="+976"> +976 MN </option> <option value="+382"> +382 ME </option> <option value="+1664"> +1664 MS </option> <option value="+212"> +212 MA </option> <option value="+258"> +258 MZ </option> <option value="+95"> +95 MM </option> <option value="+264"> +264 NA </option> <option value="+674"> +674 NR </option> <option value="+977"> +977 NP </option> <option value="+31"> +31 NL </option> <option value="+687"> +687 NC </option> <option value="+64"> +64 NZ </option> <option value="+505"> +505 NI </option> <option value="+227"> +227 NE </option> <option value="+234"> +234 NG </option> <option value="+683"> +683 NU </option> <option value="+672"> +672 NF </option> <option value="+1670"> +1670 MP </option> <option value="+47"> +47 NO </option> <option value="+968"> +968 OM </option> <option value="+92"> +92 PK </option> <option value="+680"> +680 PW </option> <option value="+970"> +970 PS </option> <option value="+507"> +507 PA </option> <option value="+675"> +675 PG </option> <option value="+595"> +595 PY </option> <option value="+51"> +51 PE </option> <option value="+63"> +63 PH </option> <option value="+64"> +64 PN </option> <option value="+48"> +48 PL </option> <option value="+351"> +351 PT </option> <option value="+1787"> +1787 PR </option> <option value="+974"> +974 QA </option> <option value="+383"> +383 XK </option> <option value="+262"> +262 RE </option> <option value="+40"> +40 RO </option> <option value="+7"> +7 RU </option> <option value="+250"> +250 RW </option> <option value="+590"> +590 BL </option> <option value="+290"> +290 SH </option> <option value="+1869"> +1869 KN </option> <option value="+1758"> +1758 LC </option> <option value="+590"> +590 MF </option> <option value="+508"> +508 PM </option> <option value="+1784"> +1784 VC </option> <option value="+685"> +685 WS </option> <option value="+378"> +378 SM </option> <option value="+239"> +239 ST </option> <option value="+966"> +966 SA </option> <option value="+221"> +221 SN </option> <option value="+381"> +381 RS </option> <option value="+248"> +248 SC </option> <option value="+232"> +232 SL </option> <option value="+65"> +65 SG </option> <option value="+1721"> +1721 SX </option> <option value="+421"> +421 SK </option> <option value="+386"> +386 SI </option> <option value="+677"> +677 SB </option> <option value="+252"> +252 SO </option> <option value="+27"> +27 ZA </option> <option value="+500"> +500 GS </option> <option value="+211"> +211 SS </option> <option value="+94"> +94 LK </option> <option value="+249"> +249 SD </option> <option value="+597"> +597 SR </option> <option value="+47"> +47 SJ </option> <option value="+268"> +268 SZ </option> <option value="+46"> +46 SE </option> <option value="+963"> +963 SY </option> <option value="+886"> +886 TW </option> <option value="+992"> +992 TJ </option> <option value="+255"> +255 TZ </option> <option value="+66"> +66 TH </option> <option value="+670"> +670 TL </option> <option value="+228"> +228 TG </option> <option value="+690"> +690 TK </option> <option value="+676"> +676 TO </option> <option value="+1868"> +1868 TT </option> <option value="+216"> +216 TN </option> <option value="+90"> +90 TR </option> <option value="+993"> +993 TM </option> <option value="+1649"> +1649 TC </option> <option value="+688"> +688 TV </option> <option value="+256"> +256 UG </option> <option value="+380"> +380 UA </option> <option value="+971"> +971 AE </option> <option value="+246"> +246 UM </option> <option value="+598"> +598 UY </option> <option value="+998"> +998 UZ </option> <option value="+678"> +678 VU </option> <option value="+58"> +58 VE </option> <option value="+84"> +84 VN </option> <option value="+1284"> +1284 VG </option> <option value="+1340"> +1340 VI </option> <option value="+681"> +681 WF </option> <option value="+212"> +212 EH </option> <option value="+967"> +967 YE </option> <option value="+260"> +260 ZM </option> <option value="+263"> +263 ZW </option>
-                                </select>
-                              </div>
-                              <div class="entry__field" style="width: 100%">
-                                <input type="tel" class="input" id="SMS" name="SMS" autocomplete="off" placeholder="SMS" data-required="true" required />
-                              </div>
-                            </div>
-                            <div class="sib-sms-tooltip">
-                              <div class="sib-sms-tooltip__box">
-                                Il campo SMS deve contenere tra i 6 e i 19 caratteri e includere il prefisso del paese senza usare +/0 (es. 39xxxxxxxxxx per l&#039;Italia)
-                              </div>
-                              <span class="sib-sms-tooltip__icon">?</span>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-input sib-form-block">
+                        <div class="form__entry entry_block">
+                          <div class="form__label-row ">
+                            <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="NOME" data-required="*">NOME e COGNOME</label>
+            
+                            <div class="entry__field">
+                              <input class="input " maxlength="200" type="text" id="NOME" name="NOME" autocomplete="off" placeholder="NOME" data-required="true" required />
                             </div>
                           </div>
+            
+                          <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
+                            Usa nome reale: così ti riconosciamo subito
+                          </label>
                         </div>
-          
-                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__error entry__error--secondary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                          Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call
-                        </label>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-input sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Inserisci un’email valida: riceverai la conferma immediata</label>
-          
-                          <div class="entry__field">
-                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
+                    <div style="padding: 8px 0;">
+                      <div class="sib-sms-field sib-form-block">
+                        <div class="form__entry entry_block">
+                          <div class="form__label-row ">
+                            <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="SMS" data-required="*">Numero attivo: ti inviamo un promemoria prima della call</label>
+            
+                            <div class="sib-sms-input-wrapper" style="direction:ltr">
+                              <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
+                                <div class="entry__field">
+                                  <select class="input" name="SMS__COUNTRY_CODE" data-required="true">
+                                    <option value="+39" selected>+39 IT</option>
+                                    <option value="+41">+41 CH</option>
+                                    <option value="+1">+1 US</option>
+                                    <option value="+44">+44 GB</option>
+                                    <option value="+34">+34 ES</option>
+                                    <option value="+49">+49 DE</option>
+                                    <option value="+33">+33 FR</option>
+                                    <option value="+93"> +93 AF </option> <option value="+358"> +358 AX </option> <option value="+355"> +355 AL </option> <option value="+213"> +213 DZ </option> <option value="+1684"> +1684 AS </option> <option value="+376"> +376 AD </option> <option value="+244"> +244 AO </option> <option value="+1264"> +1264 AI </option> <option value="+672"> +672 AQ </option> <option value="+1268"> +1268 AG </option> <option value="+54"> +54 AR </option> <option value="+374"> +374 AM </option> <option value="+297"> +297 AW </option> <option value="+61"> +61 AU </option> <option value="+43"> +43 AT </option> <option value="+994"> +994 AZ </option> <option value="+1242"> +1242 BS </option> <option value="+973"> +973 BH </option> <option value="+880"> +880 BD </option> <option value="+1246"> +1246 BB </option> <option value="+375"> +375 BY </option> <option value="+32"> +32 BE </option> <option value="+501"> +501 BZ </option> <option value="+229"> +229 BJ </option> <option value="+1441"> +1441 BM </option> <option value="+975"> +975 BT </option> <option value="+591"> +591 BO </option> <option value="+599"> +599 BQ </option> <option value="+387"> +387 BA </option> <option value="+267"> +267 BW </option> <option value="+47"> +47 BV </option> <option value="+55"> +55 BR </option> <option value="+246"> +246 IO </option> <option value="+673"> +673 BN </option> <option value="+359"> +359 BG </option> <option value="+226"> +226 BF </option> <option value="+257"> +257 BI </option> <option value="+855"> +855 KH </option> <option value="+237"> +237 CM </option> <option value="+1"> +1 CA </option> <option value="+34"> +34 IC </option> <option value="+238"> +238 CV </option> <option value="+1345"> +1345 KY </option> <option value="+236"> +236 CF </option> <option value="+34"> +34 EA </option> <option value="+235"> +235 TD </option> <option value="+56"> +56 CL </option> <option value="+86"> +86 CN </option> <option value="+61"> +61 CX </option> <option value="+61"> +61 CC </option> <option value="+57"> +57 CO </option> <option value="+269"> +269 KM </option> <option value="+242"> +242 CG </option> <option value="+243"> +243 CD </option> <option value="+682"> +682 CK </option> <option value="+506"> +506 CR </option> <option value="+225"> +225 CI </option> <option value="+385"> +385 HR </option> <option value="+53"> +53 CU </option> <option value="+599"> +599 CW </option> <option value="+357"> +357 CY </option> <option value="+420"> +420 CZ </option> <option value="+45"> +45 DK </option> <option value="+253"> +253 DJ </option> <option value="+1767"> +1767 DM </option> <option value="+1809"> +1809 DO </option> <option value="+1829"> +1829 DO </option> <option value="+1849"> +1849 DO </option> <option value="+593"> +593 EC </option> <option value="+20"> +20 EG </option> <option value="+503"> +503 SV </option> <option value="+240"> +240 GQ </option> <option value="+291"> +291 ER </option> <option value="+372"> +372 EE </option> <option value="+251"> +251 ET </option> <option value="+500"> +500 FK </option> <option value="+298"> +298 FO </option> <option value="+679"> +679 FJ </option> <option value="+358"> +358 FI </option> <option value="+594"> +594 GF </option> <option value="+689"> +689 PF </option> <option value="+262"> +262 TF </option> <option value="+241"> +241 GA </option> <option value="+220"> +220 GM </option> <option value="+995"> +995 GE </option> <option value="+350"> +350 GI </option> <option value="+30"> +30 GR </option> <option value="+299"> +299 GL </option> <option value="+1473"> +1473 GD </option> <option value="+590"> +590 GP </option> <option value="+1671"> +1671 GU </option> <option value="+502"> +502 GT </option> <option value="+44"> +44 GG </option> <option value="+224"> +224 GN </option> <option value="+245"> +245 GW </option> <option value="+592"> +592 GY </option> <option value="+509"> +509 HT </option> <option value="+672"> +672 HM </option> <option value="+379"> +379 VA </option> <option value="+504"> +504 HN </option> <option value="+852"> +852 HK </option> <option value="+36"> +36 HU </option> <option value="+354"> +354 IS </option> <option value="+91"> +91 IN </option> <option value="+62"> +62 ID </option> <option value="+98"> +98 IR </option> <option value="+964"> +964 IQ </option> <option value="+353"> +353 IE </option> <option value="+44"> +44 IM </option> <option value="+972"> +972 IL </option> <option value="+1876"> +1876 JM </option> <option value="+81"> +81 JP </option> <option value="+44"> +44 JE </option> <option value="+962"> +962 JO </option> <option value="+7"> +7 KZ </option> <option value="+254"> +254 KE </option> <option value="+686"> +686 KI </option> <option value="+850"> +850 KP </option> <option value="+82"> +82 KR </option> <option value="+965"> +965 KW </option> <option value="+996"> +996 KG </option> <option value="+856"> +856 LA </option> <option value="+371"> +371 LV </option> <option value="+961"> +961 LB </option> <option value="+266"> +266 LS </option> <option value="+231"> +231 LR </option> <option value="+218"> +218 LY </option> <option value="+423"> +423 LI </option> <option value="+370"> +370 LT </option> <option value="+352"> +352 LU </option> <option value="+853"> +853 MO </option> <option value="+389"> +389 MK </option> <option value="+261"> +261 MG </option> <option value="+265"> +265 MW </option> <option value="+60"> +60 MY </option> <option value="+960"> +960 MV </option> <option value="+223"> +223 ML </option> <option value="+356"> +356 MT </option> <option value="+692"> +692 MH </option> <option value="+596"> +596 MQ </option> <option value="+222"> +222 MR </option> <option value="+230"> +230 MU </option> <option value="+262"> +262 YT </option> <option value="+52"> +52 MX </option> <option value="+691"> +691 FM </option> <option value="+373"> +373 MD </option> <option value="+377"> +377 MC </option> <option value="+976"> +976 MN </option> <option value="+382"> +382 ME </option> <option value="+1664"> +1664 MS </option> <option value="+212"> +212 MA </option> <option value="+258"> +258 MZ </option> <option value="+95"> +95 MM </option> <option value="+264"> +264 NA </option> <option value="+674"> +674 NR </option> <option value="+977"> +977 NP </option> <option value="+31"> +31 NL </option> <option value="+687"> +687 NC </option> <option value="+64"> +64 NZ </option> <option value="+505"> +505 NI </option> <option value="+227"> +227 NE </option> <option value="+234"> +234 NG </option> <option value="+683"> +683 NU </option> <option value="+672"> +672 NF </option> <option value="+1670"> +1670 MP </option> <option value="+47"> +47 NO </option> <option value="+968"> +968 OM </option> <option value="+92"> +92 PK </option> <option value="+680"> +680 PW </option> <option value="+970"> +970 PS </option> <option value="+507"> +507 PA </option> <option value="+675"> +675 PG </option> <option value="+595"> +595 PY </option> <option value="+51"> +51 PE </option> <option value="+63"> +63 PH </option> <option value="+64"> +64 PN </option> <option value="+48"> +48 PL </option> <option value="+351"> +351 PT </option> <option value="+1787"> +1787 PR </option> <option value="+974"> +974 QA </option> <option value="+383"> +383 XK </option> <option value="+262"> +262 RE </option> <option value="+40"> +40 RO </option> <option value="+7"> +7 RU </option> <option value="+250"> +250 RW </option> <option value="+590"> +590 BL </option> <option value="+290"> +290 SH </option> <option value="+1869"> +1869 KN </option> <option value="+1758"> +1758 LC </option> <option value="+590"> +590 MF </option> <option value="+508"> +508 PM </option> <option value="+1784"> +1784 VC </option> <option value="+685"> +685 WS </option> <option value="+378"> +378 SM </option> <option value="+239"> +239 ST </option> <option value="+966"> +966 SA </option> <option value="+221"> +221 SN </option> <option value="+381"> +381 RS </option> <option value="+248"> +248 SC </option> <option value="+232"> +232 SL </option> <option value="+65"> +65 SG </option> <option value="+1721"> +1721 SX </option> <option value="+421"> +421 SK </option> <option value="+386"> +386 SI </option> <option value="+677"> +677 SB </option> <option value="+252"> +252 SO </option> <option value="+27"> +27 ZA </option> <option value="+500"> +500 GS </option> <option value="+211"> +211 SS </option> <option value="+94"> +94 LK </option> <option value="+249"> +249 SD </option> <option value="+597"> +597 SR </option> <option value="+47"> +47 SJ </option> <option value="+268"> +268 SZ </option> <option value="+46"> +46 SE </option> <option value="+963"> +963 SY </option> <option value="+886"> +886 TW </option> <option value="+992"> +992 TJ </option> <option value="+255"> +255 TZ </option> <option value="+66"> +66 TH </option> <option value="+670"> +670 TL </option> <option value="+228"> +228 TG </option> <option value="+690"> +690 TK </option> <option value="+676"> +676 TO </option> <option value="+1868"> +1868 TT </option> <option value="+216"> +216 TN </option> <option value="+90"> +90 TR </option> <option value="+993"> +993 TM </option> <option value="+1649"> +1649 TC </option> <option value="+688"> +688 TV </option> <option value="+256"> +256 UG </option> <option value="+380"> +380 UA </option> <option value="+971"> +971 AE </option> <option value="+246"> +246 UM </option> <option value="+598"> +598 UY </option> <option value="+998"> +998 UZ </option> <option value="+678"> +678 VU </option> <option value="+58"> +58 VE </option> <option value="+84"> +84 VN </option> <option value="+1284"> +1284 VG </option> <option value="+1340"> +1340 VI </option> <option value="+681"> +681 WF </option> <option value="+212"> +212 EH </option> <option value="+967"> +967 YE </option> <option value="+260"> +260 ZM </option> <option value="+263"> +263 ZW </option>
+                                  </select>
+                                </div>
+                                <div class="entry__field" style="width: 100%">
+                                  <input type="tel" class="input" id="SMS" name="SMS" autocomplete="off" placeholder="SMS" data-required="true" required />
+                                </div>
+                              </div>
+                              <div class="sib-sms-tooltip">
+                                <div class="sib-sms-tooltip__box">
+                                  Il campo SMS deve contenere tra i 6 e i 19 caratteri e includere il prefisso del paese senza usare +/0 (es. 39xxxxxxxxxx per l&#039;Italia)
+                                </div>
+                                <span class="sib-sms-tooltip__icon">?</span>
+                              </div>
+                            </div>
                           </div>
+            
+                          <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__error entry__error--secondary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
+                            Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call
+                          </label>
                         </div>
-          
-                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                          Email valida richiesta: qui ricevi conferma e dettagli
-                        </label>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-form-block" style="text-align: left">
-                      <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#3E4857; border-radius:3px; border-width:0px;" form="sib-form" type="submit">
-                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="">
-                          <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                        </svg>
-                        INVIA RICHIESTA
-                      </button>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-input sib-form-block">
+                        <div class="form__entry entry_block">
+                          <div class="form__label-row ">
+                            <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Inserisci un’email valida: riceverai la conferma immediata</label>
+            
+                            <div class="entry__field">
+                              <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
+                            </div>
+                          </div>
+            
+                          <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
+                            Email valida richiesta: qui ricevi conferma e dettagli
+                          </label>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-          
-                  <input type="text" name="email_address_check" value="" class="input--hidden">
-                  <input type="hidden" name="locale" value="it">
-                </form>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-form-block" style="text-align: left">
+                        <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#3E4857; border-radius:3px; border-width:0px;" form="sib-form" type="submit">
+                          <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="">
+                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                          </svg>
+                          INVIA RICHIESTA
+                        </button>
+                      </div>
+                    </div>
+            
+                    <input type="text" name="email_address_check" value="" class="input--hidden">
+                    <input type="hidden" name="locale" value="it">
+                  </form>
+                </div>
               </div>
             </div>
+            </div>
           </div>
-          </div>
-        </div>
+      </div>
     </div>
   </section>
 
   <section class="content-section about-section">
-    <div class="about-content row">
-      <div class="about-image">
-        <img src="https://netzachademy.github.io/landing-numerologia-netzach/images/fabio-netzach.jpg" alt="Fabio Netzach - Esperto di Numerologia" />
-      </div>
-      <div class="about-text">
-        <h3>Chi è Fabio Netzach?</h3>
-        <h2>La tua guida nel mondo dei Numeri</h2>
-        <p>Fabio Netzach è uno dei massimi esperti di Numerologia in Italia. Dopo un'epifania durante un viaggio in Messico, ha dedicato la sua vita allo studio della Cabala e della Numerologia, sviluppando un metodo unico che unisce sapienza antica e applicazione pratica moderna.</p>
-        <p>Con oltre 15 anni di esperienza, ha formato centinaia di professionisti e aiutato migliaia di persone a ritrovare il proprio scopo attraverso il potere dei numeri. Questo corso è il distillato di tutta la sua conoscenza, reso accessibile a te.</p>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 text-center">
+          <img src="https://netzachademy.github.io/landing-numerologia-netzach/images/fabio-netzach.jpg" alt="Fabio Netzach - Esperto di Numerologia" class="img-fluid" />
+        </div>
+        <div class="col-md-7">
+          <h3 style="color: var(--primary-color); font-weight: 700;">Chi è Fabio Netzach?</h3>
+          <h2 class="mb-3">La tua guida nel mondo dei Numeri</h2>
+          <p>Fabio Netzach è uno dei massimi esperti di Numerologia in Italia. Dopo un'epifania durante un viaggio in Messico, ha dedicato la sua vita allo studio della Cabala e della Numerologia, sviluppando un metodo unico che unisce sapienza antica e applicazione pratica moderna.</p>
+          <p>Con oltre 15 anni di esperienza, ha formato centinaia di professionisti e aiutato migliaia di persone a ritrovare il proprio scopo attraverso il potere dei numeri. Questo corso è il distillato di tutta la sua conoscenza, reso accessibile a te.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="content-section features-section">
-    <h2>Cosa Imparerai in Questo Percorso</h2>
-    <div class="features-grid row">
-      <div class="feature-item">
-        <h3>Le Basi Solide della Numerologia</h3>
-        <p>Parti da zero e arriva a padroneggiare il significato di ogni singolo numero, dagli Archetipi alle sequenze complesse. Nessuna conoscenza pregressa richiesta.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Il Metodo "Netzach"</h3>
-        <p>Impara il sistema unico di Fabio che collega Numerologia, Cabala e Anima. Un approccio che non troverai in nessun altro corso, per una comprensione più profonda.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Stesura della Mappa Numerologica</h3>
-        <p>Sarai in grado di analizzare nome, cognome e data di nascita per creare Mappe Numerologiche complete e professionali per te stesso e per i tuoi futuri clienti.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Numerologia Pratica e Business</h3>
-        <p>Non solo teoria. Capirai come trasformare questa competenza in una professione, come trovare clienti e come proporti in modo etico ed efficace.</p>
+    <div class="container">
+      <h2 class="mb-5">Cosa Imparerai in Questo Percorso</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-item">
+            <h3>Le Basi Solide della Numerologia</h3>
+            <p>Parti da zero e arriva a padroneggiare il significato di ogni singolo numero, dagli Archetipi alle sequenze complesse. Nessuna conoscenza pregressa richiesta.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-item">
+            <h3>Il Metodo "Netzach"</h3>
+            <p>Impara il sistema unico di Fabio che collega Numerologia, Cabala e Anima. Un approccio che non troverai in nessun altro corso, per una comprensione più profonda.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-item">
+            <h3>Stesura della Mappa Numerologica</h3>
+            <p>Sarai in grado di analizzare nome, cognome e data di nascita per creare Mappe Numerologiche complete e professionali per te stesso e per i tuoi futuri clienti.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-item">
+            <h3>Numerologia Pratica e Business</h3>
+            <p>Non solo teoria. Capirai come trasformare questa competenza in una professione, come trovare clienti e come proporti in modo etico ed efficace.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="content-section testimonials-section">
-    <h2>Cosa Dicono i Suoi Studenti</h2>
-    <div class="testimonial">
-      <p>"Il corso con Fabio è stato una rivelazione. Non solo ho capito finalmente il mio scopo, ma ora ho gli strumenti per aiutare gli altri a fare lo stesso. Ho lasciato il mio vecchio lavoro e ora sono una Numerologa a tempo pieno."</p>
-      <div class="author">- Martina V.</div>
+    <div class="container">
+      <h2>Cosa Dicono i Suoi Studenti</h2>
+      <div class="testimonial">
+        <p>"Il corso con Fabio è stato una rivelazione. Non solo ho capito finalmente il mio scopo, ma ora ho gli strumenti per aiutare gli altri a fare lo stesso. Ho lasciato il mio vecchio lavoro e ora sono una Numerologa a tempo pieno."</p>
+        <div class="author">- Martina V.</div>
+      </div>
     </div>
   </section>
 
   <section class="content-section final-cta-section" id="form-bottom">
-    <h2>Sei Pronto a Iniziare il Tuo Viaggio?</h2>
-    <p class="spots-left">⚠️ I POSTI STANNO PER ESAURIRE ⚠️</p>
-    <div class="row">
-      <div class="col-md-6 form-column" style="margin: 0 auto; background: none; flex: 1 1 100%;">
-        
-        <div class="registration-form p-4">
-          <div class="sib-form" style="text-align: center; background-color: #FFFFFF; padding: 0;">
-            <div id="sib-form-container-2" class="sib-form-container"> <div id="error-message-2" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;"> <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                    <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
-                  </svg>
-                  <span class="sib-form-message-panel__inner-text">
-                                    La tua richiesta non può essere convalidata.
-                                </span>
-                </div>
-              </div>
-              <div></div>
-              <div id="success-message-2" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;"> <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                    <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
-                  </svg>
-                  <span class="sib-form-message-panel__inner-text">
-                                    ✅ Richiesta ricevuta con successo!  Grazie per il tuo interesse nel Percorso di Numerologia con Fabio Netzach.  Ti contatteremo entro 24-48 ore lavorative al numero che hai fornito.  Nel frattempo, controlla la tua email per la conferma.  A presto!
-                                </span>
-                </div>
-              </div>
-              <div></div>
-              <div id="sib-container-2" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr"> <form id="sib-form-2" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAC5qas-aD05EFL-ppVMcsZnJmnT55PJOVj-M7syFI8eHW7vVfigUcMhnO0uTw3fFnyaJRlluG-2Rz-mOY-SR9vF62Qnd3UY2zCBjRnchUsB1AGVSTkw-paUsKSw150e15IA6Jkl0AaD2vnRo20_gwLokZaTF4_IhfS6KMuLji2m6iFkzTL3cVQwx7gG59-Li1BAsO_357ao-" data-type="subscription"> <div style="padding: 8px 0;">
-                    <div class="sib-form-block" style="font-size:32px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
-                      <p>Prenota la chiamata di orientamento</p>
-                    </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-form-block" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
-                      <div class="sib-text-form-block">
-                        <p>Lascia i tuoi dati: ti contattiamo entro 24h lavorative</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-input sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="NOME-2" data-required="*">NOME e COGNOME</label> <div class="entry__field">
-                            <input class="input " maxlength="200" type="text" id="NOME-2" name="NOME" autocomplete="off" placeholder="NOME" data-required="true" required /> </div>
-                        </div>
+    <div class="container">
+      <h2>Sei Pronto a Iniziare il Tuo Viaggio?</h2>
+      <p class="spots-left">⚠️ I POSTI STANNO PER ESAURIRE ⚠️</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
           
-                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                          Usa nome reale: così ti riconosciamo subito
-                        </label>
+          <div class="registration-form p-4">
+            <div class="sib-form" style="text-align: center;">
+              <div id="sib-form-container-2" class="sib-form-container"> <div id="error-message-2" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;"> <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                      <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                    </svg>
+                    <span class="sib-form-message-panel__inner-text">
+                                      La tua richiesta non può essere convalidata.
+                                  </span>
+                  </div>
+                </div>
+                <div></div>
+                <div id="success-message-2" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;"> <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                      <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                    </svg>
+                    <span class="sib-form-message-panel__inner-text">
+                                      ✅ Richiesta ricevuta con successo!  Grazie per il tuo interesse nel Percorso di Numerologia con Fabio Netzach.  Ti contatteremo entro 24-48 ore lavorative al numero che hai fornito.  Nel frattempo, controlla la tua email per la conferma.  A presto!
+                                  </span>
+                  </div>
+                </div>
+                <div></div>
+                <div id="sib-container-2" class="sib-container--large sib-container--vertical" style="text-align:center; direction:ltr"> <form id="sib-form-2" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAC5qas-aD05EFL-ppVMcsZnJmnT55PJOVj-M7syFI8eHW7vVfigUcMhnO0uTw3fFnyaJRlluG-2Rz-mOY-SR9vF62Qnd3UY2zCBjRnchUsB1AGVSTkw-paUsKSw150e15IA6Jkl0AaD2vnRo20_gwLokZaTF4_IhfS6KMuLji2m6iFkzTL3cVQwx7gG59-Li1BAsO_357ao-" data-type="subscription"> <div style="padding: 8px 0;">
+                      <div class="sib-form-block" style="font-size:32px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
+                        <p>Prenota la chiamata di orientamento</p>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-sms-field sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="SMS-2" data-required="*">Numero attivo: ti inviamo un promemoria prima della call</label> <div class="sib-sms-input-wrapper" style="direction:ltr">
-                            <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
-                              <div class="entry__field">
-                                <select class="input" name="SMS__COUNTRY_CODE" data-required="true">
-                                  <option value="+39" selected>+39 IT</option>
-                                  <option value="+41">+41 CH</option>
-                                  <option value="+1">+1 US</option>
-                                  <option value="+44">+44 GB</option>
-                                  <option value="+34">+34 ES</option>
-                                  <option value="+49">+49 DE</option>
-                                  <option value="+33">+33 FR</option>
-                                  <option value="+93"> +93 AF </option> <option value="+358"> +358 AX </option> <option value="+355"> +355 AL </option> <option value="+213"> +213 DZ </option> <option value="+1684"> +1684 AS </option> <option value="+376"> +376 AD </option> <option value="+244"> +244 AO </option> <option value="+1264"> +1264 AI </option> <option value="+672"> +672 AQ </option> <option value="+1268"> +1268 AG </option> <option value="+54"> +54 AR </option> <option value="+374"> +374 AM </option> <option value="+297"> +297 AW </option> <option value="+61"> +61 AU </option> <option value="+43"> +43 AT </option> <option value="+994"> +994 AZ </option> <option value="+1242"> +1242 BS </option> <option value="+973"> +973 BH </option> <option value="+880"> +880 BD </option> <option value="+1246"> +1246 BB </option> <option value="+375"> +375 BY </option> <option value="+32"> +32 BE </option> <option value="+501"> +501 BZ </option> <option value="+229"> +229 BJ </option> <option value="+1441"> +1441 BM </option> <option value="+975"> +975 BT </option> <option value="+591"> +591 BO </option> <option value="+599"> +599 BQ </option> <option value="+387"> +387 BA </option> <option value="+267"> +267 BW </option> <option value="+47"> +47 BV </option> <option value="+55"> +55 BR </option> <option value="+246"> +246 IO </option> <option value="+673"> +673 BN </option> <option value="+359"> +359 BG </option> <option value="+226"> +226 BF </option> <option value="+257"> +257 BI </option> <option value="+855"> +855 KH </option> <option value="+237"> +237 CM </option> <option value="+1"> +1 CA </option> <option value="+34"> +34 IC </option> <option value="+238"> +238 CV </option> <option value="+1345"> +1345 KY </option> <option value="+236"> +236 CF </option> <option value="+34"> +34 EA </option> <option value="+235"> +235 TD </option> <option value="+56"> +56 CL </option> <option value="+86"> +86 CN </option> <option value="+61"> +61 CX </option> <option value="+61"> +61 CC </option> <option value="+57"> +57 CO </option> <option value="+269"> +269 KM </option> <option value="+242"> +242 CG </option> <option value="+243"> +243 CD </option> <option value="+682"> +682 CK </option> <option value="+506"> +506 CR </option> <option value="+225"> +225 CI </option> <option value="+385"> +385 HR </option> <option value="+53"> +53 CU </option> <option value="+599"> +599 CW </option> <option value="+357"> +357 CY </option> <option value="+420"> +420 CZ </option> <option value="+45"> +45 DK </option> <option value="+253"> +253 DJ </option> <option value="+1767"> +1767 DM </option> <option value="+1809"> +1809 DO </option> <option value="+1829"> +1829 DO </option> <option value="+1849"> +1849 DO </option> <option value="+593"> +593 EC </option> <option value="+20"> +20 EG </option> <option value="+503"> +503 SV </option> <option value="+240"> +240 GQ </option> <option value="+291"> +291 ER </option> <option value="+372"> +372 EE </option> <option value="+251"> +251 ET </option> <option value="+500"> +500 FK </option> <option value="+298"> +298 FO </option> <option value="+679"> +679 FJ </option> <option value="+358"> +358 FI </option> <option value="+594"> +594 GF </option> <option value="+689"> +689 PF </option> <option value="+262"> +262 TF </option> <option value="+241"> +241 GA </option> <option value="+220"> +220 GM </option> <option value="+995"> +995 GE </option> <option value="+350"> +350 GI </option> <option value="+30"> +30 GR </option> <option value="+299"> +299 GL </option> <option value="+1473"> +1473 GD </option> <option value="+590"> +590 GP </option> <option value="+1671"> +1671 GU </option> <option value="+502"> +502 GT </option> <option value="+44"> +44 GG </option> <option value="+224"> +224 GN </option> <option value="+245"> +245 GW </option> <option value="+592"> +592 GY </option> <option value="+509"> +509 HT </option> <option value="+672"> +672 HM </option> <option value="+379"> +379 VA </option> <option value="+504"> +504 HN </option> <option value="+852"> +852 HK </option> <option value="+36"> +36 HU </option> <option value="+354"> +354 IS </option> <option value="+91"> +91 IN </option> <option value="+62"> +62 ID </option> <option value="+98"> +98 IR </option> <option value="+964"> +964 IQ </option> <option value="+353"> +353 IE </option> <option value="+44"> +44 IM </option> <option value="+972"> +972 IL </option> <option value="+1876"> +1876 JM </option> <option value="+81"> +81 JP </option> <option value="+44"> +44 JE </option> <option value="+962"> +962 JO </option> <option value="+7"> +7 KZ </option> <option value="+254"> +254 KE </option> <option value="+686"> +686 KI </option> <option value="+850"> +850 KP </option> <option value="+82"> +82 KR </option> <option value="+965"> +965 KW </option> <option value="+996"> +996 KG </option> <option value="+856"> +856 LA </option> <option value="+371"> +371 LV </option> <option value="+961"> +961 LB </option> <option value="+266"> +266 LS </option> <option value="+231"> +231 LR </option> <option value="+218"> +218 LY </option> <option value="+423"> +423 LI </option> <option value="+370"> +370 LT </option> <option value="+352"> +352 LU </option> <option value="+853"> +853 MO </option> <option value="+389"> +389 MK </option> <option value="+261"> +261 MG </option> <option value="+265"> +265 MW </option> <option value="+60"> +60 MY </option> <option value="+960"> +960 MV </option> <option value="+223"> +223 ML </option> <option value="+356"> +356 MT </option> <option value="+692"> +692 MH </option> <option value="+596"> +596 MQ </option> <option value="+222"> +222 MR </option> <option value="+230"> +230 MU </option> <option value="+262"> +262 YT </option> <option value="+52"> +52 MX </option> <option value="+691"> +691 FM </option> <option value="+373"> +373 MD </option> <option value="+377"> +377 MC </option> <option value="+976"> +976 MN </option> <option value="+382"> +382 ME </option> <option value="+1664"> +1664 MS </option> <option value="+212"> +212 MA </option> <option value="+258"> +258 MZ </option> <option value="+95"> +95 MM </option> <option value="+264"> +264 NA </option> <option value="+674"> +674 NR </option> <option value="+977"> +977 NP </option> <option value="+31"> +31 NL </option> <option value="+687"> +687 NC </option> <option value="+64"> +64 NZ </option> <option value="+505"> +505 NI </option> <option value="+227"> +227 NE </option> <option value="+234"> +234 NG </option> <option value="+683"> +683 NU </option> <option value="+672"> +672 NF </option> <option value="+1670"> +1670 MP </option> <option value="+47"> +47 NO </option> <option value="+968"> +968 OM </option> <option value="+92"> +92 PK </option> <option value="+680"> +680 PW </option> <option value="+970"> +970 PS </option> <option value="+507"> +507 PA </option> <option value="+675"> +675 PG </option> <option value="+595"> +595 PY </option> <option value="+51"> +51 PE </option> <option value="+63"> +63 PH </option> <option value="+64"> +64 PN </option> <option value="+48"> +48 PL </option> <option value="+351"> +351 PT </option> <option value="+1787"> +1787 PR </option> <option value="+974"> +974 QA </option> <option value="+383"> +383 XK </option> <option value="+262"> +262 RE </option> <option value="+40"> +40 RO </option> <option value="+7"> +7 RU </option> <option value="+250"> +250 RW </option> <option value="+590"> +590 BL </option> <option value="+290"> +290 SH </option> <option value="+1869"> +1869 KN </option> <option value="+1758"> +1758 LC </option> <option value="+590"> +590 MF </option> <option value="+508"> +508 PM </option> <option value="+1784"> +1784 VC </option> <option value="+685"> +685 WS </option> <option value="+378"> +378 SM </option> <option value="+239"> +239 ST </option> <option value="+966"> +966 SA </option> <option value="+221"> +221 SN </option> <option value="+381"> +381 RS </option> <option value="+248"> +248 SC </option> <option value="+232"> +232 SL </option> <option value="+65"> +65 SG </option> <option value="+1721"> +1721 SX </option> <option value="+421"> +421 SK </option> <option value="+386"> +386 SI </option> <option value="+677"> +677 SB </option> <option value="+252"> +252 SO </option> <option value="+27"> +27 ZA </option> <option value="+500"> +500 GS </option> <option value="+211"> +211 SS </option> <option value="+94"> +94 LK </option> <option value="+249"> +249 SD </option> <option value="+597"> +597 SR </option> <option value="+47"> +47 SJ </option> <option value="+268"> +268 SZ </option> <option value="+46"> +46 SE </option> <option value="+963"> +963 SY </option> <option value="+886"> +886 TW </option> <option value="+992"> +992 TJ </option> <option value="+255"> +255 TZ </option> <option value="+66"> +66 TH </option> <option value="+670"> +670 TL </option> <option value="+228"> +228 TG </option> <option value="+690"> +690 TK </option> <option value="+676"> +676 TO </option> <option value="+1868"> +1868 TT </option> <option value="+216"> +216 TN </option> <option value="+90"> +90 TR </option> <option value="+993"> +993 TM </option> <option value="+1649"> +1649 TC </option> <option value="+688"> +688 TV </option> <option value="+256"> +256 UG </option> <option value="+380"> +380 UA </option> <option value="+971"> +971 AE </option> <option value="+246"> +246 UM </option> <option value="+598"> +598 UY </option> <option value="+998"> +998 UZ </option> <option value="+678"> +678 VU </option> <option value="+58"> +58 VE </option> <option value="+84"> +84 VN </option> <option value="+1284"> +1284 VG </option> <option value="+1340"> +1340 VI </option> <option value="+681"> +681 WF </option> <option value="+212"> +212 EH </option> <option value="+967"> +967 YE </option> <option value="+260"> +260 ZM </option> <option value="+263"> +263 ZW </option>
-                                </select>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-form-block" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
+                        <div class="sib-text-form-block">
+                          <p>Lascia i tuoi dati: ti contattiamo entro 24h lavorative</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-input sib-form-block">
+                        <div class="form__entry entry_block">
+                          <div class="form__label-row ">
+                            <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="NOME-2" data-required="*">NOME e COGNOME</label> <div class="entry__field">
+                              <input class="input " maxlength="200" type="text" id="NOME-2" name="NOME" autocomplete="off" placeholder="NOME" data-required="true" required /> </div>
+                          </div>
+            
+                          <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
+                            Usa nome reale: così ti riconosciamo subito
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-sms-field sib-form-block">
+                        <div class="form__entry entry_block">
+                          <div class="form__label-row ">
+                            <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="SMS-2" data-required="*">Numero attivo: ti inviamo un promemoria prima della call</label> <div class="sib-sms-input-wrapper" style="direction:ltr">
+                              <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
+                                <div class="entry__field">
+                                  <select class="input" name="SMS__COUNTRY_CODE" data-required="true">
+                                    <option value="+39" selected>+39 IT</option>
+                                    <option value="+41">+41 CH</option>
+                                    <option value="+1">+1 US</option>
+                                    <option value="+44">+44 GB</option>
+                                    <option value="+34">+34 ES</option>
+                                    <option value="+49">+49 DE</option>
+                                    <option value="+33">+33 FR</option>
+                                    <option value="+93"> +93 AF </option> <option value="+358"> +358 AX </option> <option value="+355"> +355 AL </option> <option value="+213"> +213 DZ </option> <option value="+1684"> +1684 AS </option> <option value="+376"> +376 AD </option> <option value="+244"> +244 AO </option> <option value="+1264"> +1264 AI </option> <option value="+672"> +672 AQ </option> <option value="+1268"> +1268 AG </option> <option value="+54"> +54 AR </option> <option value="+374"> +374 AM </option> <option value="+297"> +297 AW </option> <option value="+61"> +61 AU </option> <option value="+43"> +43 AT </option> <option value="+994"> +994 AZ </option> <option value="+1242"> +1242 BS </option> <option value="+973"> +973 BH </option> <option value="+880"> +880 BD </option> <option value="+1246"> +1246 BB </option> <option value="+375"> +375 BY </option> <option value="+32"> +32 BE </option> <option value="+501"> +501 BZ </option> <option value="+229"> +229 BJ </option> <option value="+1441"> +1441 BM </option> <option value="+975"> +975 BT </option> <option value="+591"> +591 BO </option> <option value="+599"> +599 BQ </option> <option value="+387"> +387 BA </option> <option value="+267"> +267 BW </option> <option value="+47"> +47 BV </option> <option value="+55"> +55 BR </option> <option value="+246"> +246 IO </option> <option value="+673"> +673 BN </option> <option value="+359"> +359 BG </option> <option value="+226"> +226 BF </option> <option value="+257"> +257 BI </option> <option value="+855"> +855 KH </option> <option value="+237"> +237 CM </option> <option value="+1"> +1 CA </option> <option value="+34"> +34 IC </option> <option value="+238"> +238 CV </option> <option value="+1345"> +1345 KY </option> <option value="+236"> +236 CF </option> <option value="+34"> +34 EA </option> <option value="+235"> +235 TD </option> <option value="+56"> +56 CL </option> <option value="+86"> +86 CN </option> <option value="+61"> +61 CX </option> <option value="+61"> +61 CC </option> <option value="+57"> +57 CO </option> <option value="+269"> +269 KM </option> <option value="+242"> +242 CG </option> <option value="+243"> +243 CD </option> <option value="+682"> +682 CK </option> <option value="+506"> +506 CR </option> <option value="+225"> +225 CI </option> <option value="+385"> +385 HR </option> <option value="+53"> +53 CU </option> <option value="+599"> +599 CW </option> <option value="+357"> +357 CY </option> <option value="+420"> +420 CZ </option> <option value="+45"> +45 DK </option> <option value="+253"> +253 DJ </option> <option value="+1767"> +1767 DM </option> <option value="+1809"> +1809 DO </option> <option value="+1829"> +1829 DO </option> <option value="+1849"> +1849 DO </option> <option value="+593"> +593 EC </option> <option value="+20"> +20 EG </option> <option value="+503"> +503 SV </option> <option value="+240"> +240 GQ </option> <option value="+291"> +291 ER </option> <option value="+372"> +372 EE </option> <option value="+251"> +251 ET </option> <option value="+500"> +500 FK </option> <option value="+298"> +298 FO </option> <option value="+679"> +679 FJ </option> <option value="+358"> +358 FI </option> <option value="+594"> +594 GF </option> <option value="+689"> +689 PF </option> <option value="+262"> +262 TF </option> <option value="+241"> +241 GA </option> <option value="+220"> +220 GM </option> <option value="+995"> +995 GE </option> <option value="+350"> +350 GI </option> <option value="+30"> +30 GR </option> <option value="+299"> +299 GL </option> <option value="+1473"> +1473 GD </option> <option value="+590"> +590 GP </option> <option value="+1671"> +1671 GU </option> <option value="+502"> +502 GT </option> <option value="+44"> +44 GG </option> <option value="+224"> +224 GN </option> <option value="+245"> +245 GW </option> <option value="+592"> +592 GY </option> <option value="+509"> +509 HT </option> <option value="+672"> +672 HM </option> <option value="+379"> +379 VA </option> <option value="+504"> +504 HN </option> <option value="+852"> +852 HK </option> <option value="+36"> +36 HU </option> <option value="+354"> +354 IS </option> <option value="+91"> +91 IN </option> <option value="+62"> +62 ID </option> <option value="+98"> +98 IR </option> <option value="+964"> +964 IQ </option> <option value="+353"> +353 IE </option> <option value="+44"> +44 IM </option> <option value="+972"> +972 IL </option> <option value="+1876"> +1876 JM </option> <option value="+81"> +81 JP </option> <option value="+44"> +44 JE </option> <option value="+962"> +962 JO </option> <option value="+7"> +7 KZ </option> <option value="+254"> +254 KE </option> <option value="+686"> +686 KI </option> <option value="+850"> +850 KP </option> <option value="+82"> +82 KR </option> <option value="+965"> +965 KW </option> <option value="+996"> +996 KG </option> <option value="+856"> +856 LA </option> <option value="+371"> +371 LV </option> <option value="+961"> +961 LB </option> <option value="+266"> +266 LS </option> <option value="+231"> +231 LR </option> <option value="+218"> +218 LY </option> <option value="+423"> +423 LI </option> <option value="+370"> +370 LT </option> <option value="+352"> +352 LU </option> <option value="+853"> +853 MO </option> <option value="+389"> +389 MK </option> <option value="+261"> +261 MG </option> <option value="+265"> +265 MW </option> <option value="+60"> +60 MY </option> <option value="+960"> +960 MV </option> <option value="+223"> +223 ML </option> <option value="+356"> +356 MT </option> <option value="+692"> +692 MH </option> <option value="+596"> +596 MQ </option> <option value="+222"> +222 MR </option> <option value="+230"> +230 MU </option> <option value="+262"> +262 YT </option> <option value="+52"> +52 MX </option> <option value="+691"> +691 FM </option> <option value="+373"> +373 MD </option> <option value="+377"> +377 MC </option> <option value="+976"> +976 MN </option> <option value="+382"> +382 ME </option> <option value="+1664"> +1664 MS </option> <option value="+212"> +212 MA </option> <option value="+258"> +258 MZ </option> <option value="+95"> +95 MM </option> <option value="+264"> +264 NA </option> <option value="+674"> +674 NR </option> <option value="+977"> +977 NP </option> <option value="+31"> +31 NL </option> <option value="+687"> +687 NC </option> <option value="+64"> +64 NZ </option> <option value="+505"> +505 NI </option> <option value="+227"> +227 NE </option> <option value="+234"> +234 NG </option> <option value="+683"> +683 NU </option> <option value="+672"> +672 NF </option> <option value="+1670"> +1670 MP </option> <option value="+47"> +47 NO </option> <option value="+968"> +968 OM </option> <option value="+92"> +92 PK </option> <option value="+680"> +680 PW </option> <option value="+970"> +970 PS </option> <option value="+507"> +507 PA </option> <option value="+675"> +675 PG </option> <option value="+595"> +595 PY </option> <option value="+51"> +51 PE </option> <option value="+63"> +63 PH </option> <option value="+64"> +64 PN </option> <option value="+48"> +48 PL </option> <option value="+351"> +351 PT </option> <option value="+1787"> +1787 PR </option> <option value="+974"> +974 QA </option> <option value="+383"> +383 XK </option> <option value="+262"> +262 RE </option> <option value="+40"> +40 RO </option> <option value="+7"> +7 RU </option> <option value="+250"> +250 RW </option> <option value="+590"> +590 BL </option> <option value="+290"> +290 SH </option> <option value="+1869"> +1869 KN </option> <option value="+1758"> +1758 LC </option> <option value="+590"> +590 MF </option> <option value="+508"> +508 PM </option> <option value="+1784"> +1784 VC </option> <option value="+685"> +685 WS </option> <option value="+378"> +378 SM </option> <option value="+239"> +239 ST </option> <option value="+966"> +966 SA </option> <option value="+221"> +221 SN </option> <option value="+381"> +381 RS </option> <option value="+248"> +248 SC </option> <option value="+232"> +232 SL </option> <option value="+65"> +65 SG </option> <option value="+1721"> +1721 SX </option> <option value="+421"> +421 SK </option> <option value="+386"> +386 SI </option> <option value="+677"> +677 SB </option> <option value="+252"> +252 SO </option> <option value="+27"> +27 ZA </option> <option value="+500"> +500 GS </option> <option value="+211"> +211 SS </option> <option value="+94"> +94 LK </option> <option value="+249"> +249 SD </option> <option value="+597"> +597 SR </option> <option value="+47"> +47 SJ </option> <option value="+268"> +268 SZ </option> <option value="+46"> +46 SE </option> <option value="+963"> +963 SY </option> <option value="+886"> +886 TW </option> <option value="+992"> +992 TJ </option> <option value="+255"> +255 TZ </option> <option value="+66"> +66 TH </option> <option value="+670"> +670 TL </option> <option value="+228"> +228 TG </option> <option value="+690"> +690 TK </option> <option value="+676"> +676 TO </option> <option value="+1868"> +1868 TT </option> <option value="+216"> +216 TN </option> <option value="+90"> +90 TR </option> <option value="+993"> +993 TM </option> <option value="+1649"> +1649 TC </option> <option value="+688"> +688 TV </option> <option value="+256"> +256 UG </option> <option value="+380"> +380 UA </option> <option value="+971"> +971 AE </option> <option value="+246"> +246 UM </option> <option value="+598"> +598 UY </option> <option value="+998"> +998 UZ </option> <option value="+678"> +678 VU </option> <option value="+58"> +58 VE </option> <option value="+84"> +84 VN </option> <option value="+1284"> +1284 VG </option> <option value="+1340"> +1340 VI </option> <option value="+681"> +681 WF </option> <option value="+212"> +212 EH </option> <option value="+967"> +967 YE </option> <option value="+260"> +260 ZM </option> <option value="+263"> +263 ZW </option>
+                                  </select>
+                                </div>
+                                <div class="entry__field" style="width: 100%">
+                                  <input type="tel" class="input" id="SMS-2" name="SMS" autocomplete="off" placeholder="SMS" data-required="true" required /> </div>
                               </div>
-                              <div class="entry__field" style="width: 100%">
-                                <input type="tel" class="input" id="SMS-2" name="SMS" autocomplete="off" placeholder="SMS" data-required="true" required /> </div>
-                            </div>
-                            <div class="sib-sms-tooltip">
-                              <div class="sib-sms-tooltip__box">
-                                Il campo SMS deve contenere tra i 6 e i 19 caratteri e includere il prefisso del paese senza usare +/0 (es. 39xxxxxxxxxx per l&#039;Italia)
+                              <div class="sib-sms-tooltip">
+                                <div class="sib-sms-tooltip__box">
+                                  Il campo SMS deve contenere tra i 6 e i 19 caratteri e includere il prefisso del paese senza usare +/0 (es. 39xxxxxxxxxx per l&#039;Italia)
+                                </div>
+                                <span class="sib-sms-tooltip__icon">?</span>
                               </div>
-                              <span class="sib-sms-tooltip__icon">?</span>
                             </div>
                           </div>
+            
+                          <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__error entry__error--secondary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
+                            Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call
+                          </label>
                         </div>
-          
-                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__error entry__error--secondary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                          Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call
-                        </label>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-input sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL-2" data-required="*">Inserisci un’email valida: riceverai la conferma immediata</label> <div class="entry__field">
-                            <input class="input " type="text" id="EMAIL-2" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required /> </div>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-input sib-form-block">
+                        <div class="form__entry entry_block">
+                          <div class="form__label-row ">
+                            <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL-2" data-required="*">Inserisci un’email valida: riceverai la conferma immediata</label> <div class="entry__field">
+                              <input class="input " type="text" id="EMAIL-2" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required /> </div>
+                          </div>
+            
+                          <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                          </label>
+                          <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
+                            Email valida richiesta: qui ricevi conferma e dettagli
+                          </label>
                         </div>
-          
-                        <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                        </label>
-                        <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                          Email valida richiesta: qui ricevi conferma e dettagli
-                        </label>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 8px 0;">
-                    <div class="sib-form-block" style="text-align: left">
-                      <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#3E4857; border-radius:3px; border-width:0px;" form="sib-form-2" type="submit"> <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="">
-                          <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                        </svg>
-                        INVIA RICHIESTA
-                      </button>
+                    <div style="padding: 8px 0;">
+                      <div class="sib-form-block" style="text-align: left">
+                        <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#3E4857; border-radius:3px; border-width:0px;" form="sib-form-2" type="submit"> <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="">
+                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                          </svg>
+                          INVIA RICHIESTA
+                        </button>
+                      </div>
                     </div>
-                  </div>
-          
-                  <input type="text" name="email_address_check" value="" class="input--hidden">
-                  <input type="hidden" name="locale" value="it">
-                </form>
+            
+                    <input type="text" name="email_address_check" value="" class="input--hidden">
+                    <input type="hidden" name="locale" value="it">
+                  </form>
+                </div>
               </div>
             </div>
+            </div>
           </div>
-          </div>
-        </div>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2024 Netzach Academy. Tutti i diritti riservati. Questo sito non fa parte di Facebook o Facebook Inc. Inoltre, questo sito non è approvato da Facebook in alcun modo. FACEBOOK è un marchio registrato di FACEBOOK, Inc.</p>
+    <div class="container">
+      <p>&copy; 2024 Netzach Academy. Tutti i diritti riservati. Questo sito non fa parte di Facebook o Facebook Inc. Inoltre, questo sito non è approvato da Facebook in alcun modo. FACEBOOK è un marchio registrato di FACEBOOK, Inc.</p>
+    </div>
   </footer>
 
-  <div class="popup-overlay" id="exit-popup">
-    <div class="popup-content">
-      <span class="popup-close" id="popup-close">&times;</span>
-      <h3>Aspetta! Non Andartene!</h3>
-      <p>Unisciti alla community e ricevi accesso immediato a contenuti esclusivi sulla Numerologia e aggiornamenti sul percorso.</p>
-      
-      <form action="https://be7b034d.sibforms.com/serve/MUIFAKZ83O-K1NviNMtCS7f9xJQRqWqgT8m5U8Uv-EwUvT-nC8b-G0T6rS8z-B4f55S1y8i3vFm8Yt-sWp3zU5dC-s_S1tE8m_l1s1h3w5f5t8" method="POST" id="sib-form-popup">
-        <div class="form-group">
-          <input type="email" class="form-control" id="popupEmail" name="EMAIL" placeholder="La tua email migliore" required />
-        </div>
-        <button type="submit" class="btn btn-warning btn-block mt-3 cta-button">ISCRIVIMI SUBITO</button>
+  <div id="exitPopup" style="border: 2px solid var(--primary-color);">
+    <div style="position: relative; width: 90%; max-width: 450px; background: var(--card-bg); padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+      <span onclick="closePopup()" style="position: absolute; top: 10px; right: 15px; font-size: 28px; color: #888; cursor: pointer; line-height: 1;">&times;</span>
+      <h3 style="font-size: 26px; color: var(--primary-color); margin-bottom: 15px;">Aspetta! Non Andartene!</h3>
+      <p style="font-size: 17px; color: #c0c0c0; margin-bottom: 25px;">
+        Unisciti alla community e ricevi accesso immediato a contenuti esclusivi sulla Numerologia e aggiornamenti sul percorso.
+      </p>
+      <form action="https" method="POST" id="sib-form-popup">
+        <input type="email" name="EMAIL" placeholder="La tua email migliore" required style="width: 100%; padding: 14px; border: 1px solid #444; background: #2a2a2a; color: #fff; border-radius: 8px; font-size: 16px; margin-bottom: 15px;" />
+        <button type="submit" style="width: 100%; padding: 14px 25px; background: var(--primary-color); color: var(--dark-text); border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer;">
+          Ricevi i Contenuti →
+        </button>
       </form>
-      </div>
+      <p style="font-size: 13px; color: #999; margin-top: 15px;">
+        No spam, solo valore. Puoi cancellarti quando vuoi.
+      </p>
+    </div>
   </div>
-  
+
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const closePopup = document.getElementById("popup-close");
-      const exitPopup = document.getElementById("exit-popup");
-      let popupShown = false;
-
-      // Funzione per mostrare il popup
-      function showPopup() {
-        if (!popupShown) {
-          exitPopup.style.display = "flex";
-          popupShown = true;
-        }
+    // Exit Intent Popup
+    let popupShown = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY <= 0 && !popupShown) {
+        document.getElementById('exitPopup').style.display = 'flex';
+        popupShown = true;
       }
-
-      // Mostra dopo 15 secondi
-      setTimeout(showPopup, 15000);
-
-      // Mostra su exit-intent (quando il mouse esce in alto)
-      document.addEventListener("mouseout", function(e) {
-        if (e.clientY < 0) {
-          showPopup();
-        }
+    });
+    
+    function closePopup() {
+      document.getElementById('exitPopup').style.display = 'none';
+    }
+    
+    // Dynamic spots counter
+    let spots = 8;
+    function updateSpots() {
+      document.querySelectorAll('.spots-left').forEach(el => {
+        el.innerHTML = `⚠️ SOLO POCHI POSTI ANCORA DISPONIBILI`;
       });
-
-      // Chiudi popup
-      closePopup.addEventListener("click", function() {
-        exitPopup.style.display = "none";
-      });
-      
-      // Chiudi cliccando sullo sfondo
-      exitPopup.addEventListener("click", function(e) {
-        if (e.target === exitPopup) {
-          exitPopup.style.display = "none";
-        }
+      document.querySelector('.sticky-bar').innerHTML = `⚡ ATTENZIONE: I posti sono limitati - Questa è la tua opportunità - Agisci subito`;
+    }
+    
+    updateSpots();
+    
+    // Smooth scroll to form when clicking CTA
+    document.querySelectorAll('a[href="#form"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
   </script>
@@ -828,7 +858,8 @@
     };
   
     var AUTOHIDE = Boolean(0);
-  </script>
+  </S>
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
   </body>
 </html>
+
