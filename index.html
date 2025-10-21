@@ -307,7 +307,7 @@
     }
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmin(300px, 1fr));
       gap: 30px;
       max-width: 1200px;
       margin: 40px auto 0;
@@ -509,34 +509,16 @@
     .sib-sms-tooltip { display: none !important; }
     .input--hidden { display: none !important; }
     
-    /* FIX CAMPO TELEFONO - FORZA AGGRESSIVA DEL LAYOUT */
+    /* FIX CAMPO TELEFONO */
     .sib-sms-input-wrapper { 
       display: block !important; 
       width: 100% !important;
-      overflow: hidden !important;
     }
     .sib-sms-input { 
       display: flex !important; 
       width: 100% !important; 
       gap: 10px !important; 
       align-items: stretch !important;
-      flex-wrap: nowrap !important;
-    }
-    /* RIMUOVE QUALSIASI ELEMENTO NASCOSTO O PLACEHOLDER EXTRA */
-    .sib-sms-input > div[style*="display: none"],
-    .sib-sms-input > div[style*="visibility: hidden"],
-    .sib-sms-input > input[style*="display: none"],
-    .sib-sms-input > input[style*="visibility: hidden"],
-    .sib-sms-input > .sib-sms-placeholder {
-      display: none !important;
-      width: 0 !important;
-      height: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      border: none !important;
-      opacity: 0 !important;
-      position: absolute !important;
-      left: -9999px !important;
     }
     .sib-sms-input .entry__field:first-child { 
       width: 110px !important; 
@@ -548,16 +530,6 @@
       flex: 1 !important;
       min-width: 0 !important;
       width: auto !important;
-    }
-    /* NASCONDE COMPLETAMENTE L'INPUT NASCOSTO SMS */
-    .sib-sms-input input[type="text"][style*="display:none"],
-    .sib-sms-input input[data-placeholder="SMS"][style*="display:none"] {
-      display: none !important;
-      visibility: hidden !important;
-      position: absolute !important;
-      left: -9999px !important;
-      width: 0 !important;
-      height: 0 !important;
     }
     
     .sib-input .input, .sib-sms-input select.input, .sib-sms-input input[type="tel"] { 
@@ -625,7 +597,6 @@
 
     #sib-form .sib-form-block[style*="font-size:32px"], #sib-form-2 .sib-form-block[style*="font-size:32px"] { display: none; }
     .sib_msg_error .entry__error--primary { display: block !important; font-size:14px !important; text-align:left !important; font-family:'Inter', sans-serif !important; color:#dc3545 !important; background-color: transparent !important; border: none !important; padding-top: 4px !important; margin: 0 !important; }
-    /* Nascondi messaggi di errore/successo di default */
     #error-message, #success-message, #error-message-2, #success-message-2 { display: none; max-width: 100% !important; margin-bottom: 15px; }
 
   </style>
@@ -668,6 +639,7 @@
       <div class="form-box" id="form">
         <h3 class="form-title">Prenota la Chiamata di Orientamento Gratuita</h3>
           
+        <!-- STESSO FORM DEL BOTTOM CHE FUNZIONA -->
         <div class="sib-form" style="text-align: center; padding: 0 !important; background-color: transparent !important;">
           <div id="sib-form-container" class="sib-form-container" style="background-color: transparent !important; border: none !important; max-width: 100% !important; padding: 0 !important;">
             <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:'Inter', sans-serif; color:#dc3545; background-color:rgba(220, 53, 69, 0.1); border-radius:3px; border: 1px solid rgba(220, 53, 69, 0.4); max-width:100%; display: none; padding: 10px; margin-bottom: 15px;">
@@ -683,7 +655,8 @@
             </div>
             <div></div>
             <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; direction:ltr; background-color: transparent !important; border: none !important; max-width: 100% !important; padding: 0 !important;">
-              <form id="sib-form" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAMLJbOAE5a1Y4cCMiIfmBDpSmySGKNe6EOmDX7QrZ_upWJrUb8J5JXGtsapR8QF4HtjCvvGoSqQrryh0VUWJbldpBBJyApPvrc5uPsitnDgdL-5QsrC9_cLP1WYgTfH5Roz59UbBQGfqxvgKWrVPZJPEWiiPHEoyo5JR6evkouQiFzK1BdFeJnE77AukOuQtjswm6Oi1R2On" data-type="subscription">
+              <!-- STESSO CODICE DEL FORM BOTTOM CHE FUNZIONA -->
+              <form id="sib-form" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAC5qas-aD05EFL-ppVMcsZnJmnT55PJOVj-M7syFI8eHW7vVfigUcMhnO0uTw3fFnyaJRlluG-2Rz-mOY-SR9vF62Qnd3UY2zCBjRnchUsB1AGVSTkw-paUsKSw150e15IA6Jkl0AaD2vnRo20_gwLokZaTF4_IhfS6KMuLji2m6iFkzTL3cVQwx7gG59-Li1BAsO_357ao-" data-type="subscription">
                 <div class="form-group mb-3" style="padding: 0;">
                   <div class="sib-input sib-form-block">
                     <div class="form__entry entry_block">
@@ -1017,43 +990,6 @@
           }
         });
       });
-
-      // PULIZIA AGGRESSIVA ELEMENTI NASCOSTI NEL CAMPO TELEFONO
-      setTimeout(function() {
-        // Rimuove elementi nascosti o placeholder extra nei campi SMS
-        document.querySelectorAll('.sib-sms-input').forEach(function(smsInput) {
-          // Rimuove input nascosti con placeholder SMS
-          smsInput.querySelectorAll('input[type="text"][style*="display:none"], input[data-placeholder="SMS"][style*="display:none"]').forEach(function(hiddenInput) {
-            hiddenInput.remove();
-          });
-          
-          // Rimuove div nascosti o invisibili
-          smsInput.querySelectorAll('div[style*="display: none"], div[style*="visibility: hidden"]').forEach(function(hiddenDiv) {
-            hiddenDiv.remove();
-          });
-          
-          // Conta entry__field visibili e rimuove quelli in eccesso
-          const visibleFields = Array.from(smsInput.querySelectorAll('.entry__field')).filter(function(field) {
-            return field.offsetParent !== null && !field.style.display.includes('none');
-          });
-          
-          if (visibleFields.length > 2) {
-            // Se ci sono più di 2 campi visibili (select + input), rimuovi gli extra
-            visibleFields.slice(2).forEach(function(extraField) {
-              extraField.remove();
-            });
-          }
-        });
-      }, 500);
-
-      // Riesegui pulizia dopo il caricamento completo degli script Brevo
-      setTimeout(function() {
-        document.querySelectorAll('.sib-sms-input').forEach(function(smsInput) {
-          smsInput.querySelectorAll('input[type="text"][style*="display:none"]').forEach(function(el) {
-            el.remove();
-          });
-        });
-      }, 1500);
     });
   </script>
 
