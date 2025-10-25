@@ -10,7 +10,7 @@
   <style>
     /* STILI ORIGINALI */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-      
+        
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
@@ -31,7 +31,7 @@
       z-index: 1000;
       animation: pulse 2s infinite;
     }
-      
+        
     @keyframes pulse {
       0%, 100% { background: #ff4444; }
       50% { background: #ff6666; }
@@ -117,7 +117,7 @@
 
     .container-fluid { padding: 0; }
     .content-section { padding: 40px 20px; }
-      
+        
     .text-column {
       display: flex;
       flex-direction: column;
@@ -134,7 +134,7 @@
       color: #333;
       margin-bottom: 20px;
     }
-      
+        
     .form-column {
       background: #f4f7f6;
       border-radius: 10px;
@@ -192,6 +192,24 @@
     .form-group input:focus { outline: none; border-color: #d4af37; }
     .btn-submit { width: 100%; padding: 18px; background: #d4af37; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
     .btn-submit:hover { background: #b8941f; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+    .btn-submit:disabled { background: #ccc; cursor: not-allowed; }
+
+    .alert {
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      display: none;
+    }
+    .alert-success {
+      background: #d1e7dd;
+      color: #0f5132;
+      border: 1px solid #badbcc;
+    }
+    .alert-error {
+      background: rgba(220, 53, 69, 0.1);
+      color: #dc3545;
+      border: 1px solid rgba(220, 53, 69, 0.4);
+    }
 
     .trust-section {
       padding: 40px 20px;
@@ -307,7 +325,7 @@
     }
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmin(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       max-width: 1200px;
       margin: 40px auto 0;
@@ -386,20 +404,6 @@
       font-size: 16px;
       margin-bottom: 40px;
     }
-    .moment-section .form-box {
-      background: #ffffff;
-      border-color: #ffd700;
-      max-width: 500px;
-    }
-    .moment-section .form-box .form-title {
-      color: #2c3e50;
-    }
-    /* Sovrascritture specifiche Brevo per form bianco su sfondo scuro */
-    .moment-section .sib-form-block label.entry__label { color: #3c4858 !important; }
-    .moment-section .sib-input .input, .moment-section .sib-sms-input select.input { background-color: #FFFFFF !important; border: 1px solid #C0CCD9 !important; color: #3c4858 !important; }
-    .moment-section .sib-input .input::placeholder { color: #6c757d !important; }
-    .moment-section .sib-form-block__button { background-color: #ffd700 !important; color: #000 !important; border: 1px solid #ffd700 !important; }
-    .moment-section .sib-form-block__button:hover { background-color: #e0bb00 !important; border-color: #e0bb00 !important; }
 
     footer {
       background: #1a1a1a;
@@ -408,16 +412,15 @@
       padding: 20px;
       font-size: 14px;
     }
-      
+        
     @media (max-width: 768px) {
-      .about-image img { width: 200px; height: 200px; }
       .hero { padding-top: 60px; }
       .hero h1 { font-size: 28px; }
       .hero .subheadline { font-size: 18px; }
       .trust-badges { gap: 30px; }
       .testimonials-grid { grid-template-columns: 1fr; }
     }
-      
+        
     #exitPopup {
       display: none;
       position: fixed;
@@ -496,118 +499,10 @@
       color: #adb5bd;
       line-height: 1;
     }
-      
-    /* Sovrascritture Stili Brevo Generali */
-    .sib-form { background-color: transparent !important; padding: 0 !important; }
-    #sib-container, #sib-container-2 { background-color: transparent !important; border-width: 0px !important; max-width: 100% !important; padding: 0 !important; }
-    .sib-form-block label.entry__label { color: #3c4858 !important; font-family: 'Inter', sans-serif !important; font-weight: 700 !important; text-align: left !important; display: block !important; width: 100% !important; margin-bottom: 8px !important; }
-    .sib-form-block label.entry__label[data-required="*"]::after { content: " *"; color: #dc3545; font-weight: 700; }
-    .sib-form-block .form__label-row { text-align: left !important; }
-    .sib-form-block .entry__field { text-align: left !important; }
-    .sib-form-block .sib-text-form-block { display: none !important; }
-    .sib-form-block label.entry__specification { color: #8390A4 !important; font-family: 'Inter', sans-serif !important; font-size: 12px !important; text-align: left !important; display: block !important; margin-top: 4px !important; }
-    .sib-sms-tooltip { display: none !important; }
-    .input--hidden { display: none !important; }
-    
-    /* FIX CAMPO TELEFONO */
-    .sib-sms-input-wrapper { 
-      display: block !important; 
-      width: 100% !important;
-    }
-    .sib-sms-input { 
-      display: flex !important; 
-      width: 100% !important; 
-      gap: 10px !important; 
-      align-items: stretch !important;
-    }
-    .sib-sms-input .entry__field:first-child { 
-      width: 110px !important; 
-      flex-shrink: 0 !important; 
-      min-width: 110px !important;
-      max-width: 110px !important;
-    }
-    .sib-sms-input .entry__field:last-child { 
-      flex: 1 !important;
-      min-width: 0 !important;
-      width: auto !important;
-    }
-    
-    .sib-input .input, .sib-sms-input select.input, .sib-sms-input input[type="tel"] { 
-      background-color: #FFFFFF !important; 
-      border: 1px solid #ced4da !important; 
-      color: #3c4858 !important; 
-      font-family: 'Inter', sans-serif !important; 
-      border-radius: .25rem !important; 
-      padding: .375rem .75rem !important; 
-      font-size: 1rem !important; 
-      line-height: 1.5 !important; 
-      height: calc(1.5em + .75rem + 2px) !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-    }
-    .sib-sms-input select.input { 
-      height: calc(1.5em + .75rem + 2px) !important; 
-      padding-top: .375rem !important; 
-      padding-bottom: .375rem !important;
-    }
-    .sib-input .input:focus, .sib-sms-input select.input:focus, .sib-sms-input input[type="tel"]:focus { 
-      border-color: #86b7fe !important; 
-      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important; 
-      outline: none !important; 
-    }
-    .sib-input .input::placeholder { color: #6c757d !important; }
-    
-    /* Stili bottone Brevo uniformati */
-    .sib-form-block__button {
-      background-color: #d4af37 !important;
-      color: white !important;
-      font-weight: 700 !important;
-      font-family: 'Inter', sans-serif !important;
-      border-radius: 8px !important;
-      padding: 15px 35px !important;
-      font-size: 20px !important;
-      text-transform: uppercase !important;
-      width: 100% !important;
-      text-align: center !important;
-      border: none !important;
-      margin-top: 1rem !important;
-      transition: all 0.3s ease !important;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
-      line-height: 1.5 !important;
-    }
-    .sib-form-block__button:hover {
-      background-color: #c09e31 !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6) !important;
-    }
-    /* Stili bottone specifici per il form nel CTA finale */
-    .moment-section .sib-form-block__button {
-      background-color: #ffd700 !important;
-      color: #1a1a1a !important;
-      padding: 18px !important;
-      font-size: 18px !important;
-      box-shadow: none !important;
-      border-radius: 8px !important;
-    }
-    .moment-section .sib-form-block__button:hover {
-      background-color: #e0bb00 !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
-    }
-
-    #sib-form .sib-form-block[style*="font-size:32px"], #sib-form-2 .sib-form-block[style*="font-size:32px"] { display: none; }
-    .sib_msg_error .entry__error--primary { display: block !important; font-size:14px !important; text-align:left !important; font-family:'Inter', sans-serif !important; color:#dc3545 !important; background-color: transparent !important; border: none !important; padding-top: 4px !important; margin: 0 !important; }
-    #error-message, #success-message, #error-message-2, #success-message-2 { display: none; max-width: 100% !important; margin-bottom: 15px; }
-
   </style>
-
-  <style>
-    @font-face{font-display:block;font-family:Roboto;src:url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")}@font-face{font-display:fallback;font-family:Roboto;font-weight:600;src:url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")}@font-face{font-display:fallback;font-family:Roboto;font-weight:700;src:url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")}
-  </style>
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 </head>
 <body>
-  
+    
   <div class="sticky-bar">
     ⚡ ATTENZIONE: I posti sono limitati - Questa è la tua opportunità - Agisci subito
   </div>
@@ -635,97 +530,45 @@
           <span>Metodo pratico con risultati concreti già dal primo mese</span>
         </div>
       </div>
-        
+          
       <div class="form-box" id="form">
         <h3 class="form-title">Prenota la Chiamata di Orientamento Gratuita</h3>
-          
-        <!-- STESSO FORM DEL BOTTOM CHE FUNZIONA -->
-        <div class="sib-form" style="text-align: center; padding: 0 !important; background-color: transparent !important;">
-          <div id="sib-form-container" class="sib-form-container" style="background-color: transparent !important; border: none !important; max-width: 100% !important; padding: 0 !important;">
-            <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:'Inter', sans-serif; color:#dc3545; background-color:rgba(220, 53, 69, 0.1); border-radius:3px; border: 1px solid rgba(220, 53, 69, 0.4); max-width:100%; display: none; padding: 10px; margin-bottom: 15px;">
-              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                <span class="sib-form-message-panel__inner-text">La tua richiesta non può essere convalidata.</span>
-              </div>
-            </div>
-            <div></div>
-            <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:'Inter', sans-serif; color:#0f5132; background-color:#d1e7dd; border-radius:3px; border: 1px solid #badbcc; max-width:100%; display: none; padding: 15px; margin-bottom: 15px;">
-              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                <span class="sib-form-message-panel__inner-text">✅ Richiesta ricevuta con successo! Grazie per il tuo interesse. Ti contatteremo entro 24-48 ore lavorative. Controlla la tua email per la conferma. A presto!</span>
-              </div>
-            </div>
-            <div></div>
-            <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; direction:ltr; background-color: transparent !important; border: none !important; max-width: 100% !important; padding: 0 !important;">
-              <!-- STESSO CODICE DEL FORM BOTTOM CHE FUNZIONA -->
-              <form id="sib-form" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAC5qas-aD05EFL-ppVMcsZnJmnT55PJOVj-M7syFI8eHW7vVfigUcMhnO0uTw3fFnyaJRlluG-2Rz-mOY-SR9vF62Qnd3UY2zCBjRnchUsB1AGVSTkw-paUsKSw150e15IA6Jkl0AaD2vnRo20_gwLokZaTF4_IhfS6KMuLji2m6iFkzTL3cVQwx7gG59-Li1BAsO_357ao-" data-type="subscription">
-                <div class="form-group mb-3" style="padding: 0;">
-                  <div class="sib-input sib-form-block">
-                    <div class="form__entry entry_block">
-                      <div class="form__label-row ">
-                        <label class="entry__label" for="NOME" data-required="*">Nome e Cognome</label>
-                        <div class="entry__field">
-                          <input class="input form-control" maxlength="200" type="text" id="NOME" name="NOME" autocomplete="off" placeholder="Mario Rossi" data-required="true" required />
-                        </div>
-                      </div>
-                      <label class="entry__error entry__error--primary"></label>
-                      <label class="entry__specification">Usa nome reale: così ti riconosciamo subito</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group mb-3" style="padding: 0;">
-                  <div class="sib-sms-field sib-form-block">
-                    <div class="form__entry entry_block">
-                      <div class="form__label-row ">
-                        <label class="entry__label" for="SMS" data-required="*">Telefono (per la chiamata gratuita)</label>
-                        <div class="sib-sms-input-wrapper">
-                          <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
-                            <div class="entry__field">
-                              <select class="input form-control" name="SMS__COUNTRY_CODE" data-required="true"><option value="+39" selected>+39 IT</option><option value="+41">+41 CH</option></select>
-                            </div>
-                            <div class="entry__field">
-                              <input type="tel" class="input form-control" id="SMS" name="SMS" autocomplete="off" placeholder="333 1234567" data-required="true" required />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <label class="entry__error entry__error--primary"></label>
-                      <label class="entry__error entry__error--secondary"></label>
-                      <label class="entry__specification">Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group mb-3" style="padding: 0;">
-                  <div class="sib-input sib-form-block">
-                    <div class="form__entry entry_block">
-                      <div class="form__label-row ">
-                        <label class="entry__label" for="EMAIL" data-required="*">Email</label>
-                        <div class="entry__field">
-                          <input class="input form-control" type="email" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="mario@esempio.it" data-required="true" required />
-                        </div>
-                      </div>
-                      <label class="entry__error entry__error--primary"></label>
-                      <label class="entry__specification">Email valida richiesta: qui ricevi conferma e dettagli</label>
-                    </div>
-                  </div>
-                </div>
-                <div style="padding: 8px 0;">
-                  <div class="sib-form-block" style="text-align: left">
-                    <button class="sib-form-block__button sib-form-block__button-with-loader" type="submit">RICHIEDI ACCESSO IMMEDIATO →</button>
-                  </div>
-                </div>
-                <input type="text" name="email_address_check" value="" class="input--hidden">
-                <input type="hidden" name="locale" value="it">
-                <input type="hidden" name="list_ids" value="18,19,8">
-              </form>
-            </div>
-          </div>
-        </div>
         
+        <div class="alert alert-success" id="success-message-1">
+          ✅ Richiesta ricevuta con successo! Grazie per il tuo interesse. Ti contatteremo entro 24-48 ore lavorative.
+        </div>
+        <div class="alert alert-error" id="error-message-1">
+          Si è verificato un errore. Riprova per favore.
+        </div>
+            
+        <form id="contact-form-1">
+          <div class="form-group">
+            <label for="name-1">Nome e Cognome *</label>
+            <input type="text" id="name-1" name="name" placeholder="Mario Rossi" required>
+            <small style="color: #6c757d; font-size: 12px;">Usa nome reale: così ti riconosciamo subito</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone-1">Telefono (per la chiamata gratuita) *</label>
+            <input type="tel" id="phone-1" name="phone" placeholder="+39 333 1234567" required>
+            <small style="color: #6c757d; font-size: 12px;">Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="email-1">Email *</label>
+            <input type="email" id="email-1" name="email" placeholder="mario@esempio.it" required>
+            <small style="color: #6c757d; font-size: 12px;">Email valida richiesta: qui ricevi conferma e dettagli</small>
+          </div>
+          
+          <button type="submit" class="btn-submit">RICHIEDI ACCESSO IMMEDIATO →</button>
+        </form>
+          
         <div class="form-footer">
           <span>🔒 I tuoi dati sono al sicuro</span><br>
           Riceverai conferma immediata via email
         </div>
       </div>
-        
+          
     </div>
   </section>
 
@@ -821,91 +664,41 @@
         </div>
         <a href="#form-bottom-anchor" onclick="event.preventDefault(); document.getElementById('form-bottom-anchor').scrollIntoView({behavior:'smooth', block:'center'});" style="display: inline-block; background: #d4af37; color: white; padding: 15px 35px; font-size: 20px; font-weight: 700; text-decoration: none; border-radius: 8px;">PRENOTA ORA IL TUO POSTO</a>
       </div>
-        
+          
       <div class="row justify-content-center mt-5" id="form-bottom-anchor">
         <div class="col-md-8 col-lg-6">
-          <div class="form-box moment-form-box">
+          <div class="form-box">
             <h3 class="form-title">Assicura il Tuo Posto</h3>
-               
-            <div class="sib-form" style="text-align: center; padding: 0 !important; background-color: transparent !important;">
-              <div id="sib-form-container-2" class="sib-form-container" style="background-color: transparent !important; border: none !important; max-width: 100% !important; padding: 0 !important;">
-                <div id="error-message-2" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:'Inter', sans-serif; color:#dc3545; background-color:rgba(220, 53, 69, 0.1); border-radius:3px; border: 1px solid rgba(220, 53, 69, 0.4); max-width:100%; display: none; padding: 10px; margin-bottom: 15px;">
-                  <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                    <span class="sib-form-message-panel__inner-text">La tua richiesta non può essere convalidata.</span>
-                  </div>
-                </div>
-                <div></div>
-                <div id="success-message-2" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:'Inter', sans-serif; color:#0f5132; background-color:#d1e7dd; border-radius:3px; border: 1px solid #badbcc; max-width:100%; display: none; padding: 15px; margin-bottom: 15px;">
-                  <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                    <span class="sib-form-message-panel__inner-text">✅ Richiesta ricevuta con successo! Grazie per il tuo interesse. Ti contatteremo entro 24-48 ore lavorative. Controlla la tua email per la conferma. A presto!</span>
-                  </div>
-                </div>
-                <div></div>
-                <div id="sib-container-2" class="sib-container--large sib-container--vertical" style="text-align:center; direction:ltr; background-color: transparent !important; border: none !important; max-width: 100% !important; padding: 0 !important;">
-                  <form id="sib-form-2" method="POST" action="https://be7b034d.sibforms.com/serve/MUIFAC5qas-aD05EFL-ppVMcsZnJmnT55PJOVj-M7syFI8eHW7vVfigUcMhnO0uTw3fFnyaJRlluG-2Rz-mOY-SR9vF62Qnd3UY2zCBjRnchUsB1AGVSTkw-paUsKSw150e15IA6Jkl0AaD2vnRo20_gwLokZaTF4_IhfS6KMuLji2m6iFkzTL3cVQwx7gG59-Li1BAsO_357ao-" data-type="subscription">
-                    <div class="form-group mb-3" style="padding: 0;">
-                      <div class="sib-input sib-form-block">
-                        <div class="form__entry entry_block">
-                          <div class="form__label-row ">
-                            <label class="entry__label" for="NOME-2" data-required="*">Nome e Cognome</label>
-                            <div class="entry__field">
-                              <input class="input form-control" maxlength="200" type="text" id="NOME-2" name="NOME" autocomplete="off" placeholder="Mario Rossi" data-required="true" required />
-                            </div>
-                          </div>
-                          <label class="entry__error entry__error--primary"></label>
-                          <label class="entry__specification">Usa nome reale: così ti riconosciamo subito</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group mb-3" style="padding: 0;">
-                      <div class="sib-sms-field sib-form-block">
-                        <div class="form__entry entry_block">
-                          <div class="form__label-row ">
-                            <label class="entry__label" for="SMS-2" data-required="*">Telefono</label>
-                            <div class="sib-sms-input-wrapper">
-                              <div class="sib-sms-input" data-placeholder="SMS" data-required="1" data-country-code="IT" data-whatsapp-country-code="IT" data-value="" data-whatsappvalue="" data-attributename="SMS">
-                                <div class="entry__field">
-                                  <select class="input form-control" name="SMS__COUNTRY_CODE" data-required="true"><option value="+39" selected>+39 IT</option><option value="+41">+41 CH</option></select>
-                                </div>
-                                <div class="entry__field">
-                                  <input type="tel" class="input form-control" id="SMS-2" name="SMS" autocomplete="off" placeholder="333 1234567" data-required="true" required />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <label class="entry__error entry__error--primary"></label>
-                          <label class="entry__error entry__error--secondary"></label>
-                          <label class="entry__specification">Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group mb-3" style="padding: 0;">
-                      <div class="sib-input sib-form-block">
-                        <div class="form__entry entry_block">
-                          <div class="form__label-row ">
-                            <label class="entry__label" for="EMAIL-2" data-required="*">Email</label>
-                            <div class="entry__field">
-                              <input class="input form-control" type="email" id="EMAIL-2" name="EMAIL" autocomplete="off" placeholder="mario@esempio.it" data-required="true" required />
-                            </div>
-                          </div>
-                          <label class="entry__error entry__error--primary"></label>
-                          <label class="entry__specification">Email valida richiesta: qui ricevi conferma e dettagli</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div style="padding: 8px 0;">
-                      <div class="sib-form-block" style="text-align: left">
-                        <button class="sib-form-block__button sib-form-block__button-with-loader" type="submit">VOGLIO IL MIO POSTO →</button>
-                      </div>
-                    </div>
-                    <input type="text" name="email_address_check" value="" class="input--hidden">
-                    <input type="hidden" name="locale" value="it">
-                    <input type="hidden" name="list_ids" value="18,19,8">
-                  </form>
-                </div>
-              </div>
-            </div>
             
+            <div class="alert alert-success" id="success-message-2">
+              ✅ Richiesta ricevuta con successo! Grazie per il tuo interesse. Ti contatteremo entro 24-48 ore lavorative.
+            </div>
+            <div class="alert alert-error" id="error-message-2">
+              Si è verificato un errore. Riprova per favore.
+            </div>
+                 
+            <form id="contact-form-2">
+              <div class="form-group">
+                <label for="name-2">Nome e Cognome *</label>
+                <input type="text" id="name-2" name="name" placeholder="Mario Rossi" required>
+                <small style="color: #6c757d; font-size: 12px;">Usa nome reale: così ti riconosciamo subito</small>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone-2">Telefono *</label>
+                <input type="tel" id="phone-2" name="phone" placeholder="+39 333 1234567" required>
+                <small style="color: #6c757d; font-size: 12px;">Numero attivo (WhatsApp o voce): ti inviamo promemoria prima della call</small>
+              </div>
+              
+              <div class="form-group">
+                <label for="email-2">Email *</label>
+                <input type="email" id="email-2" name="email" placeholder="mario@esempio.it" required>
+                <small style="color: #6c757d; font-size: 12px;">Email valida richiesta: qui ricevi conferma e dettagli</small>
+              </div>
+              
+              <button type="submit" class="btn-submit">VOGLIO IL MIO POSTO →</button>
+            </form>
+              
             <div class="form-footer">
               Clicca ora prima che sia troppo tardi
             </div>
@@ -928,9 +721,16 @@
       <p>
         Unisciti alla community e ricevi accesso immediato a contenuti esclusivi sulla Numerologia e aggiornamenti sul percorso.
       </p>
-      <form action="https://be7b034d.sibforms.com/serve/MUIFAKZ83O-K1NviNMtCS7f9xJQRqWqgT8m5U8Uv-EwUvT-nC8b-G0T6rS8z-B4f55S1y8i3vFm8Yt-sWp3zU5dC-s_S1tE8m_l1s1h3w5f5t8" method="POST" id="sib-form-popup">
-        <input type="hidden" name="list_ids" value="19,8">
-        <input type="email" name="EMAIL" placeholder="La tua email migliore" required />
+      
+      <div class="alert alert-success" id="success-message-popup">
+        ✅ Perfetto! Riceverai i contenuti via email.
+      </div>
+      <div class="alert alert-error" id="error-message-popup">
+        Si è verificato un errore. Riprova per favore.
+      </div>
+      
+      <form id="popup-form">
+        <input type="email" name="email" placeholder="La tua email migliore" required />
         <button type="submit">
           Ricevi i Contenuti →
         </button>
@@ -942,7 +742,91 @@
   </div>
 
   <script>
+    // CONFIGURAZIONE ZAPIER - Inserisci qui gli URL dei tuoi webhook Zapier
+    const ZAPIER_WEBHOOK_URLS = {
+      mainForm: 'YOUR_ZAPIER_WEBHOOK_URL_1', // Form principale hero
+      bottomForm: 'YOUR_ZAPIER_WEBHOOK_URL_2', // Form CTA finale
+      popupForm: 'YOUR_ZAPIER_WEBHOOK_URL_3' // Form popup exit
+    };
+
+    // Funzione per inviare dati a Zapier
+    async function sendToZapier(webhookUrl, formData) {
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          body: JSON.stringify({
+            name: formData.get('name') || '',
+            email: formData.get('email'),
+            phone: formData.get('phone') || '',
+            timestamp: new Date().toISOString(),
+            source: window.location.href
+          })
+        });
+        
+        if (!response.ok) throw new Error('Network response was not ok');
+        return true;
+      } catch (error) {
+        console.error('Errore invio a Zapier:', error);
+        return false;
+      }
+    }
+
+    // Handler per i form
+    async function handleFormSubmit(event, formNumber, webhookKey) {
+      event.preventDefault();
+      
+      const submitBtn = event.target.querySelector('button[type="submit"]');
+      const successMsg = document.getElementById(`success-message-${formNumber}`);
+      const errorMsg = document.getElementById(`error-message-${formNumber}`);
+      
+      // Disabilita il bottone e mostra loading
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Invio in corso...';
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+      
+      const formData = new FormData(event.target);
+      const success = await sendToZapier(ZAPIER_WEBHOOK_URLS[webhookKey], formData);
+      
+      if (success) {
+        successMsg.style.display = 'block';
+        event.target.reset();
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 5000);
+      } else {
+        errorMsg.style.display = 'block';
+      }
+      
+      // Riabilita il bottone
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitBtn.getAttribute('data-original-text') || 'INVIA';
+    }
+
+    // Inizializzazione form
     document.addEventListener("DOMContentLoaded", function() {
+      // Form 1 - Hero
+      const form1 = document.getElementById('contact-form-1');
+      if (form1) {
+        form1.querySelector('button[type="submit"]').setAttribute('data-original-text', 'RICHIEDI ACCESSO IMMEDIATO →');
+        form1.addEventListener('submit', (e) => handleFormSubmit(e, '1', 'mainForm'));
+      }
+      
+      // Form 2 - Bottom CTA
+      const form2 = document.getElementById('contact-form-2');
+      if (form2) {
+        form2.querySelector('button[type="submit"]').setAttribute('data-original-text', 'VOGLIO IL MIO POSTO →');
+        form2.addEventListener('submit', (e) => handleFormSubmit(e, '2', 'bottomForm'));
+      }
+      
+      // Form Popup
+      const popupForm = document.getElementById('popup-form');
+      if (popupForm) {
+        popupForm.querySelector('button[type="submit"]').setAttribute('data-original-text', 'Ricevi i Contenuti →');
+        popupForm.addEventListener('submit', (e) => handleFormSubmit(e, 'popup', 'popupForm'));
+      }
+
+      // Exit popup logic
       const closePopupBtn = document.querySelector("#exitPopup .close-popup-btn");
       const exitPopup = document.getElementById("exitPopup");
       let popupShown = false;
@@ -953,8 +837,6 @@
           popupShown = true;
         }
       }
-        
-      //setTimeout(showPopup, 20000);
 
       document.addEventListener("mouseout", function(e) {
         if (e.clientY < 10 && e.relatedTarget == null && e.target.nodeName.toLowerCase() !== 'select') {
@@ -967,7 +849,7 @@
           exitPopup.style.display = "none";
         });
       }
-     
+       
       exitPopup.addEventListener("click", function(e) {
         if (e.target === exitPopup) {
           exitPopup.style.display = "none";
@@ -991,24 +873,11 @@
         });
       });
     });
+
+    function closePopup() {
+      document.getElementById("exitPopup").style.display = "none";
+    }
   </script>
 
-  <script>
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Scegli un prefisso paese';
-    window.LOCALE = 'it';
-    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.";
-    window.REQUIRED_ERROR_MESSAGE = "Questo campo non può essere lasciato vuoto. ";
-    window.GENERIC_INVALID_MESSAGE = "Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.";
-    window.translation = {
-      common: {
-        selectedList: '{quantity} lista selezionata',
-        selectedLists: '{quantity} liste selezionate',
-        selectedOption: '{quantity} selezionato',
-        selectedOptions: '{quantity} selezionati',
-      }
-    };
-    var AUTOHIDE = Boolean(0);
-  </script>
-  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
