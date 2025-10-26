@@ -808,91 +808,108 @@
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="formSubmitted()"></iframe>
 
   <script>
-    // Track which form was submitted
-    let lastSubmittedForm = null;
+  // Track which form was submitted
+  let lastSubmittedForm = null;
 
-    // Form submission handlers
-    document.getElementById('contact-form-1').addEventListener('submit', function() {
-      lastSubmittedForm = 'form-1';
-fbq('track', 'Lead', {content_name: 'Form Hero'});
-    });
+  // Form submission handlers with delay for pixel tracking
+  document.getElementById('contact-form-1').addEventListener('submit', function(e) {
+    e.preventDefault(); // Blocca il submit
+    lastSubmittedForm = 'form-1';
+    fbq('track', 'Lead', {content_name: 'Form Hero'});
+    
+    // Aspetta 500ms poi invia il form
+    setTimeout(() => {
+      e.target.submit();
+    }, 500);
+  });
 
-    document.getElementById('contact-form-2').addEventListener('submit', function() {
-      lastSubmittedForm = 'form-2';
-fbq('track', 'Lead', {content_name: 'Form Hero'});
-    });
+  document.getElementById('contact-form-2').addEventListener('submit', function(e) {
+    e.preventDefault();
+    lastSubmittedForm = 'form-2';
+    fbq('track', 'Lead', {content_name: 'Form Bottom'});
+    
+    setTimeout(() => {
+      e.target.submit();
+    }, 500);
+  });
 
-    document.getElementById('popup-form').addEventListener('submit', function() {
-      lastSubmittedForm = 'popup';
-fbq('track', 'Lead', {content_name: 'Form Hero'});
-    });
+  document.getElementById('popup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    lastSubmittedForm = 'popup';
+    fbq('track', 'Lead', {content_name: 'Form Exit Popup'});
+    
+    setTimeout(() => {
+      e.target.submit();
+    }, 500);
+  });
 
-    // Show success message after form submission
-    function formSubmitted() {
-      if (lastSubmittedForm === 'form-1') {
-        document.getElementById('success-1').classList.add('active');
-      } else if (lastSubmittedForm === 'form-2') {
-        document.getElementById('success-2').classList.add('active');
-      } else if (lastSubmittedForm === 'popup') {
-        document.getElementById('success-popup').classList.add('active');
-        setTimeout(function() {
-          closePopup();
-        }, 3000);
-      }
-      lastSubmittedForm = null;
+  // Show success message after form submission
+  function formSubmitted() {
+    if (lastSubmittedForm === 'form-1') {
+      document.getElementById('success-1').classList.add('active');
+    } else if (lastSubmittedForm === 'form-2') {
+      document.getElementById('success-2').classList.add('active');
+    } else if (lastSubmittedForm === 'popup') {
+      document.getElementById('success-popup').classList.add('active');
+      setTimeout(function() {
+        closePopup();
+      }, 3000);
     }
+    lastSubmittedForm = null;
+  }
 
-    // Exit popup logic
-    const closePopupBtn = document.querySelector("#exitPopup .close-popup-btn");
-    const exitPopup = document.getElementById("exitPopup");
-    let popupShown = false;
+  // Exit popup logic
+  const closePopupBtn = document.querySelector("#exitPopup .close-popup-btn");
+  const exitPopup = document.getElementById("exitPopup");
+  let popupShown = false;
 
-    function showPopup() {
-      if (!popupShown && window.innerWidth > 768) {
-        exitPopup.style.display = "flex";
-        popupShown = true;
-      }
+  function showPopup() {
+    if (!popupShown && window.innerWidth > 768) {
+      exitPopup.style.display = "flex";
+      popupShown = true;
     }
+  }
 
-    document.addEventListener("mouseout", function(e) {
-      if (e.clientY < 10 && e.relatedTarget == null && e.target.nodeName.toLowerCase() !== 'select') {
-        showPopup();
-      }
-    }, {passive: true});
-
-    if(closePopupBtn) {
-      closePopupBtn.addEventListener("click", function() {
-        exitPopup.style.display = "none";
-      });
+  document.addEventListener("mouseout", function(e) {
+    if (e.clientY < 10 && e.relatedTarget == null && e.target.nodeName.toLowerCase() !== 'select') {
+      showPopup();
     }
+  }, {passive: true});
+
+  if(closePopupBtn) {
+    closePopupBtn.addEventListener("click", function() {
+      exitPopup.style.display = "none";
+    });
+  }
      
-    exitPopup.addEventListener("click", function(e) {
-      if (e.target === exitPopup) {
-        exitPopup.style.display = "none";
+  exitPopup.addEventListener("click", function(e) {
+    if (e.target === exitPopup) {
+      exitPopup.style.display = "none";
+    }
+  });
+
+  function closePopup() {
+    document.getElementById("exitPopup").style.display = "none";
+  }
+
+  // Smooth scroll per link interni
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const stickyBarHeight = document.querySelector('.sticky-bar') ? document.querySelector('.sticky-bar').offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - stickyBarHeight - 20;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
       }
     });
+  });
+</script>
 
-    function closePopup() {
-      document.getElementById("exitPopup").style.display = "none";
-    }
-
-    // Smooth scroll per link interni
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          const stickyBarHeight = document.querySelector('.sticky-bar') ? document.querySelector('.sticky-bar').offsetHeight : 0;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - stickyBarHeight - 20;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
