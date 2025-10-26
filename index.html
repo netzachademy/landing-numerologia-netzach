@@ -814,14 +814,17 @@
     // Form submission handlers
     document.getElementById('contact-form-1').addEventListener('submit', function() {
       lastSubmittedForm = 'form-1';
+fbq('track', 'Lead', {content_name: 'Form Hero'});
     });
 
     document.getElementById('contact-form-2').addEventListener('submit', function() {
       lastSubmittedForm = 'form-2';
+fbq('track', 'Lead', {content_name: 'Form Hero'});
     });
 
     document.getElementById('popup-form').addEventListener('submit', function() {
       lastSubmittedForm = 'popup';
+fbq('track', 'Lead', {content_name: 'Form Hero'});
     });
 
     // Show success message after form submission
